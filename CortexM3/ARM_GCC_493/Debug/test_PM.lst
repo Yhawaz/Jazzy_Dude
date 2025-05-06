@@ -1,0 +1,724 @@
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"test_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.test_Sleep,"ax",%progbits
+  19              		.align	2
+  20              		.global	test_Sleep
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	test_Sleep, %function
+  24              	test_Sleep:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\test_PM.c"
+   1:.\Generated_Source\PSoC5/test_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/test_PM.c **** * File Name: test_PM.c  
+   3:.\Generated_Source\PSoC5/test_PM.c **** * Version 2.10
+   4:.\Generated_Source\PSoC5/test_PM.c **** *
+   5:.\Generated_Source\PSoC5/test_PM.c **** * Description:
+   6:.\Generated_Source\PSoC5/test_PM.c **** *  This file provides the power manager source code to the API for 
+   7:.\Generated_Source\PSoC5/test_PM.c **** *  the WaveDAC8 component.
+   8:.\Generated_Source\PSoC5/test_PM.c **** *
+   9:.\Generated_Source\PSoC5/test_PM.c **** ********************************************************************************
+  10:.\Generated_Source\PSoC5/test_PM.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  11:.\Generated_Source\PSoC5/test_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  12:.\Generated_Source\PSoC5/test_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  13:.\Generated_Source\PSoC5/test_PM.c **** * the software package with which this file was provided.
+  14:.\Generated_Source\PSoC5/test_PM.c **** *******************************************************************************/
+  15:.\Generated_Source\PSoC5/test_PM.c **** 
+  16:.\Generated_Source\PSoC5/test_PM.c **** #include "test.h"
+  17:.\Generated_Source\PSoC5/test_PM.c **** 
+  18:.\Generated_Source\PSoC5/test_PM.c **** static test_BACKUP_STRUCT  test_backup;
+  19:.\Generated_Source\PSoC5/test_PM.c **** 
+  20:.\Generated_Source\PSoC5/test_PM.c **** 
+  21:.\Generated_Source\PSoC5/test_PM.c **** /*******************************************************************************
+  22:.\Generated_Source\PSoC5/test_PM.c **** * Function Name: test_Sleep
+  23:.\Generated_Source\PSoC5/test_PM.c **** ********************************************************************************
+  24:.\Generated_Source\PSoC5/test_PM.c **** *
+  25:.\Generated_Source\PSoC5/test_PM.c **** * Summary:
+  26:.\Generated_Source\PSoC5/test_PM.c **** *  Stops the component and saves its configuration. Should be called 
+  27:.\Generated_Source\PSoC5/test_PM.c **** *  just prior to entering sleep.
+  28:.\Generated_Source\PSoC5/test_PM.c **** *  
+  29:.\Generated_Source\PSoC5/test_PM.c **** * Parameters:  
+  30:.\Generated_Source\PSoC5/test_PM.c **** *  None
+  31:.\Generated_Source\PSoC5/test_PM.c **** *
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/test_PM.c **** * Return: 
+  33:.\Generated_Source\PSoC5/test_PM.c **** *  None
+  34:.\Generated_Source\PSoC5/test_PM.c **** *
+  35:.\Generated_Source\PSoC5/test_PM.c **** * Global variables:
+  36:.\Generated_Source\PSoC5/test_PM.c **** *  test_backup:  The structure field 'enableState' is modified 
+  37:.\Generated_Source\PSoC5/test_PM.c **** *  depending on the enable state of the block before entering to sleep mode.
+  38:.\Generated_Source\PSoC5/test_PM.c **** *
+  39:.\Generated_Source\PSoC5/test_PM.c **** * Reentrant:
+  40:.\Generated_Source\PSoC5/test_PM.c **** *  No
+  41:.\Generated_Source\PSoC5/test_PM.c **** *
+  42:.\Generated_Source\PSoC5/test_PM.c **** *******************************************************************************/
+  43:.\Generated_Source\PSoC5/test_PM.c **** void test_Sleep(void) 
+  44:.\Generated_Source\PSoC5/test_PM.c **** {
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  45:.\Generated_Source\PSoC5/test_PM.c **** 	/* Save DAC8's enable state */
+  46:.\Generated_Source\PSoC5/test_PM.c **** 
+  47:.\Generated_Source\PSoC5/test_PM.c **** 	test_backup.enableState = (test_VDAC8_ACT_PWR_EN == 
+  48:.\Generated_Source\PSoC5/test_PM.c **** 		(test_VDAC8_PWRMGR_REG & test_VDAC8_ACT_PWR_EN)) ? 1u : 0u ;
+  35              		.loc 1 48 0
+  36 0002 074B     		ldr	r3, .L4
+  37 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  38 0006 03F00203 		and	r3, r3, #2
+  47:.\Generated_Source\PSoC5/test_PM.c **** 		(test_VDAC8_PWRMGR_REG & test_VDAC8_ACT_PWR_EN)) ? 1u : 0u ;
+  39              		.loc 1 47 0
+  40 000a 03F0FF02 		and	r2, r3, #255
+  41 000e 03B1     		cbz	r3, .L2
+  42 0010 0122     		movs	r2, #1
+  43              	.L2:
+  47:.\Generated_Source\PSoC5/test_PM.c **** 		(test_VDAC8_PWRMGR_REG & test_VDAC8_ACT_PWR_EN)) ? 1u : 0u ;
+  44              		.loc 1 47 0 is_stmt 0 discriminator 4
+  45 0012 044B     		ldr	r3, .L4+4
+  46 0014 1A70     		strb	r2, [r3]
+  49:.\Generated_Source\PSoC5/test_PM.c **** 	
+  50:.\Generated_Source\PSoC5/test_PM.c **** 	test_Stop();
+  47              		.loc 1 50 0 is_stmt 1 discriminator 4
+  48 0016 FFF7FEFF 		bl	test_Stop
+  49              	.LVL0:
+  51:.\Generated_Source\PSoC5/test_PM.c **** 	test_SaveConfig();
+  50              		.loc 1 51 0 discriminator 4
+  51 001a FFF7FEFF 		bl	test_VDAC8_SaveConfig
+  52              	.LVL1:
+  53 001e 08BD     		pop	{r3, pc}
+  54              	.L5:
+  55              		.align	2
+  56              	.L4:
+  57 0020 A8430040 		.word	1073759144
+  58 0024 00000000 		.word	.LANCHOR0
+  59              		.cfi_endproc
+  60              	.LFE0:
+  61              		.size	test_Sleep, .-test_Sleep
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 3
+
+
+  62              		.section	.text.test_Wakeup,"ax",%progbits
+  63              		.align	2
+  64              		.global	test_Wakeup
+  65              		.thumb
+  66              		.thumb_func
+  67              		.type	test_Wakeup, %function
+  68              	test_Wakeup:
+  69              	.LFB1:
+  52:.\Generated_Source\PSoC5/test_PM.c **** }
+  53:.\Generated_Source\PSoC5/test_PM.c **** 
+  54:.\Generated_Source\PSoC5/test_PM.c **** 
+  55:.\Generated_Source\PSoC5/test_PM.c **** /*******************************************************************************
+  56:.\Generated_Source\PSoC5/test_PM.c **** * Function Name: test_Wakeup
+  57:.\Generated_Source\PSoC5/test_PM.c **** ********************************************************************************
+  58:.\Generated_Source\PSoC5/test_PM.c **** *
+  59:.\Generated_Source\PSoC5/test_PM.c **** * Summary:
+  60:.\Generated_Source\PSoC5/test_PM.c **** *  Restores the component configuration. Should be called
+  61:.\Generated_Source\PSoC5/test_PM.c **** *  just after awaking from sleep.
+  62:.\Generated_Source\PSoC5/test_PM.c **** *  
+  63:.\Generated_Source\PSoC5/test_PM.c **** * Parameters:  
+  64:.\Generated_Source\PSoC5/test_PM.c **** *  None
+  65:.\Generated_Source\PSoC5/test_PM.c **** *
+  66:.\Generated_Source\PSoC5/test_PM.c **** * Return: 
+  67:.\Generated_Source\PSoC5/test_PM.c **** *  void
+  68:.\Generated_Source\PSoC5/test_PM.c **** *
+  69:.\Generated_Source\PSoC5/test_PM.c **** * Global variables:
+  70:.\Generated_Source\PSoC5/test_PM.c **** *  test_backup:  The structure field 'enableState' is used to 
+  71:.\Generated_Source\PSoC5/test_PM.c **** *  restore the enable state of block after wakeup from sleep mode.
+  72:.\Generated_Source\PSoC5/test_PM.c **** *
+  73:.\Generated_Source\PSoC5/test_PM.c **** * Reentrant:
+  74:.\Generated_Source\PSoC5/test_PM.c **** *  No
+  75:.\Generated_Source\PSoC5/test_PM.c **** *
+  76:.\Generated_Source\PSoC5/test_PM.c **** *******************************************************************************/
+  77:.\Generated_Source\PSoC5/test_PM.c **** void test_Wakeup(void) 
+  78:.\Generated_Source\PSoC5/test_PM.c **** {
+  70              		.loc 1 78 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 08B5     		push	{r3, lr}
+  75              		.cfi_def_cfa_offset 8
+  76              		.cfi_offset 3, -8
+  77              		.cfi_offset 14, -4
+  79:.\Generated_Source\PSoC5/test_PM.c **** 	test_RestoreConfig();
+  78              		.loc 1 79 0
+  79 0002 FFF7FEFF 		bl	test_VDAC8_RestoreConfig
+  80              	.LVL2:
+  80:.\Generated_Source\PSoC5/test_PM.c **** 
+  81:.\Generated_Source\PSoC5/test_PM.c **** 	if(test_backup.enableState == 1u)
+  81              		.loc 1 81 0
+  82 0006 034B     		ldr	r3, .L9
+  83 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  84 000a 012B     		cmp	r3, #1
+  85 000c 01D1     		bne	.L6
+  82:.\Generated_Source\PSoC5/test_PM.c **** 	{
+  83:.\Generated_Source\PSoC5/test_PM.c **** 		test_Enable();
+  86              		.loc 1 83 0
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 4
+
+
+  87 000e FFF7FEFF 		bl	test_Enable
+  88              	.LVL3:
+  89              	.L6:
+  90 0012 08BD     		pop	{r3, pc}
+  91              	.L10:
+  92              		.align	2
+  93              	.L9:
+  94 0014 00000000 		.word	.LANCHOR0
+  95              		.cfi_endproc
+  96              	.LFE1:
+  97              		.size	test_Wakeup, .-test_Wakeup
+  98              		.bss
+  99              		.align	2
+ 100              		.set	.LANCHOR0,. + 0
+ 101              		.type	test_backup, %object
+ 102              		.size	test_backup, 1
+ 103              	test_backup:
+ 104 0000 00       		.space	1
+ 105 0001 000000   		.text
+ 106              	.Letext0:
+ 107              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 108              		.file 3 ".\\Generated_Source\\PSoC5\\test.h"
+ 109              		.file 4 "Generated_Source\\PSoC5/test_VDAC8.h"
+ 110              		.section	.debug_info,"",%progbits
+ 111              	.Ldebug_info0:
+ 112 0000 3E010000 		.4byte	0x13e
+ 113 0004 0400     		.2byte	0x4
+ 114 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 115 000a 04       		.byte	0x4
+ 116 000b 01       		.uleb128 0x1
+ 117 000c 7C000000 		.4byte	.LASF22
+ 118 0010 01       		.byte	0x1
+ 119 0011 A6010000 		.4byte	.LASF23
+ 120 0015 E2010000 		.4byte	.LASF24
+ 121 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 122 001d 00000000 		.4byte	0
+ 123 0021 00000000 		.4byte	.Ldebug_line0
+ 124 0025 02       		.uleb128 0x2
+ 125 0026 01       		.byte	0x1
+ 126 0027 06       		.byte	0x6
+ 127 0028 80010000 		.4byte	.LASF0
+ 128 002c 02       		.uleb128 0x2
+ 129 002d 01       		.byte	0x1
+ 130 002e 08       		.byte	0x8
+ 131 002f 0A010000 		.4byte	.LASF1
+ 132 0033 02       		.uleb128 0x2
+ 133 0034 02       		.byte	0x2
+ 134 0035 05       		.byte	0x5
+ 135 0036 97010000 		.4byte	.LASF2
+ 136 003a 02       		.uleb128 0x2
+ 137 003b 02       		.byte	0x2
+ 138 003c 07       		.byte	0x7
+ 139 003d 6D010000 		.4byte	.LASF3
+ 140 0041 02       		.uleb128 0x2
+ 141 0042 04       		.byte	0x4
+ 142 0043 05       		.byte	0x5
+ 143 0044 5B010000 		.4byte	.LASF4
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 5
+
+
+ 144 0048 02       		.uleb128 0x2
+ 145 0049 04       		.byte	0x4
+ 146 004a 07       		.byte	0x7
+ 147 004b 4D000000 		.4byte	.LASF5
+ 148 004f 02       		.uleb128 0x2
+ 149 0050 08       		.byte	0x8
+ 150 0051 05       		.byte	0x5
+ 151 0052 00000000 		.4byte	.LASF6
+ 152 0056 02       		.uleb128 0x2
+ 153 0057 08       		.byte	0x8
+ 154 0058 07       		.byte	0x7
+ 155 0059 5F000000 		.4byte	.LASF7
+ 156 005d 03       		.uleb128 0x3
+ 157 005e 04       		.byte	0x4
+ 158 005f 05       		.byte	0x5
+ 159 0060 696E7400 		.ascii	"int\000"
+ 160 0064 02       		.uleb128 0x2
+ 161 0065 04       		.byte	0x4
+ 162 0066 07       		.byte	0x7
+ 163 0067 1A000000 		.4byte	.LASF8
+ 164 006b 04       		.uleb128 0x4
+ 165 006c 47000000 		.4byte	.LASF12
+ 166 0070 02       		.byte	0x2
+ 167 0071 9201     		.2byte	0x192
+ 168 0073 2C000000 		.4byte	0x2c
+ 169 0077 02       		.uleb128 0x2
+ 170 0078 04       		.byte	0x4
+ 171 0079 04       		.byte	0x4
+ 172 007a 76000000 		.4byte	.LASF9
+ 173 007e 02       		.uleb128 0x2
+ 174 007f 08       		.byte	0x8
+ 175 0080 04       		.byte	0x4
+ 176 0081 54010000 		.4byte	.LASF10
+ 177 0085 02       		.uleb128 0x2
+ 178 0086 01       		.byte	0x1
+ 179 0087 08       		.byte	0x8
+ 180 0088 18010000 		.4byte	.LASF11
+ 181 008c 04       		.uleb128 0x4
+ 182 008d A1010000 		.4byte	.LASF13
+ 183 0091 02       		.byte	0x2
+ 184 0092 3C02     		.2byte	0x23c
+ 185 0094 98000000 		.4byte	0x98
+ 186 0098 05       		.uleb128 0x5
+ 187 0099 6B000000 		.4byte	0x6b
+ 188 009d 02       		.uleb128 0x2
+ 189 009e 04       		.byte	0x4
+ 190 009f 07       		.byte	0x7
+ 191 00a0 64010000 		.4byte	.LASF14
+ 192 00a4 06       		.uleb128 0x6
+ 193 00a5 01       		.byte	0x1
+ 194 00a6 03       		.byte	0x3
+ 195 00a7 5D       		.byte	0x5d
+ 196 00a8 B9000000 		.4byte	0xb9
+ 197 00ac 07       		.uleb128 0x7
+ 198 00ad 0E000000 		.4byte	.LASF25
+ 199 00b1 03       		.byte	0x3
+ 200 00b2 5F       		.byte	0x5f
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 6
+
+
+ 201 00b3 6B000000 		.4byte	0x6b
+ 202 00b7 00       		.byte	0
+ 203 00b8 00       		.byte	0
+ 204 00b9 08       		.uleb128 0x8
+ 205 00ba 35010000 		.4byte	.LASF15
+ 206 00be 03       		.byte	0x3
+ 207 00bf 60       		.byte	0x60
+ 208 00c0 A4000000 		.4byte	0xa4
+ 209 00c4 09       		.uleb128 0x9
+ 210 00c5 8C010000 		.4byte	.LASF16
+ 211 00c9 01       		.byte	0x1
+ 212 00ca 2B       		.byte	0x2b
+ 213 00cb 00000000 		.4byte	.LFB0
+ 214 00cf 28000000 		.4byte	.LFE0-.LFB0
+ 215 00d3 01       		.uleb128 0x1
+ 216 00d4 9C       		.byte	0x9c
+ 217 00d5 EC000000 		.4byte	0xec
+ 218 00d9 0A       		.uleb128 0xa
+ 219 00da 1A000000 		.4byte	.LVL0
+ 220 00de 25010000 		.4byte	0x125
+ 221 00e2 0A       		.uleb128 0xa
+ 222 00e3 1E000000 		.4byte	.LVL1
+ 223 00e7 2C010000 		.4byte	0x12c
+ 224 00eb 00       		.byte	0
+ 225 00ec 09       		.uleb128 0x9
+ 226 00ed 29010000 		.4byte	.LASF17
+ 227 00f1 01       		.byte	0x1
+ 228 00f2 4D       		.byte	0x4d
+ 229 00f3 00000000 		.4byte	.LFB1
+ 230 00f7 18000000 		.4byte	.LFE1-.LFB1
+ 231 00fb 01       		.uleb128 0x1
+ 232 00fc 9C       		.byte	0x9c
+ 233 00fd 14010000 		.4byte	0x114
+ 234 0101 0A       		.uleb128 0xa
+ 235 0102 06000000 		.4byte	.LVL2
+ 236 0106 33010000 		.4byte	0x133
+ 237 010a 0A       		.uleb128 0xa
+ 238 010b 12000000 		.4byte	.LVL3
+ 239 010f 3A010000 		.4byte	0x13a
+ 240 0113 00       		.byte	0
+ 241 0114 0B       		.uleb128 0xb
+ 242 0115 1D010000 		.4byte	.LASF26
+ 243 0119 01       		.byte	0x1
+ 244 011a 12       		.byte	0x12
+ 245 011b B9000000 		.4byte	0xb9
+ 246 011f 05       		.uleb128 0x5
+ 247 0120 03       		.byte	0x3
+ 248 0121 00000000 		.4byte	test_backup
+ 249 0125 0C       		.uleb128 0xc
+ 250 0126 27000000 		.4byte	.LASF18
+ 251 012a 03       		.byte	0x3
+ 252 012b 6C       		.byte	0x6c
+ 253 012c 0C       		.uleb128 0xc
+ 254 012d 31000000 		.4byte	.LASF19
+ 255 0131 04       		.byte	0x4
+ 256 0132 3B       		.byte	0x3b
+ 257 0133 0C       		.uleb128 0xc
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 7
+
+
+ 258 0134 C9010000 		.4byte	.LASF20
+ 259 0138 04       		.byte	0x4
+ 260 0139 3C       		.byte	0x3c
+ 261 013a 0C       		.uleb128 0xc
+ 262 013b 48010000 		.4byte	.LASF21
+ 263 013f 03       		.byte	0x3
+ 264 0140 6B       		.byte	0x6b
+ 265 0141 00       		.byte	0
+ 266              		.section	.debug_abbrev,"",%progbits
+ 267              	.Ldebug_abbrev0:
+ 268 0000 01       		.uleb128 0x1
+ 269 0001 11       		.uleb128 0x11
+ 270 0002 01       		.byte	0x1
+ 271 0003 25       		.uleb128 0x25
+ 272 0004 0E       		.uleb128 0xe
+ 273 0005 13       		.uleb128 0x13
+ 274 0006 0B       		.uleb128 0xb
+ 275 0007 03       		.uleb128 0x3
+ 276 0008 0E       		.uleb128 0xe
+ 277 0009 1B       		.uleb128 0x1b
+ 278 000a 0E       		.uleb128 0xe
+ 279 000b 55       		.uleb128 0x55
+ 280 000c 17       		.uleb128 0x17
+ 281 000d 11       		.uleb128 0x11
+ 282 000e 01       		.uleb128 0x1
+ 283 000f 10       		.uleb128 0x10
+ 284 0010 17       		.uleb128 0x17
+ 285 0011 00       		.byte	0
+ 286 0012 00       		.byte	0
+ 287 0013 02       		.uleb128 0x2
+ 288 0014 24       		.uleb128 0x24
+ 289 0015 00       		.byte	0
+ 290 0016 0B       		.uleb128 0xb
+ 291 0017 0B       		.uleb128 0xb
+ 292 0018 3E       		.uleb128 0x3e
+ 293 0019 0B       		.uleb128 0xb
+ 294 001a 03       		.uleb128 0x3
+ 295 001b 0E       		.uleb128 0xe
+ 296 001c 00       		.byte	0
+ 297 001d 00       		.byte	0
+ 298 001e 03       		.uleb128 0x3
+ 299 001f 24       		.uleb128 0x24
+ 300 0020 00       		.byte	0
+ 301 0021 0B       		.uleb128 0xb
+ 302 0022 0B       		.uleb128 0xb
+ 303 0023 3E       		.uleb128 0x3e
+ 304 0024 0B       		.uleb128 0xb
+ 305 0025 03       		.uleb128 0x3
+ 306 0026 08       		.uleb128 0x8
+ 307 0027 00       		.byte	0
+ 308 0028 00       		.byte	0
+ 309 0029 04       		.uleb128 0x4
+ 310 002a 16       		.uleb128 0x16
+ 311 002b 00       		.byte	0
+ 312 002c 03       		.uleb128 0x3
+ 313 002d 0E       		.uleb128 0xe
+ 314 002e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 8
+
+
+ 315 002f 0B       		.uleb128 0xb
+ 316 0030 3B       		.uleb128 0x3b
+ 317 0031 05       		.uleb128 0x5
+ 318 0032 49       		.uleb128 0x49
+ 319 0033 13       		.uleb128 0x13
+ 320 0034 00       		.byte	0
+ 321 0035 00       		.byte	0
+ 322 0036 05       		.uleb128 0x5
+ 323 0037 35       		.uleb128 0x35
+ 324 0038 00       		.byte	0
+ 325 0039 49       		.uleb128 0x49
+ 326 003a 13       		.uleb128 0x13
+ 327 003b 00       		.byte	0
+ 328 003c 00       		.byte	0
+ 329 003d 06       		.uleb128 0x6
+ 330 003e 13       		.uleb128 0x13
+ 331 003f 01       		.byte	0x1
+ 332 0040 0B       		.uleb128 0xb
+ 333 0041 0B       		.uleb128 0xb
+ 334 0042 3A       		.uleb128 0x3a
+ 335 0043 0B       		.uleb128 0xb
+ 336 0044 3B       		.uleb128 0x3b
+ 337 0045 0B       		.uleb128 0xb
+ 338 0046 01       		.uleb128 0x1
+ 339 0047 13       		.uleb128 0x13
+ 340 0048 00       		.byte	0
+ 341 0049 00       		.byte	0
+ 342 004a 07       		.uleb128 0x7
+ 343 004b 0D       		.uleb128 0xd
+ 344 004c 00       		.byte	0
+ 345 004d 03       		.uleb128 0x3
+ 346 004e 0E       		.uleb128 0xe
+ 347 004f 3A       		.uleb128 0x3a
+ 348 0050 0B       		.uleb128 0xb
+ 349 0051 3B       		.uleb128 0x3b
+ 350 0052 0B       		.uleb128 0xb
+ 351 0053 49       		.uleb128 0x49
+ 352 0054 13       		.uleb128 0x13
+ 353 0055 38       		.uleb128 0x38
+ 354 0056 0B       		.uleb128 0xb
+ 355 0057 00       		.byte	0
+ 356 0058 00       		.byte	0
+ 357 0059 08       		.uleb128 0x8
+ 358 005a 16       		.uleb128 0x16
+ 359 005b 00       		.byte	0
+ 360 005c 03       		.uleb128 0x3
+ 361 005d 0E       		.uleb128 0xe
+ 362 005e 3A       		.uleb128 0x3a
+ 363 005f 0B       		.uleb128 0xb
+ 364 0060 3B       		.uleb128 0x3b
+ 365 0061 0B       		.uleb128 0xb
+ 366 0062 49       		.uleb128 0x49
+ 367 0063 13       		.uleb128 0x13
+ 368 0064 00       		.byte	0
+ 369 0065 00       		.byte	0
+ 370 0066 09       		.uleb128 0x9
+ 371 0067 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 9
+
+
+ 372 0068 01       		.byte	0x1
+ 373 0069 3F       		.uleb128 0x3f
+ 374 006a 19       		.uleb128 0x19
+ 375 006b 03       		.uleb128 0x3
+ 376 006c 0E       		.uleb128 0xe
+ 377 006d 3A       		.uleb128 0x3a
+ 378 006e 0B       		.uleb128 0xb
+ 379 006f 3B       		.uleb128 0x3b
+ 380 0070 0B       		.uleb128 0xb
+ 381 0071 27       		.uleb128 0x27
+ 382 0072 19       		.uleb128 0x19
+ 383 0073 11       		.uleb128 0x11
+ 384 0074 01       		.uleb128 0x1
+ 385 0075 12       		.uleb128 0x12
+ 386 0076 06       		.uleb128 0x6
+ 387 0077 40       		.uleb128 0x40
+ 388 0078 18       		.uleb128 0x18
+ 389 0079 9742     		.uleb128 0x2117
+ 390 007b 19       		.uleb128 0x19
+ 391 007c 01       		.uleb128 0x1
+ 392 007d 13       		.uleb128 0x13
+ 393 007e 00       		.byte	0
+ 394 007f 00       		.byte	0
+ 395 0080 0A       		.uleb128 0xa
+ 396 0081 898201   		.uleb128 0x4109
+ 397 0084 00       		.byte	0
+ 398 0085 11       		.uleb128 0x11
+ 399 0086 01       		.uleb128 0x1
+ 400 0087 31       		.uleb128 0x31
+ 401 0088 13       		.uleb128 0x13
+ 402 0089 00       		.byte	0
+ 403 008a 00       		.byte	0
+ 404 008b 0B       		.uleb128 0xb
+ 405 008c 34       		.uleb128 0x34
+ 406 008d 00       		.byte	0
+ 407 008e 03       		.uleb128 0x3
+ 408 008f 0E       		.uleb128 0xe
+ 409 0090 3A       		.uleb128 0x3a
+ 410 0091 0B       		.uleb128 0xb
+ 411 0092 3B       		.uleb128 0x3b
+ 412 0093 0B       		.uleb128 0xb
+ 413 0094 49       		.uleb128 0x49
+ 414 0095 13       		.uleb128 0x13
+ 415 0096 02       		.uleb128 0x2
+ 416 0097 18       		.uleb128 0x18
+ 417 0098 00       		.byte	0
+ 418 0099 00       		.byte	0
+ 419 009a 0C       		.uleb128 0xc
+ 420 009b 2E       		.uleb128 0x2e
+ 421 009c 00       		.byte	0
+ 422 009d 3F       		.uleb128 0x3f
+ 423 009e 19       		.uleb128 0x19
+ 424 009f 03       		.uleb128 0x3
+ 425 00a0 0E       		.uleb128 0xe
+ 426 00a1 3A       		.uleb128 0x3a
+ 427 00a2 0B       		.uleb128 0xb
+ 428 00a3 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 10
+
+
+ 429 00a4 0B       		.uleb128 0xb
+ 430 00a5 27       		.uleb128 0x27
+ 431 00a6 19       		.uleb128 0x19
+ 432 00a7 3C       		.uleb128 0x3c
+ 433 00a8 19       		.uleb128 0x19
+ 434 00a9 00       		.byte	0
+ 435 00aa 00       		.byte	0
+ 436 00ab 00       		.byte	0
+ 437              		.section	.debug_aranges,"",%progbits
+ 438 0000 24000000 		.4byte	0x24
+ 439 0004 0200     		.2byte	0x2
+ 440 0006 00000000 		.4byte	.Ldebug_info0
+ 441 000a 04       		.byte	0x4
+ 442 000b 00       		.byte	0
+ 443 000c 0000     		.2byte	0
+ 444 000e 0000     		.2byte	0
+ 445 0010 00000000 		.4byte	.LFB0
+ 446 0014 28000000 		.4byte	.LFE0-.LFB0
+ 447 0018 00000000 		.4byte	.LFB1
+ 448 001c 18000000 		.4byte	.LFE1-.LFB1
+ 449 0020 00000000 		.4byte	0
+ 450 0024 00000000 		.4byte	0
+ 451              		.section	.debug_ranges,"",%progbits
+ 452              	.Ldebug_ranges0:
+ 453 0000 00000000 		.4byte	.LFB0
+ 454 0004 28000000 		.4byte	.LFE0
+ 455 0008 00000000 		.4byte	.LFB1
+ 456 000c 18000000 		.4byte	.LFE1
+ 457 0010 00000000 		.4byte	0
+ 458 0014 00000000 		.4byte	0
+ 459              		.section	.debug_line,"",%progbits
+ 460              	.Ldebug_line0:
+ 461 0000 B2000000 		.section	.debug_str,"MS",%progbits,1
+ 461      02007700 
+ 461      00000201 
+ 461      FB0E0D00 
+ 461      01010101 
+ 462              	.LASF6:
+ 463 0000 6C6F6E67 		.ascii	"long long int\000"
+ 463      206C6F6E 
+ 463      6720696E 
+ 463      7400
+ 464              	.LASF25:
+ 465 000e 656E6162 		.ascii	"enableState\000"
+ 465      6C655374 
+ 465      61746500 
+ 466              	.LASF8:
+ 467 001a 756E7369 		.ascii	"unsigned int\000"
+ 467      676E6564 
+ 467      20696E74 
+ 467      00
+ 468              	.LASF18:
+ 469 0027 74657374 		.ascii	"test_Stop\000"
+ 469      5F53746F 
+ 469      7000
+ 470              	.LASF19:
+ 471 0031 74657374 		.ascii	"test_VDAC8_SaveConfig\000"
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 11
+
+
+ 471      5F564441 
+ 471      43385F53 
+ 471      61766543 
+ 471      6F6E6669 
+ 472              	.LASF12:
+ 473 0047 75696E74 		.ascii	"uint8\000"
+ 473      3800
+ 474              	.LASF5:
+ 475 004d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 475      20756E73 
+ 475      69676E65 
+ 475      6420696E 
+ 475      7400
+ 476              	.LASF7:
+ 477 005f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 477      206C6F6E 
+ 477      6720756E 
+ 477      7369676E 
+ 477      65642069 
+ 478              	.LASF9:
+ 479 0076 666C6F61 		.ascii	"float\000"
+ 479      7400
+ 480              	.LASF22:
+ 481 007c 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 481      4320342E 
+ 481      392E3320 
+ 481      32303135 
+ 481      30333033 
+ 482 00af 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 482      20726576 
+ 482      6973696F 
+ 482      6E203232 
+ 482      31323230 
+ 483 00e2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 483      66756E63 
+ 483      74696F6E 
+ 483      2D736563 
+ 483      74696F6E 
+ 484              	.LASF1:
+ 485 010a 756E7369 		.ascii	"unsigned char\000"
+ 485      676E6564 
+ 485      20636861 
+ 485      7200
+ 486              	.LASF11:
+ 487 0118 63686172 		.ascii	"char\000"
+ 487      00
+ 488              	.LASF26:
+ 489 011d 74657374 		.ascii	"test_backup\000"
+ 489      5F626163 
+ 489      6B757000 
+ 490              	.LASF17:
+ 491 0129 74657374 		.ascii	"test_Wakeup\000"
+ 491      5F57616B 
+ 491      65757000 
+ 492              	.LASF15:
+ 493 0135 74657374 		.ascii	"test_BACKUP_STRUCT\000"
+ 493      5F424143 
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 12
+
+
+ 493      4B55505F 
+ 493      53545255 
+ 493      435400
+ 494              	.LASF21:
+ 495 0148 74657374 		.ascii	"test_Enable\000"
+ 495      5F456E61 
+ 495      626C6500 
+ 496              	.LASF10:
+ 497 0154 646F7562 		.ascii	"double\000"
+ 497      6C6500
+ 498              	.LASF4:
+ 499 015b 6C6F6E67 		.ascii	"long int\000"
+ 499      20696E74 
+ 499      00
+ 500              	.LASF14:
+ 501 0164 73697A65 		.ascii	"sizetype\000"
+ 501      74797065 
+ 501      00
+ 502              	.LASF3:
+ 503 016d 73686F72 		.ascii	"short unsigned int\000"
+ 503      7420756E 
+ 503      7369676E 
+ 503      65642069 
+ 503      6E7400
+ 504              	.LASF0:
+ 505 0180 7369676E 		.ascii	"signed char\000"
+ 505      65642063 
+ 505      68617200 
+ 506              	.LASF16:
+ 507 018c 74657374 		.ascii	"test_Sleep\000"
+ 507      5F536C65 
+ 507      657000
+ 508              	.LASF2:
+ 509 0197 73686F72 		.ascii	"short int\000"
+ 509      7420696E 
+ 509      7400
+ 510              	.LASF13:
+ 511 01a1 72656738 		.ascii	"reg8\000"
+ 511      00
+ 512              	.LASF23:
+ 513 01a6 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\test_PM.c\000"
+ 513      6E657261 
+ 513      7465645F 
+ 513      536F7572 
+ 513      63655C50 
+ 514              	.LASF20:
+ 515 01c9 74657374 		.ascii	"test_VDAC8_RestoreConfig\000"
+ 515      5F564441 
+ 515      43385F52 
+ 515      6573746F 
+ 515      7265436F 
+ 516              	.LASF24:
+ 517 01e2 443A5C66 		.ascii	"D:\\final project\\Workspace01\\Jazzy_Dude.cydsn\000"
+ 517      696E616C 
+ 517      2070726F 
+ 517      6A656374 
+ 517      5C576F72 
+ARM GAS  C:\Users\yabi\AppData\Local\Temp\ccbXViIL.s 			page 13
+
+
+ 518              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
