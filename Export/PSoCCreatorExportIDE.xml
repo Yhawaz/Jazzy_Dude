@@ -108,6 +108,12 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_LCDPort.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\lcd_isr.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\lcd_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\final project\Workspace01\Jazzy_Dude.cydsn\Export\ARM_GCC_Generic">

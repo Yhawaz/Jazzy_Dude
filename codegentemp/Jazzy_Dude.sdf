@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2025-05-06T03:33:40Z")
+ (DATE "2025-05-06T20:25:01Z")
  (DESIGN "Jazzy_Dude")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -23,6 +23,8 @@
     (INTERCONNECT \\LCD_Char_1\:LCDPort\(4\)_PAD\\ \\LCD_Char_1\:LCDPort\(4\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\LCD_Char_1\:LCDPort\(5\)_PAD\\ \\LCD_Char_1\:LCDPort\(5\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\LCD_Char_1\:LCDPort\(6\)_PAD\\ \\LCD_Char_1\:LCDPort\(6\)\\.pad_in (0.000:0.000:0.000))
+    (INTERCONNECT led\(0\)_PAD led\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT led1\(0\)_PAD led1\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

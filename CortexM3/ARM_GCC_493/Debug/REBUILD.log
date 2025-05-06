@@ -1,4 +1,4 @@
---------------- Rebuild Started: 05/05/2025 23:33:36 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 05/06/2025 16:06:39 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\main.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cymetadata.o"
@@ -51,8 +51,8 @@ API Generation ...
 Dependency Generation ...
 Clean Temporary Files ...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-.\main.c:42:20: warning: 'zero_centered' defined but not used [-Wunused-variable]
-     static int16_t zero_centered;
+.\main.c:42:20: warning: 'sax_zero_centered' defined but not used [-Wunused-variable]
+     static int16_t sax_zero_centered;
                     ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
@@ -81,4 +81,4 @@ cyelftool.exe -C "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC
 cyelftool.exe -S "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf"
 Flash used: 4608 of 262144 bytes (1.8%).
 SRAM used: 2525 of 65536 bytes (3.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 05/05/2025 23:33:47 ---------------
+--------------- Rebuild Succeeded: 05/06/2025 16:06:51 ---------------

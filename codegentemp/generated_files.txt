@@ -37,6 +37,12 @@
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\lcd_isr.h" value="NONE;lcd_isr" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Clock_1.c" value="ARM_C_FILE;Clock_1" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Clock_1.h" value="NONE;Clock_1" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led_aliases.h" value="NONE;led" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led.c" value="ARM_C_FILE;led" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led.h" value="NONE;led" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1_aliases.h" value="NONE;led1" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1.c" value="ARM_C_FILE;led1" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1.h" value="NONE;led1" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort_aliases.h" value="NONE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.c" value="ARM_C_FILE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.h" value="NONE;LCD_Char_1_LCDPort" />
