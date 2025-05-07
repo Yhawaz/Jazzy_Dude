@@ -2,7 +2,7 @@
 --	Conversion of Jazzy_Dude.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed May 07 02:02:20 2025
+--	Wed May 07 15:00:59 2025
 --
 
 USE cypress.cypress.all;
@@ -158,7 +158,7 @@ sax_clk:cy_clock_v1_0
 		id=>"1439bfc3-c2ed-459d-b4f6-ee47e8596378",
 		source_clock_id=>"CEF43CFB-0213-49b9-B980-2FFAB81C5B47",
 		divisor=>0,
-		period=>"29411764705.8824",
+		period=>"28571428571.4286",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_787,

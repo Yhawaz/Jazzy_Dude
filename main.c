@@ -11,47 +11,40 @@
 */
 #include <project.h>
 
-//Awesome Tables
-
+//Parameters
 #define SAXTABLE_SIZE 32u
-#define SAMPLE_RATE 34000.0
+#define SAMPLE_RATE 35000.0
 #define PHASE_BITS 24
 
-static const uint8 SaxTable[SAXTABLE_SIZE] = {    222, 252, 220, 140, 119, 142, 138,  96,
+//Tables for Freq's and Waveforms
+const uint8 SaxTable[SAXTABLE_SIZE] = {    222, 252, 220, 140, 119, 142, 138,  96,
      67,  56,   9,   0,  65, 102,  93,  91,
     116, 142, 156, 166, 183, 187, 166, 145,
     136, 126, 117, 119, 128, 126, 118, 139
 };
 
-static const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
-
-
-
-
-
+const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
 //Global Vals(For Debugging Via LCD ISR)
 //
     //global
     uint8_t new_idx;
     //sax vars's
-    static float sax_current_note_freq=196;
-    static float sax_atk_rate,sax_decay_rate,sax_release_rate;
-    static float sax_env_lvl;
+    float sax_current_note_freq=196;
+    float sax_atk_rate,sax_decay_rate,sax_release_rate;
+    float sax_env_lvl;
     uint8_t sax_env_state;
-    static uint32_t sax_phase;
-    static uint32_t sax_phase_inc;
-//
+    uint32_t sax_phase;
+    uint32_t sax_phase_inc;
 
-
-    static uint8 sax_sample;
-    static int16_t sax_zero_centered;
-    static uint8_t sax_enveloped_note;
+    uint8 sax_sample;
+    int16_t sax_zero_centered;
+    uint8_t sax_enveloped_note;
     float sax_env_out;
 
-    static float SAX_ATTACK_TIME = .01;
-    static float SAX_SUSTAIN_LEVEL = .8;
-    static float SAX_RELEASE_TIME = .2;
-    static float SAX_DECAY_TIME =.5;
+    float SAX_ATTACK_TIME = .015;
+    float SAX_SUSTAIN_LEVEL = .7;
+    float SAX_RELEASE_TIME = .3;
+    float SAX_DECAY_TIME =.2;
  //Envelope Vars;
     enum {
         IDLE,
@@ -88,10 +81,9 @@ void Envelope_Release(uint8_t *env_state){
 
 void calc_phase(float note_freq,uint32_t *phase_inc){
     *phase_inc=(uint32_t) ((note_freq)*(1 << PHASE_BITS))/SAMPLE_RATE;
-    
    }
 
-static float Envelope_Process(float isr_freq, uint8_t tbl_size,uint8_t *env_state,
+float Envelope_Process(float isr_freq,uint8_t *env_state,
                               float *env_lvl,float atk_rate,float decay_rate,float sustain_level,
                               float release_rate)
 {
@@ -131,27 +123,36 @@ static float Envelope_Process(float isr_freq, uint8_t tbl_size,uint8_t *env_stat
     }
     return *env_lvl;
 }
+//get Sax_Note_Func
+void get_note(uint8_t note_type, uint8_t bpm, uint8_t note, float *inst_freq, uint32_t *inst_phase_inc,uint8_t *env_state){
+   *inst_freq=SaxFreq[note];
+   calc_phase(SaxFreq[note],inst_phase_inc); 
+   Envelope_Pressed(env_state);
+   float msPerQuarter=60000/bpm;
+   float time_scale=4/note_type;
+   float durationF=msPerQuarter*time_scale;
+   uint32_t dt=(uint32_t)durationF+.5;
+   CyDelay(dt);
+   Envelope_Release(env_state);
+}
 //Sax ISR
 
 CY_ISR(Sax_ISR)
 {
-    //yoink raw sample out of table
-    //option a)
-   // uint32_t phase_inc=(uint32_t) ((sax_current_note_freq)*(1 << PHASE_BITS))/SAMPLE_RATE;
+    //grab sample from table
+    //using phase accumulator(assuming isr is hooked indo sample rate)
     sax_phase=(sax_phase_inc+sax_phase) & ((1<<PHASE_BITS)-1);
     new_idx= ((uint64_t) sax_phase * SAXTABLE_SIZE)>>PHASE_BITS;
-    //option b)
-    static uint8 idx = 0;
+    //using old method 
+    // uint8 idx = 0;
+    // if (idx >= SAXTABLE_SIZE) idx = 0;
+    //feed dac
     sax_sample = SaxTable[new_idx];
-    if (idx >= SAXTABLE_SIZE) idx = 0;
-    //call enevelope proccess
-
-    sax_env_out = Envelope_Process(SAMPLE_RATE,SAXTABLE_SIZE,&sax_env_state,&sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
-
+    //call enevelope proccess for sax
+    sax_env_out = Envelope_Process(SAMPLE_RATE,&sax_env_state,&sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
     int16_t zero_centered=(int16_t)sax_sample-128;
     int16_t scaled=(int16_t)zero_centered*sax_env_out;
     sax_enveloped_note=(uint8_t)(scaled+128);
-
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
 }
@@ -163,13 +164,11 @@ CY_ISR(Lcd_ISR){
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
- 
-  
     //init 
     Sax_Env_Init();
     LCD_Char_1_Start();					// initialize lcd
-	LCD_Char_1_ClearDisplay();
-	LCD_Char_1_PrintString("ADC : ");  
+	  LCD_Char_1_ClearDisplay();
+	  LCD_Char_1_PrintString("ADC : ");  
     sax_isr_StartEx(Sax_ISR);
     lcd_isr_StartEx(Lcd_ISR);
    // sax_clk_SetDivider(413);
@@ -179,6 +178,9 @@ int main()
     SaxDac_SetValue(255);
     for(;;)
     {
+      get_note(1,120,0,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+      CyDelay(100);
+     /*
        // sax_clk_SetDivider(3000000/(SaxFreq[0]*32));
         sax_current_note_freq=SaxFreq[0];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
@@ -219,6 +221,8 @@ int main()
         CyDelay(100);
         Envelope_Release(&sax_env_state);
         CyDelay(20);
+
+        */
     }
 }
 
