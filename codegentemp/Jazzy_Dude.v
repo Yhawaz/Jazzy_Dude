@@ -1,6 +1,6 @@
 // ======================================================================
 // Jazzy_Dude.v generated from TopDesign.cysch
-// 05/06/2025 at 16:24
+// 05/07/2025 at 02:02
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -337,8 +337,8 @@ module top ;
 	cy_clock_v1_0
 		#(.id("1439bfc3-c2ed-459d-b4f6-ee47e8596378"),
 		  .source_clock_id("CEF43CFB-0213-49b9-B980-2FFAB81C5B47"),
-		  .divisor(100),
-		  .period("0"),
+		  .divisor(0),
+		  .period("29411764705.8824"),
 		  .is_direct(0),
 		  .is_digital(1))
 		sax_clk
