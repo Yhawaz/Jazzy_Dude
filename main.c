@@ -81,69 +81,62 @@ void Envelope_Release(uint8_t *env_state){
   }
 }
 
-static struct env_return Envelope_Process(float current_note_freq, uint8_t tbl_size,uint8_t env_state,
-                              float env_lvl,float atk_rate,float decay_rate,float sustain_level,
+static float Envelope_Process(float current_note_freq, uint8_t tbl_size,uint8_t *env_state,
+                              float *env_lvl,float atk_rate,float decay_rate,float sustain_level,
                               float release_rate)
 {
     // compute time per tick (seconds)
     led1_Write(~led1_Read());
     float isr_freq = current_note_freq * tbl_size;
     float dt       = 1.0f / isr_freq; //time passed which is pretty versitle imo
-    switch (env_state) {
+    switch (*env_state) {
         case IDLE:
-            env_lvl=0;
+            *env_lvl=0;
            // return 0.0f;
         case ATTACK:
-            env_lvl += atk_rate * dt;
-            if (env_lvl >= 1.0f) {
+            *env_lvl += atk_rate * dt;
+            if (*env_lvl >= 1.0f) {
                //we hit that peak
-                env_lvl = 1.0f;
-                env_state = DECAY;
+                *env_lvl = 1.0f;
+                *env_state = DECAY;
             }
             break;
         case DECAY:
-            env_lvl -= decay_rate * dt;
-            if (env_lvl <= sustain_level) {
-                  env_lvl = sustain_level;
-                  env_state = SUSTAIN;
+            *env_lvl -= decay_rate * dt;
+            if (*env_lvl <= sustain_level) {
+                  *env_lvl = sustain_level;
+                  *env_state = SUSTAIN;
             }
             break;
         case SUSTAIN:
             // hold
             break;
         case RELEASE:
-            env_lvl -= release_rate * dt;
-            if (env_lvl <= 0.0f) {
-                env_lvl = 0.0f;
-                env_state = IDLE;
+            *env_lvl -= release_rate * dt;
+            if (*env_lvl <= 0.0f) {
+                *env_lvl = 0.0f;
+                *env_state = IDLE;
             }
             break;
     }
-   
-    struct env_return ret;
-    ret.env_lvl=env_lvl;
-    ret.env_state=env_state;
-    
-
-    return ret;
+    return *env_lvl;
 }
 //Sax ISR
 CY_ISR(Sax_ISR)
 {
+    //yoink raw sample out of table
     static uint8 idx = 0;
     sax_sample = SaxTable[idx++];
     if (idx >= SAXTABLE_SIZE) idx = 0;
-    //pretty easy to debug tbh
-    struct env_return sax_env_out = Envelope_Process(sax_current_note_freq,SAXTABLE_SIZE,sax_env_state,sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
-    sax_env_lvl=sax_env_out.env_lvl;
-    sax_env_state=sax_env_out.env_state;
-    //awes*ome bug needs to be int16not uint cause we need -128
+    //call enevelope proccess
+    sax_env_out = Envelope_Process(sax_current_note_freq,SAXTABLE_SIZE,&sax_env_state,&sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
+
+    //through odd alias introducing math scale amplitude of wave by whatever the Enveleope dictataes
     int16_t zero_centered=(int16_t)sax_sample-128;
-    int16_t scaled=(int16_t)zero_centered*sax_env_out.env_lvl;
+    int16_t scaled=(int16_t)zero_centered*sax_env_out;
     sax_enveloped_note=(uint8_t)(scaled+128);
-    //Adsr Code Goes Here we can cur from here
+    //set the value
     SaxDac_SetValue(sax_enveloped_note);
-    //sax_isr_ClearPending();
 }
 
 CY_ISR(Lcd_ISR){
@@ -154,12 +147,12 @@ int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
  
-    //Initalize ISR For Sax
   
+    //init 
     Sax_Env_Init();
     LCD_Char_1_Start();					// initialize lcd
-	LCD_Char_1_ClearDisplay();
-	LCD_Char_1_PrintString("ADC : ");  
+	  LCD_Char_1_ClearDisplay();
+	  LCD_Char_1_PrintString("ADC : ");  
     sax_isr_StartEx(Sax_ISR);
     lcd_isr_StartEx(Lcd_ISR);
     sax_clk_SetDivider(413);
