@@ -1,4 +1,4 @@
---------------- Rebuild Started: 05/06/2025 16:06:39 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 05/07/2025 19:05:41 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\main.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cymetadata.o"
@@ -20,6 +20,8 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Char_1.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\lcd_isr.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\led.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\led1.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.hex"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.map"
@@ -32,7 +34,7 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\ARM_C_FILE.P"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\GNU_ARM_ASM_FILE.P"
 cydsfit.exe -.appdatapath "C:\Users\student\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj" -d CY8C5868AXI-LP035 -s "D:\final project\Workspace01\Jazzy_Dude.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
-ADD: pft.M0028: warning: Clock Warning: (Clock_1's accuracy range '1  Hz -50% +100%, (0.5  Hz - 2  Hz)' is not within the specified tolerance range '1  Hz +/- 5%, (0.95  Hz - 1.05  Hz)'.).
+ADD: pft.M0028: warning: Clock Warning: (Clock_1's accuracy range '2  Hz -50% +100%, (1  Hz - 4  Hz)' is not within the specified tolerance range '2  Hz +/- 5%, (1.9  Hz - 2.1  Hz)'.).
  * D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cydwr (Clock_1)
  * D:\final project\Workspace01\Jazzy_Dude.cydsn\TopDesign\TopDesign.cysch (Instance:Clock_1)
 HDL Generation ...
@@ -51,9 +53,6 @@ API Generation ...
 Dependency Generation ...
 Clean Temporary Files ...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-.\main.c:42:20: warning: 'sax_zero_centered' defined but not used [-Wunused-variable]
-     static int16_t sax_zero_centered;
-                    ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Audio_Out.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\Audio_Out.c -o .\CortexM3\ARM_GCC_493\Debug\Audio_Out.o
@@ -74,11 +73,13 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\P
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Char_1_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Char_1_PM.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Char_1_LCDPort.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Char_1_LCDPort.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/lcd_isr.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\lcd_isr.c -o .\CortexM3\ARM_GCC_493\Debug\lcd_isr.o
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\Audio_Out.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\SaxDac.o .\CortexM3\ARM_GCC_493\Debug\SaxDac_PM.o .\CortexM3\ARM_GCC_493\Debug\sax_isr.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\sax_clk.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\lcd_isr.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/led.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\led.c -o .\CortexM3\ARM_GCC_493\Debug\led.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/led1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\led1.c -o .\CortexM3\ARM_GCC_493\Debug\led1.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\Audio_Out.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\SaxDac.o .\CortexM3\ARM_GCC_493\Debug\SaxDac_PM.o .\CortexM3\ARM_GCC_493\Debug\sax_isr.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\sax_clk.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\lcd_isr.o .\CortexM3\ARM_GCC_493\Debug\led.o .\CortexM3\ARM_GCC_493\Debug\led1.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -Og -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Jazzy_Dude.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf" --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf"
-Flash used: 4608 of 262144 bytes (1.8%).
-SRAM used: 2525 of 65536 bytes (3.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 05/06/2025 16:06:51 ---------------
+Flash used: 6912 of 262144 bytes (2.6%).
+SRAM used: 2549 of 65536 bytes (3.9%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 05/07/2025 19:05:52 ---------------

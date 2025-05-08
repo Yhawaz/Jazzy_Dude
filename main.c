@@ -13,7 +13,7 @@
 
 //Parameters
 #define SAXTABLE_SIZE 32u
-#define SAMPLE_RATE 35000.0
+#define SAMPLE_RATE 24000.0
 #define PHASE_BITS 24
 
 //Tables for Freq's and Waveforms
@@ -41,10 +41,14 @@ const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 2
     uint8_t sax_enveloped_note;
     float sax_env_out;
 
-    float SAX_ATTACK_TIME = .015;
+    float SAX_ATTACK_TIME = .1;
     float SAX_SUSTAIN_LEVEL = .7;
     float SAX_RELEASE_TIME = .3;
     float SAX_DECAY_TIME =.2;
+
+
+    float time_scale;
+    float duration;
  //Envelope Vars;
     enum {
         IDLE,
@@ -94,6 +98,7 @@ float Envelope_Process(float isr_freq,uint8_t *env_state,
     switch (*env_state) {
         case IDLE:
             *env_lvl=0;
+            break;
            // return 0.0f;
         case ATTACK:
             *env_lvl += atk_rate * dt;
@@ -124,16 +129,27 @@ float Envelope_Process(float isr_freq,uint8_t *env_state,
     return *env_lvl;
 }
 //get Sax_Note_Func
-void get_note(uint8_t note_type, uint8_t bpm, uint8_t note, float *inst_freq, uint32_t *inst_phase_inc,uint8_t *env_state){
+void play_sax(uint8_t note_type, uint8_t bpm, uint8_t note, float *inst_freq, uint32_t *inst_phase_inc,uint8_t *env_state){
+    
+   //calculate note frequency and [hase
    *inst_freq=SaxFreq[note];
    calc_phase(SaxFreq[note],inst_phase_inc); 
-   Envelope_Pressed(env_state);
-   float msPerQuarter=60000/bpm;
-   float time_scale=4/note_type;
-   float durationF=msPerQuarter*time_scale;
-   uint32_t dt=(uint32_t)durationF+.5;
+   //calculate time to play note
+   float msPerQuarter=60000/(float)bpm;
+   time_scale=4.0/(float)note_type;
+   duration=msPerQuarter*time_scale;
+   uint32_t dt=(uint32_t)duration+.5;
+   //use that calculation to find the sacles
+   SAX_ATTACK_TIME=(.12f*dt>90.0)? 90.0:.12f*dt;
+   SAX_RELEASE_TIME=(dt<250.0)? 0:.05*dt;
+   SAX_DECAY_TIME= (dt<180) ? .07f*dt: (.2*dt>110)? 110:.2*dt;
+   
+   //calculate time it takes to play note
+    Envelope_Pressed(env_state);
+ 
    CyDelay(dt);
    Envelope_Release(env_state);
+   CyDelay(SAX_RELEASE_TIME);
 }
 //Sax ISR
 
@@ -142,7 +158,7 @@ CY_ISR(Sax_ISR)
     //grab sample from table
     //using phase accumulator(assuming isr is hooked indo sample rate)
     sax_phase=(sax_phase_inc+sax_phase) & ((1<<PHASE_BITS)-1);
-    new_idx= ((uint64_t) sax_phase * SAXTABLE_SIZE)>>PHASE_BITS;
+    new_idx= ((uint64_t) sax_phase << 5)>>PHASE_BITS;
     //using old method 
     // uint8 idx = 0;
     // if (idx >= SAXTABLE_SIZE) idx = 0;
@@ -151,7 +167,7 @@ CY_ISR(Sax_ISR)
     //call enevelope proccess for sax
     sax_env_out = Envelope_Process(SAMPLE_RATE,&sax_env_state,&sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
     int16_t zero_centered=(int16_t)sax_sample-128;
-    int16_t scaled=(int16_t)zero_centered*sax_env_out;
+    float scaled=(float)zero_centered*sax_env_out;
     sax_enveloped_note=(uint8_t)(scaled+128);
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
@@ -159,7 +175,8 @@ CY_ISR(Sax_ISR)
 
 CY_ISR(Lcd_ISR){
     LCD_Char_1_Position(0, 6);
-    LCD_Char_1_PrintNumber(new_idx);
+    LCD_Char_1_PrintNumber(duration);
+ 
 }
 int main()
 {
@@ -178,41 +195,44 @@ int main()
     SaxDac_SetValue(255);
     for(;;)
     {
-      get_note(1,120,0,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
-      CyDelay(100);
-     /*
+       play_sax(2,120,0,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       CyDelay(100);
+       //play_sax(4,120,1,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       //play_sax(4,120,2,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       //play_sax(4,120,3,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       /*
        // sax_clk_SetDivider(3000000/(SaxFreq[0]*32));
         sax_current_note_freq=SaxFreq[0];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
         Envelope_Pressed(&sax_env_state);
         CyDelay(600);
         Envelope_Release(&sax_env_state);
-        CyDelay(10);
+        CyDelay(100);
         //sax_clk_SetDivider(3000000/(SaxFreq[4]*32));
         sax_current_note_freq=SaxFreq[4];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
         Envelope_Pressed(&sax_env_state);
         CyDelay(50);
         Envelope_Release(&sax_env_state);
-        CyDelay(10);
-                sax_current_note_freq=SaxFreq[5];
+        CyDelay(100);
+        sax_current_note_freq=SaxFreq[5];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
         Envelope_Pressed(&sax_env_state);
-        CyDelay(10);
+        CyDelay(100);
         Envelope_Release(&sax_env_state);
-        CyDelay(10);
+        CyDelay(100);
                 sax_current_note_freq=SaxFreq[6];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
         Envelope_Pressed(&sax_env_state);
         CyDelay(50);
         Envelope_Release(&sax_env_state);
-        CyDelay(10);
+        CyDelay(100);
                 sax_current_note_freq=SaxFreq[7];
         calc_phase(sax_current_note_freq,&sax_phase_inc);
         Envelope_Pressed(&sax_env_state);
         CyDelay(10);
         Envelope_Release(&sax_env_state);
-        CyDelay(10);
+        CyDelay(100);
         
       //  sax_clk_SetDivider(3000000/(SaxFreq[2]*32));
         sax_current_note_freq=SaxFreq[8];
@@ -221,8 +241,8 @@ int main()
         CyDelay(100);
         Envelope_Release(&sax_env_state);
         CyDelay(20);
-
-        */
+*/
+        
     }
 }
 
