@@ -114,6 +114,9 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\led1.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\testy_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\testy.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\testy.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\final project\Workspace01\Jazzy_Dude.cydsn\Export\ARM_GCC_Generic">

@@ -1,5 +1,5 @@
-D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj|944743ba-b359-47de-b15d-ae1286492d5b
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fd1a0cda-4d13-429d-bd1b-3f708cba1c37
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|fa98f77f-6fb2-4b8a-bdf2-d80d5277958b
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5f88dcee-ae75-47ee-b1f7-c4224be56b81
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6b50275a-7d8b-40a7-b62a-a1b6f8cc7d16
+D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj|d7745158-4c7c-438e-9588-9b32f232d778
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5195f81c-436e-41ad-8a97-94eb1650804f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|bd1b0a16-3f59-49a6-9a5a-078205cad693
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|10db4bd2-cef3-46f0-adf9-436c401c95f4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9de46673-5cd5-4a10-ba33-0ce1e7f6b832

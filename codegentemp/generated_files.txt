@@ -43,6 +43,9 @@
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1_aliases.h" value="NONE;led1" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1.c" value="ARM_C_FILE;led1" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\led1.h" value="NONE;led1" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy_aliases.h" value="NONE;testy" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy.c" value="ARM_C_FILE;testy" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy.h" value="NONE;testy" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort_aliases.h" value="NONE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.c" value="ARM_C_FILE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.h" value="NONE;LCD_Char_1_LCDPort" />

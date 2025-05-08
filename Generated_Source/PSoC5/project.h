@@ -31,6 +31,8 @@
 #include "led.h"
 #include "led1_aliases.h"
 #include "led1.h"
+#include "testy_aliases.h"
+#include "testy.h"
 #include "LCD_Char_1_LCDPort_aliases.h"
 #include "LCD_Char_1_LCDPort.h"
 #include "core_cm3_psoc5.h"

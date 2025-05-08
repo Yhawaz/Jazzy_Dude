@@ -12,15 +12,19 @@
 #include <project.h>
 
 //Parameters
-#define SAXTABLE_SIZE 32u
+#define SAXTABLE_SIZE 64u
 #define SAMPLE_RATE 24000.0
 #define PHASE_BITS 24
 
 //Tables for Freq's and Waveforms
-const uint8 SaxTable[SAXTABLE_SIZE] = {    222, 252, 220, 140, 119, 142, 138,  96,
-     67,  56,   9,   0,  65, 102,  93,  91,
-    116, 142, 156, 166, 183, 187, 166, 145,
-    136, 126, 117, 119, 128, 126, 118, 139
+const uint8 SaxTable[SAXTABLE_SIZE] = {    220, 241, 244, 238, 220, 183, 139, 115,
+    117, 131, 142, 146, 140, 122,  95,  73,
+     67,  69,  64,  42,  12,   0,   0,  32,
+     71,  97, 103,  98,  90,  88,  93, 105,
+    118, 131, 140, 148, 154, 159, 166, 174,
+    182, 185, 183, 176, 164, 153, 146, 142,
+    136, 129, 124, 121, 118, 117, 121, 127,
+    127, 124, 124, 125, 121, 119, 137, 179  
 };
 
 const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
@@ -49,6 +53,7 @@ const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 2
 
     float time_scale;
     float duration;
+    uint32_t dt;
  //Envelope Vars;
     enum {
         IDLE,
@@ -138,16 +143,20 @@ void play_sax(uint8_t note_type, uint8_t bpm, uint8_t note, float *inst_freq, ui
    float msPerQuarter=60000/(float)bpm;
    time_scale=4.0/(float)note_type;
    duration=msPerQuarter*time_scale;
-   uint32_t dt=(uint32_t)duration+.5;
+   //dt=(uint32_t)duration+.5;
+   dt=2;
    //use that calculation to find the sacles
-   SAX_ATTACK_TIME=(.12f*dt>90.0)? 90.0:.12f*dt;
-   SAX_RELEASE_TIME=(dt<250.0)? 0:.05*dt;
-   SAX_DECAY_TIME= (dt<180) ? .07f*dt: (.2*dt>110)? 110:.2*dt;
+   SAX_ATTACK_TIME=((.12f*dt>90.0)? 90.0:.12f*dt)/1000;
+   //SAX_RELEASE_TIME=(dt<250.0)? 0:(.05*dt)/1000;
+   SAX_RELEASE_TIME=0;
+   SAX_DECAY_TIME= ((dt<180) ? .07f*dt: (.2*dt>110)? 110:.2*dt)/1000;
    
    //calculate time it takes to play note
-    Envelope_Pressed(env_state);
- 
+    
+   testy_Write(~testy_Read());
+   Envelope_Pressed(env_state);
    CyDelay(dt);
+   testy_Write(~testy_Read());
    Envelope_Release(env_state);
    CyDelay(SAX_RELEASE_TIME);
 }
@@ -158,7 +167,7 @@ CY_ISR(Sax_ISR)
     //grab sample from table
     //using phase accumulator(assuming isr is hooked indo sample rate)
     sax_phase=(sax_phase_inc+sax_phase) & ((1<<PHASE_BITS)-1);
-    new_idx= ((uint64_t) sax_phase << 5)>>PHASE_BITS;
+    new_idx= ((uint64_t) sax_phase << 6)>>PHASE_BITS;
     //using old method 
     // uint8 idx = 0;
     // if (idx >= SAXTABLE_SIZE) idx = 0;
@@ -175,7 +184,7 @@ CY_ISR(Sax_ISR)
 
 CY_ISR(Lcd_ISR){
     LCD_Char_1_Position(0, 6);
-    LCD_Char_1_PrintNumber(duration);
+    LCD_Char_1_PrintNumber(dt);
  
 }
 int main()
@@ -195,7 +204,14 @@ int main()
     SaxDac_SetValue(255);
     for(;;)
     {
-       play_sax(2,120,0,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       play_sax(16,120,5,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       testy_Write(~testy_Read());
+       CyDelay(100);
+       play_sax(16,120,6,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       testy_Write(~testy_Read());
+       CyDelay(100);
+       play_sax(4,120,7,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
+       testy_Write(~testy_Read());
        CyDelay(100);
        //play_sax(4,120,1,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);
        //play_sax(4,120,2,&sax_current_note_freq,&sax_phase_inc,&sax_env_state);

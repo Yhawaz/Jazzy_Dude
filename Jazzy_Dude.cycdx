@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="lcd_isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="led1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="testy" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="lcd_isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="sax_isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SaxDac" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="viDAC8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
