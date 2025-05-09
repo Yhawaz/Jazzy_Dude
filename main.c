@@ -51,6 +51,9 @@ const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 2
     float SAX_DECAY_TIME =.2;
 
 
+    
+
+
     float time_scale;
     float duration;
     uint32_t dt;
@@ -80,7 +83,7 @@ void Sax_Env_Init(void){
 
 void Envelope_Pressed(uint8_t *env_state){
     *env_state=ATTACK;
-    led_Write(~led_Read());
+   // led_Write(~led_Read());
 }
 void Envelope_Release(uint8_t *env_state){
   if(*env_state!=IDLE){
@@ -144,7 +147,7 @@ void play_sax(uint8_t note_type, uint8_t bpm, uint8_t note, float *inst_freq, ui
    time_scale=4.0/(float)note_type;
    duration=msPerQuarter*time_scale;
    //dt=(uint32_t)duration+.5;
-   dt=2;
+   dt=1;
    //use that calculation to find the sacles
    SAX_ATTACK_TIME=((.12f*dt>90.0)? 90.0:.12f*dt)/1000;
    //SAX_RELEASE_TIME=(dt<250.0)? 0:(.05*dt)/1000;
@@ -166,6 +169,7 @@ CY_ISR(Sax_ISR)
 {
     //grab sample from table
     //using phase accumulator(assuming isr is hooked indo sample rate)
+    
     sax_phase=(sax_phase_inc+sax_phase) & ((1<<PHASE_BITS)-1);
     new_idx= ((uint64_t) sax_phase << 6)>>PHASE_BITS;
     //using old method 
@@ -174,12 +178,21 @@ CY_ISR(Sax_ISR)
     //feed dac
     sax_sample = SaxTable[new_idx];
     //call enevelope proccess for sax
+    uint8_t meow;
+    float rawr;
+    led_Write(1);
     sax_env_out = Envelope_Process(SAMPLE_RATE,&sax_env_state,&sax_env_lvl,sax_atk_rate,sax_decay_rate,SAX_SUSTAIN_LEVEL,sax_release_rate);
+    
+    led_Write(0);
     int16_t zero_centered=(int16_t)sax_sample-128;
     float scaled=(float)zero_centered*sax_env_out;
     sax_enveloped_note=(uint8_t)(scaled+128);
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
+
+    
+    
+    
 }
 
 CY_ISR(Lcd_ISR){
