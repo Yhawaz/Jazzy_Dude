@@ -1,5 +1,5 @@
 -- Project:   D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj
--- Generated: 05/08/2025 12:04:57
+-- Generated: 05/09/2025 15:58:41
 -- PSoC Creator  3.3 CP3
 
 ENTITY Jazzy_Dude IS
@@ -44,6 +44,9 @@ ARCHITECTURE __DEFAULT__ OF Jazzy_Dude IS
     SIGNAL Net_790 : bit;
     ATTRIBUTE global_signal OF Net_790 : SIGNAL IS true;
     SIGNAL Net_790_local : bit;
+    SIGNAL Net_821 : bit;
+    ATTRIBUTE global_signal OF Net_821 : SIGNAL IS true;
+    SIGNAL Net_821_local : bit;
     SIGNAL \\\LCD_Char_1:LCDPort(0)\\__PA\ : bit;
     SIGNAL \\\LCD_Char_1:LCDPort(1)\\__PA\ : bit;
     SIGNAL \\\LCD_Char_1:LCDPort(2)\\__PA\ : bit;
@@ -86,8 +89,10 @@ ARCHITECTURE __DEFAULT__ OF Jazzy_Dude IS
     ATTRIBUTE lib_model OF testy(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF testy(0) : LABEL IS "P6[6]";
     ATTRIBUTE Location OF \SaxDac:viDAC8\ : LABEL IS "F(VIDAC,0)";
-    ATTRIBUTE Location OF sax_isr : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
+    ATTRIBUTE Location OF sax_isr : LABEL IS "[IntrContainer=(0)][IntrId=(2)]";
     ATTRIBUTE Location OF lcd_isr : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
+    ATTRIBUTE Location OF \PianoDac:viDAC8\ : LABEL IS "F(VIDAC,2)";
+    ATTRIBUTE Location OF piano_isr : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -236,8 +241,10 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => Net_787,
             dclk_0 => Net_787_local,
-            dclk_glb_1 => Net_790,
-            dclk_1 => Net_790_local);
+            dclk_glb_1 => Net_821,
+            dclk_1 => Net_821_local,
+            dclk_glb_2 => Net_790,
+            dclk_2 => Net_790_local);
 
     Audio_Out:logicalport
         GENERIC MAP(
@@ -824,6 +831,23 @@ BEGIN
             int_type => "10")
         PORT MAP(
             interrupt => Net_790_local,
+            clock => ClockBlock_BUS_CLK);
+
+    \PianoDac:viDAC8\:vidaccell
+        GENERIC MAP(
+            cy_registers => "",
+            is_all_if_any => 0,
+            reg_data => 0)
+        PORT MAP(
+            reset => open,
+            idir => open,
+            ioff => open);
+
+    piano_isr:interrupt
+        GENERIC MAP(
+            int_type => "10")
+        PORT MAP(
+            interrupt => Net_821_local,
             clock => ClockBlock_BUS_CLK);
 
 END __DEFAULT__;

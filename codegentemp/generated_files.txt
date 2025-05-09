@@ -46,6 +46,13 @@
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy_aliases.h" value="NONE;testy" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy.c" value="ARM_C_FILE;testy" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\testy.h" value="NONE;testy" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\PianoDac.c" value="ARM_C_FILE;PianoDac" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\PianoDac.h" value="NONE;PianoDac" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\PianoDac_PM.c" value="ARM_C_FILE;PianoDac" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\piano_clk.c" value="ARM_C_FILE;piano_clk" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\piano_clk.h" value="NONE;piano_clk" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\piano_isr.c" value="ARM_C_FILE;piano_isr" />
+  <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\piano_isr.h" value="NONE;piano_isr" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort_aliases.h" value="NONE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.c" value="ARM_C_FILE;LCD_Char_1_LCDPort" />
   <file name="D:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.h" value="NONE;LCD_Char_1_LCDPort" />

@@ -2,7 +2,7 @@
 --	Conversion of Jazzy_Dude.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu May 08 12:04:55 2025
+--	Fri May 09 15:58:39 2025
 --
 
 USE cypress.cypress.all;
@@ -64,6 +64,11 @@ SIGNAL tmpFB_0__testy_net_0 : bit;
 SIGNAL tmpIO_0__testy_net_0 : bit;
 TERMINAL tmpSIOVREF__testy_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__testy_net_0 : bit;
+SIGNAL \PianoDac:Net_83\ : bit;
+SIGNAL \PianoDac:Net_81\ : bit;
+SIGNAL \PianoDac:Net_82\ : bit;
+TERMINAL \PianoDac:Net_77\ : bit;
+SIGNAL Net_821 : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -467,5 +472,33 @@ testy:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Audio_Out_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__testy_net_0);
+\PianoDac:viDAC8\:cy_psoc3_vidac8_v1_0
+	GENERIC MAP(cy_registers=>"",
+		reg_data=>'0',
+		is_all_if_any=>'0')
+	PORT MAP(reset=>zero,
+		idir=>zero,
+		ioff=>zero,
+		data=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		strobe=>zero,
+		strobe_udb=>zero,
+		vout=>Net_711,
+		iout=>\PianoDac:Net_77\);
+\PianoDac:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\PianoDac:Net_77\);
+piano_clk:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"346b829c-27da-4570-b892-d06558bdeea4",
+		source_clock_id=>"CEF43CFB-0213-49b9-B980-2FFAB81C5B47",
+		divisor=>0,
+		period=>"83333333333.3333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_821,
+		dig_domain_out=>open);
+piano_isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>Net_821);
 
 END R_T_L;

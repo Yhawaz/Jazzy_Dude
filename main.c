@@ -54,8 +54,8 @@ const uint8 PianoTable[PIANOTABLE_SIZE] = {        114, 115, 115, 112, 110, 108,
 };
 
 const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
-const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
-// const float PianoFreq [12]={350,350,350,350,350,350,350,350,350,350,350,350};
+//const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
+const float PianoFreq [12]={350,350,350,350,350,350,350,350,350,350,350,350};
 //Global Vals(For Debugging Via LCD ISR)
 //
     //global
@@ -303,9 +303,9 @@ int main()
       piano_current_note_freq=PianoFreq[x++];
       calc_phase(piano_current_note_freq,&piano_phase_inc,PIANO_SAMPLE_RATE);
       Envelope_Pressed(&piano_env_state);
-      CyDelay(100);
-      Envelope_Release(&piano_env_state);
-      CyDelay(100);
+       CyDelay(100);
+       Envelope_Release(&piano_env_state);
+        CyDelay(100);
     
         
        

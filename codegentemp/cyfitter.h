@@ -130,15 +130,15 @@
 #define SaxDac_viDAC8__TST CYREG_DAC0_TST
 
 /* Clock_1 */
-#define Clock_1__CFG0 CYREG_CLKDIST_DCFG1_CFG0
-#define Clock_1__CFG1 CYREG_CLKDIST_DCFG1_CFG1
-#define Clock_1__CFG2 CYREG_CLKDIST_DCFG1_CFG2
+#define Clock_1__CFG0 CYREG_CLKDIST_DCFG2_CFG0
+#define Clock_1__CFG1 CYREG_CLKDIST_DCFG2_CFG1
+#define Clock_1__CFG2 CYREG_CLKDIST_DCFG2_CFG2
 #define Clock_1__CFG2_SRC_SEL_MASK 0x07u
-#define Clock_1__INDEX 0x01u
+#define Clock_1__INDEX 0x02u
 #define Clock_1__PM_ACT_CFG CYREG_PM_ACT_CFG2
-#define Clock_1__PM_ACT_MSK 0x02u
+#define Clock_1__PM_ACT_MSK 0x04u
 #define Clock_1__PM_STBY_CFG CYREG_PM_STBY_CFG2
-#define Clock_1__PM_STBY_MSK 0x02u
+#define Clock_1__PM_STBY_MSK 0x04u
 
 /* lcd_isr */
 #define lcd_isr__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
@@ -164,12 +164,36 @@
 /* sax_isr */
 #define sax_isr__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
 #define sax_isr__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
-#define sax_isr__INTC_MASK 0x02u
-#define sax_isr__INTC_NUMBER 1u
+#define sax_isr__INTC_MASK 0x04u
+#define sax_isr__INTC_NUMBER 2u
 #define sax_isr__INTC_PRIOR_NUM 0u
-#define sax_isr__INTC_PRIOR_REG CYREG_NVIC_PRI_1
+#define sax_isr__INTC_PRIOR_REG CYREG_NVIC_PRI_2
 #define sax_isr__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define sax_isr__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
+
+/* PianoDac_viDAC8 */
+#define PianoDac_viDAC8__CR0 CYREG_DAC2_CR0
+#define PianoDac_viDAC8__CR1 CYREG_DAC2_CR1
+#define PianoDac_viDAC8__D CYREG_DAC2_D
+#define PianoDac_viDAC8__PM_ACT_CFG CYREG_PM_ACT_CFG8
+#define PianoDac_viDAC8__PM_ACT_MSK 0x04u
+#define PianoDac_viDAC8__PM_STBY_CFG CYREG_PM_STBY_CFG8
+#define PianoDac_viDAC8__PM_STBY_MSK 0x04u
+#define PianoDac_viDAC8__STROBE CYREG_DAC2_STROBE
+#define PianoDac_viDAC8__SW0 CYREG_DAC2_SW0
+#define PianoDac_viDAC8__SW2 CYREG_DAC2_SW2
+#define PianoDac_viDAC8__SW3 CYREG_DAC2_SW3
+#define PianoDac_viDAC8__SW4 CYREG_DAC2_SW4
+#define PianoDac_viDAC8__TR CYREG_DAC2_TR
+#define PianoDac_viDAC8__TRIM__M1 CYREG_FLSHID_CUST_TABLES_DAC2_M1
+#define PianoDac_viDAC8__TRIM__M2 CYREG_FLSHID_CUST_TABLES_DAC2_M2
+#define PianoDac_viDAC8__TRIM__M3 CYREG_FLSHID_CUST_TABLES_DAC2_M3
+#define PianoDac_viDAC8__TRIM__M4 CYREG_FLSHID_CUST_TABLES_DAC2_M4
+#define PianoDac_viDAC8__TRIM__M5 CYREG_FLSHID_CUST_TABLES_DAC2_M5
+#define PianoDac_viDAC8__TRIM__M6 CYREG_FLSHID_CUST_TABLES_DAC2_M6
+#define PianoDac_viDAC8__TRIM__M7 CYREG_FLSHID_CUST_TABLES_DAC2_M7
+#define PianoDac_viDAC8__TRIM__M8 CYREG_FLSHID_CUST_TABLES_DAC2_M8
+#define PianoDac_viDAC8__TST CYREG_DAC2_TST
 
 /* Audio_Out */
 #define Audio_Out__0__INTTYPE CYREG_PICU6_INTTYPE0
@@ -204,6 +228,27 @@
 #define Audio_Out__PS CYREG_PRT6_PS
 #define Audio_Out__SHIFT 0u
 #define Audio_Out__SLW CYREG_PRT6_SLW
+
+/* piano_clk */
+#define piano_clk__CFG0 CYREG_CLKDIST_DCFG1_CFG0
+#define piano_clk__CFG1 CYREG_CLKDIST_DCFG1_CFG1
+#define piano_clk__CFG2 CYREG_CLKDIST_DCFG1_CFG2
+#define piano_clk__CFG2_SRC_SEL_MASK 0x07u
+#define piano_clk__INDEX 0x01u
+#define piano_clk__PM_ACT_CFG CYREG_PM_ACT_CFG2
+#define piano_clk__PM_ACT_MSK 0x02u
+#define piano_clk__PM_STBY_CFG CYREG_PM_STBY_CFG2
+#define piano_clk__PM_STBY_MSK 0x02u
+
+/* piano_isr */
+#define piano_isr__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
+#define piano_isr__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
+#define piano_isr__INTC_MASK 0x02u
+#define piano_isr__INTC_NUMBER 1u
+#define piano_isr__INTC_PRIOR_NUM 2u
+#define piano_isr__INTC_PRIOR_REG CYREG_NVIC_PRI_1
+#define piano_isr__INTC_SET_EN_REG CYREG_NVIC_SETENA0
+#define piano_isr__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
 
 /* LCD_Char_1_LCDPort */
 #define LCD_Char_1_LCDPort__0__INTTYPE CYREG_PICU2_INTTYPE0
@@ -381,7 +426,7 @@
 #define CYDEV_ECC_ENABLE 0
 #define CYDEV_HEAP_SIZE 0x80
 #define CYDEV_INSTRUCT_CACHE_ENABLED 1
-#define CYDEV_INTR_RISING 0x00000003u
+#define CYDEV_INTR_RISING 0x00000007u
 #define CYDEV_IS_EXPORTING_CODE 0
 #define CYDEV_IS_IMPORTING_CODE 0
 #define CYDEV_PROJ_TYPE 0

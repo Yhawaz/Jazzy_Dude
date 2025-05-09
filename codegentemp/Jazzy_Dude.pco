@@ -1,5 +1,5 @@
 # Jazzy_Dude
-# 2025-05-08 16:04:56Z
+# 2025-05-09 19:58:40Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -20,5 +20,7 @@ set_io "led(0)" iocell 6 3
 set_io "led1(0)" iocell 6 2
 set_io "testy(0)" iocell 6 6
 set_location "\SaxDac:viDAC8\" vidaccell -1 -1 0
-set_location "sax_isr" interrupt -1 -1 1
+set_location "sax_isr" interrupt -1 -1 2
 set_location "lcd_isr" interrupt -1 -1 0
+set_location "\PianoDac:viDAC8\" vidaccell -1 -1 2
+set_location "piano_isr" interrupt -1 -1 1

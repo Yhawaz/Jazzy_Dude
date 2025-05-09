@@ -1,6 +1,6 @@
 // ======================================================================
 // Jazzy_Dude.v generated from TopDesign.cysch
-// 05/08/2025 at 12:04
+// 05/09/2025 at 15:58
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -231,16 +231,67 @@ module CharLCD_v2_20_1 ;
 
 endmodule
 
+// VDAC8_v1_90(Data_Source=0, Initial_Value=100, Strobe_Mode=0, VDAC_Range=0, VDAC_Speed=2, Voltage=400, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=VDAC8_v1_90, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PianoDac, CY_INSTANCE_SHORT_NAME=PianoDac, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=90, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=PianoDac, )
+module VDAC8_v1_90_2 (
+    strobe,
+    data,
+    vOut);
+    input       strobe;
+    input      [7:0] data;
+    inout       vOut;
+    electrical  vOut;
+
+    parameter Data_Source = 0;
+    parameter Initial_Value = 100;
+    parameter Strobe_Mode = 0;
+
+    electrical  Net_77;
+          wire  Net_83;
+          wire  Net_82;
+          wire  Net_81;
+
+    cy_psoc3_vidac8_v1_0 viDAC8 (
+        .reset(Net_83),
+        .idir(Net_81),
+        .data(data[7:0]),
+        .strobe(strobe),
+        .vout(vOut),
+        .iout(Net_77),
+        .ioff(Net_82),
+        .strobe_udb(strobe));
+    defparam viDAC8.is_all_if_any = 0;
+    defparam viDAC8.reg_data = 0;
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_81));
+
+    ZeroTerminal ZeroTerminal_2 (
+        .z(Net_82));
+
+    ZeroTerminal ZeroTerminal_3 (
+        .z(Net_83));
+
+    cy_analog_noconnect_v1_0 cy_analog_noconnect_1 (
+        .noconnect(Net_77));
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_877;
+          wire [7:0] Net_806;
+          wire  Net_805;
           wire  Net_797;
           wire  Net_784;
           wire [7:0] Net_697;
           wire  Net_696;
+          wire  Net_821;
+    electrical  Net_711;
           wire  Net_790;
           wire  Net_787;
-    electrical  Net_711;
 
     VDAC8_v1_90_0 SaxDac (
         .strobe(1'b0),
@@ -590,6 +641,33 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__testy_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+    VDAC8_v1_90_2 PianoDac (
+        .strobe(1'b0),
+        .data(8'b00000000),
+        .vOut(Net_711));
+    defparam PianoDac.Data_Source = 0;
+    defparam PianoDac.Initial_Value = 100;
+    defparam PianoDac.Strobe_Mode = 0;
+
+
+	cy_clock_v1_0
+		#(.id("346b829c-27da-4570-b892-d06558bdeea4"),
+		  .source_clock_id("CEF43CFB-0213-49b9-B980-2FFAB81C5B47"),
+		  .divisor(0),
+		  .period("83333333333.3333"),
+		  .is_direct(0),
+		  .is_digital(1))
+		piano_clk
+		 (.clock_out(Net_821));
+
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		piano_isr
+		 (.int_signal(Net_821));
+
 
 
 

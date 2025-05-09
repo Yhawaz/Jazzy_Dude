@@ -130,15 +130,15 @@
 .set SaxDac_viDAC8__TST, CYREG_DAC0_TST
 
 /* Clock_1 */
-.set Clock_1__CFG0, CYREG_CLKDIST_DCFG1_CFG0
-.set Clock_1__CFG1, CYREG_CLKDIST_DCFG1_CFG1
-.set Clock_1__CFG2, CYREG_CLKDIST_DCFG1_CFG2
+.set Clock_1__CFG0, CYREG_CLKDIST_DCFG2_CFG0
+.set Clock_1__CFG1, CYREG_CLKDIST_DCFG2_CFG1
+.set Clock_1__CFG2, CYREG_CLKDIST_DCFG2_CFG2
 .set Clock_1__CFG2_SRC_SEL_MASK, 0x07
-.set Clock_1__INDEX, 0x01
+.set Clock_1__INDEX, 0x02
 .set Clock_1__PM_ACT_CFG, CYREG_PM_ACT_CFG2
-.set Clock_1__PM_ACT_MSK, 0x02
+.set Clock_1__PM_ACT_MSK, 0x04
 .set Clock_1__PM_STBY_CFG, CYREG_PM_STBY_CFG2
-.set Clock_1__PM_STBY_MSK, 0x02
+.set Clock_1__PM_STBY_MSK, 0x04
 
 /* lcd_isr */
 .set lcd_isr__INTC_CLR_EN_REG, CYREG_NVIC_CLRENA0
@@ -164,12 +164,36 @@
 /* sax_isr */
 .set sax_isr__INTC_CLR_EN_REG, CYREG_NVIC_CLRENA0
 .set sax_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
-.set sax_isr__INTC_MASK, 0x02
-.set sax_isr__INTC_NUMBER, 1
+.set sax_isr__INTC_MASK, 0x04
+.set sax_isr__INTC_NUMBER, 2
 .set sax_isr__INTC_PRIOR_NUM, 0
-.set sax_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_1
+.set sax_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_2
 .set sax_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set sax_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
+
+/* PianoDac_viDAC8 */
+.set PianoDac_viDAC8__CR0, CYREG_DAC2_CR0
+.set PianoDac_viDAC8__CR1, CYREG_DAC2_CR1
+.set PianoDac_viDAC8__D, CYREG_DAC2_D
+.set PianoDac_viDAC8__PM_ACT_CFG, CYREG_PM_ACT_CFG8
+.set PianoDac_viDAC8__PM_ACT_MSK, 0x04
+.set PianoDac_viDAC8__PM_STBY_CFG, CYREG_PM_STBY_CFG8
+.set PianoDac_viDAC8__PM_STBY_MSK, 0x04
+.set PianoDac_viDAC8__STROBE, CYREG_DAC2_STROBE
+.set PianoDac_viDAC8__SW0, CYREG_DAC2_SW0
+.set PianoDac_viDAC8__SW2, CYREG_DAC2_SW2
+.set PianoDac_viDAC8__SW3, CYREG_DAC2_SW3
+.set PianoDac_viDAC8__SW4, CYREG_DAC2_SW4
+.set PianoDac_viDAC8__TR, CYREG_DAC2_TR
+.set PianoDac_viDAC8__TRIM__M1, CYREG_FLSHID_CUST_TABLES_DAC2_M1
+.set PianoDac_viDAC8__TRIM__M2, CYREG_FLSHID_CUST_TABLES_DAC2_M2
+.set PianoDac_viDAC8__TRIM__M3, CYREG_FLSHID_CUST_TABLES_DAC2_M3
+.set PianoDac_viDAC8__TRIM__M4, CYREG_FLSHID_CUST_TABLES_DAC2_M4
+.set PianoDac_viDAC8__TRIM__M5, CYREG_FLSHID_CUST_TABLES_DAC2_M5
+.set PianoDac_viDAC8__TRIM__M6, CYREG_FLSHID_CUST_TABLES_DAC2_M6
+.set PianoDac_viDAC8__TRIM__M7, CYREG_FLSHID_CUST_TABLES_DAC2_M7
+.set PianoDac_viDAC8__TRIM__M8, CYREG_FLSHID_CUST_TABLES_DAC2_M8
+.set PianoDac_viDAC8__TST, CYREG_DAC2_TST
 
 /* Audio_Out */
 .set Audio_Out__0__INTTYPE, CYREG_PICU6_INTTYPE0
@@ -204,6 +228,27 @@
 .set Audio_Out__PS, CYREG_PRT6_PS
 .set Audio_Out__SHIFT, 0
 .set Audio_Out__SLW, CYREG_PRT6_SLW
+
+/* piano_clk */
+.set piano_clk__CFG0, CYREG_CLKDIST_DCFG1_CFG0
+.set piano_clk__CFG1, CYREG_CLKDIST_DCFG1_CFG1
+.set piano_clk__CFG2, CYREG_CLKDIST_DCFG1_CFG2
+.set piano_clk__CFG2_SRC_SEL_MASK, 0x07
+.set piano_clk__INDEX, 0x01
+.set piano_clk__PM_ACT_CFG, CYREG_PM_ACT_CFG2
+.set piano_clk__PM_ACT_MSK, 0x02
+.set piano_clk__PM_STBY_CFG, CYREG_PM_STBY_CFG2
+.set piano_clk__PM_STBY_MSK, 0x02
+
+/* piano_isr */
+.set piano_isr__INTC_CLR_EN_REG, CYREG_NVIC_CLRENA0
+.set piano_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
+.set piano_isr__INTC_MASK, 0x02
+.set piano_isr__INTC_NUMBER, 1
+.set piano_isr__INTC_PRIOR_NUM, 2
+.set piano_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_1
+.set piano_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
+.set piano_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
 
 /* LCD_Char_1_LCDPort */
 .set LCD_Char_1_LCDPort__0__INTTYPE, CYREG_PICU2_INTTYPE0
@@ -379,7 +424,7 @@
 .set CYDEV_ECC_ENABLE, 0
 .set CYDEV_HEAP_SIZE, 0x80
 .set CYDEV_INSTRUCT_CACHE_ENABLED, 1
-.set CYDEV_INTR_RISING, 0x00000003
+.set CYDEV_INTR_RISING, 0x00000007
 .set CYDEV_IS_EXPORTING_CODE, 0
 .set CYDEV_IS_IMPORTING_CODE, 0
 .set CYDEV_PROJ_TYPE, 0
