@@ -87,7 +87,7 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
         uint8_t note;
     } Bar_Note;
     typedef Bar_Note bar[16];
-    typedef bar chart[12];
+    typedef Bar_Note chart[2][16];
     
     //Beautiufl beautiful state variables
     //where in the bar we are 
@@ -246,7 +246,7 @@ CY_ISR(Sax_ISR)
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
 }
-uint8_t msTicks;
+uint32_t msTicks;
 
 CY_ISR(Tick_ISR){
     msTicks++;
@@ -307,23 +307,47 @@ int main()
     SaxDac_Start(); 
     PianoDac_Start(); 
     // SaxDac_SetValue(255);
-    // bar cur_bar = bar cur_bar = {
-    // {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-    // {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0},
-    // {NOP,          0}, {PLAY_NOTE, G}, {NOP,      0}, {END_NOTE, 0},
-    // {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0}};
-    // };
-  bar cur_bar = {
+    
+     bar  cur_bar = {
+     {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+     {NOP,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+     {PLAY_NOTE,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+     {NOP,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0}
+     };
+     
+
+  bar cur_bar1 = {
     { PLAY_NOTE,    G  }, { NOP, 0 },
     { END_PLAY_NOTE, C  }, { NOP, 0 },
     { END_PLAY_NOTE, Ds }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
     { END_PLAY_NOTE, D  }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
     { PLAY_NOTE,     Ds }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, Ds }
   };
+    
+
+    chart cur_chart={
+        {
+             { PLAY_NOTE,    G  }, { NOP, 0 },
+            { END_PLAY_NOTE, C  }, { NOP, 0 },
+            { END_PLAY_NOTE, Ds }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
+            { END_PLAY_NOTE, D  }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, 0 },
+            { PLAY_NOTE,     Ds }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, Ds}},
+      {
+         {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+         {NOP,          0}, {NOP,      0}, {NOP,      0}, {NOP, 0},
+         {PLAY_NOTE,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+         {NOP,          0}, {NOP,      0}, {NOP,      0}, {NOP, 0}
+
+    }
+  };
+
+
+
     uint8_t chart_idx=0;
     uint8_t bar_idx=0;
-    chart cur_chart ;
-    uint32_t LastTick;
+   // chart cur_chart[2] ={cur_bar,cur_bar1};
+    uint32_t LastTick= msTicks;
+    uint32_t msPerTick=125;
     for(;;)
     {
     
@@ -338,18 +362,20 @@ int main()
             case 1:
             //update state vars
               if(msTicks-LastTick>=msPerTick){
-                LastTick+=msTicks;
+                LastTick=msTicks;
       
                 if(bar_idx>=16){
                     bar_idx=0;
-                    chart_idx++;
+                    chart_idx=(chart_idx+1)%2;
                 }
-                if(chart_idx>=12) chart_idx=0;
-                struct bar_note cur_note= cur_bar[bar_idx];
+               // if(chart_idx>=2) chart_idx=0;
+            //   struct bar_note cur_note= cur_bar[bar_idx];
+              struct bar_note cur_note= cur_chart[chart_idx][bar_idx];
                 //mux based of the note actio 
                 switch(cur_note.action){
                     case PLAY_NOTE:
                         play_sax(cur_note.note);
+                    //    play_piano(cur_note.note);
                       break;
                     case END_PLAY_NOTE:
                         SAX_RELEASE_TIME=.01;
