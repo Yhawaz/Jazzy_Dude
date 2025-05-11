@@ -85,8 +85,8 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
     typedef struct bar_note{
         uint8_t action;
         uint8_t note;
-    } ;
-    typedef struct bar_note bar[16];
+    } Bar_Note;
+    typedef Bar_Note bar[16];
     typedef bar chart[12];
     
     //Beautiufl beautiful state variables
@@ -122,7 +122,8 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
 
     //3 states tbh, for each note in bar
     enum type_note{
-      PlAY,
+      PLAY_NOTE,
+      END_PLAY_NOTE,
       END_NOTE,
       NOP, 
     };
@@ -273,7 +274,7 @@ CY_ISR(Piano_ISR)
 
 CY_ISR(Lcd_ISR){
     LCD_Char_1_Position(0, 6);
-    LCD_Char_1_PrintNumber(sax_phase_inc);
+    LCD_Char_1_PrintNumber(bar_idx);
  
 }
 int main()
@@ -295,11 +296,32 @@ int main()
     SaxDac_Start(); 
     PianoDac_Start(); 
     // SaxDac_SetValue(255);
+    bar cur_bar = {(struct bar_note) { PLAY_NOTE,C },    // start note A
+                    (struct bar_note) {NOP,D },    // hold
+                    (struct bar_note) { END_PLAY_NOTE,          D},
+    /* tick  2 */ (struct bar_note) { END_NOTE,D },
+    /* tick  4 */(struct bar_note)  { NOP,F },
+    /* tick  5 */(struct bar_note) { PLAY_NOTE,E },
+    /* tick  6 */ (struct bar_note){ NOP,F },
+    /* tick  7 */ (struct bar_note) {END_NOTE,G },
+    /* tick  8 */ (struct bar_note){ NOP,G-3 },
+    /* tick  9 */ (struct bar_note){NOP,0 },
+    /* tick 10 */ (struct bar_note){ NOP,G-4},
+    /* tick 11 */ (struct bar_note){ NOP,G-5 },
+    /* tick 12 */ (struct bar_note){ NOP,0 },
+    /* tick 13 */ (struct bar_note){ NOP,0 },
+    /* tick 14 */ (struct bar_note){ NOP,G-5 },
+    /* tick 15 */ (struct bar_note){ NOP,0 }     // release at end of bar
+    };
+    uint8_t chart_idx=0;
+    uint8_t bar_idx=0;
+    chart cur_chart ;
     for(;;)
     {
-        static int x=0;
-        if(x>11) x=0;
-        
+    
+       
+      
+
         switch(mode){
         //playing mode
             case 0:
@@ -312,29 +334,46 @@ int main()
                     chart_idx++;
                 }
                 if(chart_idx>=12) chart_idx=0;
-                bar_note cur_note= cur_chart[chart_idx][bar_idx];
+                struct bar_note cur_note= cur_bar[bar_idx];
                 //mux based of the note actio 
                 switch(cur_note.action){
-                        case PLAY:
-                        break;
-
-                        }
-                
+                    case PLAY_NOTE:
+                        play_sax(cur_note.note);
+                      
+                      break;
+                    case END_PLAY_NOTE:
+                        SAX_RELEASE_TIME=.01;
+                        Envelope_Release(&sax_env_state);
+                        SAX_RELEASE_TIME=.3;
+                        play_sax(cur_note.note);
+                      break;
+                    case END_NOTE:
+                        Envelope_Release(&sax_env_state);
+                      break;
+                    case NOP:
+                        CyDelay(32);
+                      break;
+                }
+                bar_idx++;
                 break;
           }
-
-        piano_current_note_freq=PianoFreq[x++];
-        play_piano(x);
-        CyDelay(100);
-        Envelope_Release(&piano_env_state);
-        CyDelay(50);
-     /*
+        // piano_current_note_freq=PianoFreq[x++];
+        // play_piano(x);
+        // CyDelay(100);
+        // Envelope_Release(&piano_env_state);
+        // CyDelay(50);
+        /*
+        uint8_t x;
+        if(x>11) x=0;
         sax_current_note_freq=SaxFreq[x++];
         play_sax(x);
-        CyDelay(1);
+        CyDelay(10);
         Envelope_Release(&sax_env_state);
         CyDelay(50);
-      */
+        */
+        CyDelay(30);
+        
+
         
     }
 }
