@@ -246,7 +246,12 @@ CY_ISR(Sax_ISR)
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
 }
+uint8_t msTicks;
 
+CY_ISR(Tick_ISR){
+    msTicks++;
+    testy_Write(~testy_Read());
+}
 CY_ISR(Piano_ISR)
 {
     //grab sample from table
@@ -272,20 +277,26 @@ CY_ISR(Piano_ISR)
     
 }
 
+
 CY_ISR(Lcd_ISR){
     LCD_Char_1_Position(0, 6);
-    LCD_Char_1_PrintNumber(bar_idx);
+    LCD_Char_1_PrintNumber(msTicks);
  
 }
+
+
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
+    
+    CySysTickStart();
+    CySysTickSetCallback(0,Tick_ISR);
     //init 
     Sax_Env_Init();
     Piano_Env_Init();
     LCD_Char_1_Start();					// initialize lcd
-	  LCD_Char_1_ClearDisplay();
-	  LCD_Char_1_PrintString("ADC : ");  
+	LCD_Char_1_ClearDisplay();
+	LCD_Char_1_PrintString("ADC : ");  
 
     sax_isr_StartEx(Sax_ISR);
     piano_isr_StartEx(Piano_ISR);
