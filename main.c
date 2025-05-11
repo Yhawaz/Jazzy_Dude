@@ -87,7 +87,7 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
         uint8_t note;
     } Bar_Note;
     typedef Bar_Note bar[16];
-    typedef Bar_Note chart[2][16];
+    typedef Bar_Note chart[12][16];
     
     //Beautiufl beautiful state variables
     //where in the bar we are 
@@ -127,6 +127,282 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
       END_NOTE,
       NOP, 
     };
+
+//Charts
+// assume you have:
+//   enum    { PLAY_NOTE, END_PLAY_NOTE, END_NOTE, NOP };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+// assume you have defined elsewhere:
+//   enum    { NOP = 0, PLAY_NOTE = 1, END_PLAY_NOTE = 2, END_NOTE = 3 };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+
+// assume elsewhere:
+//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+
+// assume you have defined elsewhere:
+//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+// assume you have defined elsewhere:
+//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+
+// Assumes you have defined elsewhere:
+//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
+//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
+//   typedef struct { uint8_t action, note; } Bar_Note;
+//   typedef Bar_Note chart[12][16];
+
+// Here are 12 bars of the Megalovania pickup→downbeat riff, each laid out
+// as exactly 16 sixteenth-note ticks.  
+// Unused ticks are {NOP,0}, and the same pattern repeats for all 12 bars:
+
+chart megalovania = {
+  // Bar 1
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},     // ticks 0–3
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},       // tick 4: pickup starts (Eb), 5–6 silent
+    {END_NOTE,0},{PLAY_NOTE,Ds},          // tick 7: end pickup, re-start sixteenth
+    {END_NOTE,0},{PLAY_NOTE,D},           // tick 8: end sixteenth, downbeat (D)
+    {NOP,0},{NOP,0},{NOP,0},              // ticks 9–11
+    {END_NOTE,0},{NOP,0}                  // tick 12: release, 13–15 silent
+  },
+  // Bar 2
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 3
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 4
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 5
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 6
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 7
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 8
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 9
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 10
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 11
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  },
+  // Bar 12
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0},{PLAY_NOTE,Ds},
+    {END_NOTE,0},{PLAY_NOTE,D},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0},{NOP,0}
+  }
+};
+
+
+
+
+chart bossa_melody = {
+  // Bar 0: two-sixteenth pickup Eb
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{PLAY_NOTE,Ds},{END_NOTE,0}
+  },
+
+  // Bar 1 (Eb → D → C → Eb → C)
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 2 (Eb → G → Eb → F → Eb)
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,G},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},
+    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 3 (D → C → B → C → D)
+  {
+    {PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,B},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 4 = Bar 1
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 5 = Bar 2
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,G},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},
+    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 6 = Bar 3
+  {
+    {PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,B},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 7 = Bar 1
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 8 = Bar 2
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,G},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},
+    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 9 = Bar 3
+  {
+    {PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,B},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 10 (tag: same as Bar 1)
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,D},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  },
+
+  // Bar 11 (tag: same as Bar 2)
+  {
+    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,G},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},
+    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
+    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
+    {END_NOTE,0}
+  }
+};
 
 
 //
@@ -350,10 +626,6 @@ int main()
     uint32_t msPerTick=125;
     for(;;)
     {
-    
-       
-      
-
         switch(mode){
         //playing mode
             case 0:
@@ -366,11 +638,11 @@ int main()
       
                 if(bar_idx>=16){
                     bar_idx=0;
-                    chart_idx=(chart_idx+1)%2;
+                    chart_idx=(chart_idx+1)%12;
                 }
                // if(chart_idx>=2) chart_idx=0;
             //   struct bar_note cur_note= cur_bar[bar_idx];
-              struct bar_note cur_note= cur_chart[chart_idx][bar_idx];
+              struct bar_note cur_note=megalovania[chart_idx][bar_idx];
                 //mux based of the note actio 
                 switch(cur_note.action){
                     case PLAY_NOTE:
