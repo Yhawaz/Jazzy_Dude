@@ -80,9 +80,22 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
     float PIANO_RELEASE_TIME = .3;
     float PIANO_DECAY_TIME =.5;
 
-    float time_scale;
-    float duration;
-    uint32_t dt;
+    uint8_t bpm;
+    
+    typedef struct bar_note{
+        uint8_t action;
+        uint8_t note;
+    } ;
+    typedef struct bar_note bar[16];
+    typedef bar chart[12];
+    
+    //Beautiufl beautiful state variables
+    //where in the bar we are 
+    uint8_t bar_idx;
+    //where in the chart we are
+    uint8_t chard_idx;
+    uint8_t prev_mode;
+    uint8_t mode=1;
  //Envelope Vars;
     enum {
         IDLE,
@@ -92,10 +105,28 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
         RELEASE
     };
 
-    struct env_return {
-        float env_lvl;
-        uint8_t env_state;
+    enum notes{
+      A,
+      As,
+      B,
+      C,
+      Cs,
+      D,
+      Ds, 
+      E,
+      F,
+      Fs,
+      G,
+      Gs
     };
+
+    //3 states tbh, for each note in bar
+    enum type_note{
+      PlAY,
+      END_NOTE,
+      NOP, 
+    };
+
 
 //
 void Sax_Env_Init(void){
@@ -213,7 +244,6 @@ CY_ISR(Sax_ISR)
 
     //set the value
     SaxDac_SetValue(sax_enveloped_note);
-    
 }
 
 CY_ISR(Piano_ISR)
@@ -269,6 +299,35 @@ int main()
     {
         static int x=0;
         if(x>11) x=0;
+        
+        switch(mode){
+        //playing mode
+            case 0:
+                break;
+            //auto mode
+            case 1:
+            //update state vars
+                if(bar_idx>=16){
+                    bar_idx=0;
+                    chart_idx++;
+                }
+                if(chart_idx>=12) chart_idx=0;
+                bar_note cur_note= cur_chart[chart_idx][bar_idx];
+                //mux based of the note actio 
+                switch(cur_note.action){
+                        case PLAY:
+                        break;
+
+                        }
+                
+                break;
+          }
+
+        piano_current_note_freq=PianoFreq[x++];
+        play_piano(x);
+        CyDelay(100);
+        Envelope_Release(&piano_env_state);
+        CyDelay(50);
      /*
         sax_current_note_freq=SaxFreq[x++];
         play_sax(x);
@@ -277,15 +336,6 @@ int main()
         CyDelay(50);
       */
         
-        piano_current_note_freq=PianoFreq[x++];
-        play_piano(x);
-        CyDelay(100);
-        Envelope_Release(&piano_env_state);
-        CyDelay(50);
-        
-       // piano_current_note_freq=PianoFreq[x++];
-        
-         
     }
 }
 
