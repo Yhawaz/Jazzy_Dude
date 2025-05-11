@@ -307,12 +307,19 @@ int main()
     SaxDac_Start(); 
     PianoDac_Start(); 
     // SaxDac_SetValue(255);
-    bar cur_bar = bar cur_bar = {
-    {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-    {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0},
-    {NOP,          0}, {PLAY_NOTE, G}, {NOP,      0}, {END_NOTE, 0},
-    {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0}};
-    };
+    // bar cur_bar = bar cur_bar = {
+    // {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+    // {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0},
+    // {NOP,          0}, {PLAY_NOTE, G}, {NOP,      0}, {END_NOTE, 0},
+    // {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0}};
+    // };
+  bar cur_bar = {
+    { PLAY_NOTE,    G  }, { NOP, 0 },
+    { END_PLAY_NOTE, C  }, { NOP, 0 },
+    { END_PLAY_NOTE, Ds }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
+    { END_PLAY_NOTE, D  }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
+    { PLAY_NOTE,     Ds }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, Ds }
+  };
     uint8_t chart_idx=0;
     uint8_t bar_idx=0;
     chart cur_chart ;
