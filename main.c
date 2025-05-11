@@ -307,26 +307,16 @@ int main()
     SaxDac_Start(); 
     PianoDac_Start(); 
     // SaxDac_SetValue(255);
-    bar cur_bar = {(struct bar_note) { PLAY_NOTE,C },    // start note A
-                    (struct bar_note) {NOP,D },    // hold
-                    (struct bar_note) { END_PLAY_NOTE,          D},
-    /* tick  2 */ (struct bar_note) { END_NOTE,D },
-    /* tick  4 */(struct bar_note)  { NOP,F },
-    /* tick  5 */(struct bar_note) { PLAY_NOTE,E },
-    /* tick  6 */ (struct bar_note){ NOP,F },
-    /* tick  7 */ (struct bar_note) {END_NOTE,G },
-    /* tick  8 */ (struct bar_note){ NOP,G-3 },
-    /* tick  9 */ (struct bar_note){NOP,0 },
-    /* tick 10 */ (struct bar_note){ NOP,G-4},
-    /* tick 11 */ (struct bar_note){ NOP,G-5 },
-    /* tick 12 */ (struct bar_note){ NOP,0 },
-    /* tick 13 */ (struct bar_note){ NOP,0 },
-    /* tick 14 */ (struct bar_note){ NOP,G-5 },
-    /* tick 15 */ (struct bar_note){ NOP,0 }     // release at end of bar
+    bar cur_bar = bar cur_bar = {
+    {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
+    {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0},
+    {NOP,          0}, {PLAY_NOTE, G}, {NOP,      0}, {END_NOTE, 0},
+    {NOP,          0}, {PLAY_NOTE, E}, {NOP,      0}, {END_NOTE, 0}};
     };
     uint8_t chart_idx=0;
     uint8_t bar_idx=0;
     chart cur_chart ;
+    uint32_t LastTick;
     for(;;)
     {
     
@@ -340,6 +330,9 @@ int main()
             //auto mode
             case 1:
             //update state vars
+              if(msTicks-LastTick>=msPerTick){
+                LastTick+=msTicks;
+      
                 if(bar_idx>=16){
                     bar_idx=0;
                     chart_idx++;
@@ -350,7 +343,6 @@ int main()
                 switch(cur_note.action){
                     case PLAY_NOTE:
                         play_sax(cur_note.note);
-                      
                       break;
                     case END_PLAY_NOTE:
                         SAX_RELEASE_TIME=.01;
@@ -362,11 +354,11 @@ int main()
                         Envelope_Release(&sax_env_state);
                       break;
                     case NOP:
-                        CyDelay(32);
                       break;
                 }
                 bar_idx++;
                 break;
+              }
           }
         // piano_current_note_freq=PianoFreq[x++];
         // play_piano(x);
@@ -382,7 +374,6 @@ int main()
         Envelope_Release(&sax_env_state);
         CyDelay(50);
         */
-        CyDelay(30);
         
 
         
