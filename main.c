@@ -131,9 +131,59 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
       NOP, 
     };
 
-//Charts
+//Funny Charts
+chart good_megalovania={{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+},{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
+  {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
+  {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
+  {PLAY_NOTE,A},{PLAY_NOTE,F},{PLAY_NOTE,A},{PLAY_NOTE,B}
+}};
 
-chart megalovania = {
+
+chart bad_megalovania = {
   // Bar 1
   {
     { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
@@ -255,9 +305,81 @@ chart megalovania = {
   }
 };
 
-
-
-
+// A 12-bar chart filled entirely with NOPs
+chart nop_chart = {
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  }
+};
 
 chart bossa_melody = {
   // Bar 0: two-sixteenth pickup Eb
@@ -539,7 +661,7 @@ CY_ISR(Piano_ISR)
     piano_enveloped_note=(uint8_t)(scaled+128);
     //set the value
     PianoDac_SetValue(piano_enveloped_note);
-    
+                          
 }
 
 
@@ -641,20 +763,39 @@ int main()
                     chart_idx=(chart_idx+1)%12;
                 }
                // if(chart_idx>=2) chart_idx=0;
-            //   struct bar_note cur_note= cur_bar[bar_idx];
-              struct bar_note cur_note=megalovania[chart_idx][bar_idx]);
-              cur_note.note=(cur_note.not+pot2_value)%12;
+              struct bar_note sax_cur_note=good_megalovania[chart_idx][bar_idx];
+              sax_cur_note.note=(sax_cur_note.note+pot2_value)%12;
                 //mux based of the note actio 
-                switch(cur_note.action){
+                switch(sax_cur_note.action){
                     case PLAY_NOTE:
-                        play_piano(cur_note.note);
+                        play_sax(sax_cur_note.note);
+                    //    play_piano(cur_note. note);
+                      break;
+                    case END_PLAY_NOTE:
+                        SAX_RELEASE_TIME=.01;
+                        Envelope_Release(&sax_env_state);
+                        SAX_RELEASE_TIME=.3;
+                        play_sax(sax_cur_note.note);
+                      break;
+                    case END_NOTE:
+                        Envelope_Release(&sax_env_state);
+                      break;
+                    case NOP:
+                      break;
+                }
+              struct bar_note piano_cur_note=bossa_melody[chart_idx][bar_idx];
+              piano_cur_note.note=(piano_cur_note.note+pot2_value)%12;
+                //mux based of the note actio 
+                switch(piano_cur_note.action){
+                    case PLAY_NOTE:
+                        play_piano(piano_cur_note.note);
                     //    play_piano(cur_note. note);
                       break;
                     case END_PLAY_NOTE:
                         PIANO_RELEASE_TIME=.01;
                         Envelope_Release(&piano_env_state);
                         PIANO_RELEASE_TIME=.3;
-                        play_piano(cur_note.note);
+                        play_piano(piano_cur_note.note);
                       break;
                     case END_NOTE:
                         Envelope_Release(&piano_env_state);
