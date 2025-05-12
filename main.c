@@ -642,12 +642,13 @@ int main()
                 }
                // if(chart_idx>=2) chart_idx=0;
             //   struct bar_note cur_note= cur_bar[bar_idx];
-              struct bar_note cur_note=(megalovania[chart_idx][bar_idx]+pot2_value)%12;
+              struct bar_note cur_note=megalovania[chart_idx][bar_idx]);
+              cur_note.note=(cur_note.not+pot2_value)%12;
                 //mux based of the note actio 
                 switch(cur_note.action){
                     case PLAY_NOTE:
                         play_piano(cur_note.note);
-                    //    play_piano(cur_note.note);
+                    //    play_piano(cur_note. note);
                       break;
                     case END_PLAY_NOTE:
                         PIANO_RELEASE_TIME=.01;
