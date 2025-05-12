@@ -167,116 +167,129 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
 // as exactly 16 sixteenth-note ticks.  
 // Unused ticks are {NOP,0}, and the same pattern repeats for all 12 bars:
 
+// 12 bars, 16 ticks each, right-hand melody only
 chart megalovania = {
   // Bar 1
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},     // ticks 0–3
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},       // tick 4: pickup starts (Eb), 5–6 silent
-    {END_NOTE,0},{PLAY_NOTE,Ds},          // tick 7: end pickup, re-start sixteenth
-    {END_NOTE,0},{PLAY_NOTE,D},           // tick 8: end sixteenth, downbeat (D)
-    {NOP,0},{NOP,0},{NOP,0},              // ticks 9–11
-    {END_NOTE,0},{NOP,0}                  // tick 12: release, 13–15 silent
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 2
+
+  // Bar 2 – identical to Bar 1
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 3
+
+  // Bar 3 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 4
+
+  // Bar 4 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 5
+
+  // Bar 5 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 6
+
+  // Bar 6 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 7
+
+  // Bar 7 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 8
+
+  // Bar 8 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 9
+
+  // Bar 9 – identical (louder section starts later; melody still loops)
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 10
+
+  // Bar 10 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 11
+
+  // Bar 11 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   },
-  // Bar 12
+
+  // Bar 12 – identical
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0},{PLAY_NOTE,Ds},
-    {END_NOTE,0},{PLAY_NOTE,D},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0},{NOP,0}
+    { PLAY_NOTE,    D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
+    { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
   }
 };
+
 
 
 
@@ -646,17 +659,17 @@ int main()
                 //mux based of the note actio 
                 switch(cur_note.action){
                     case PLAY_NOTE:
-                        play_sax(cur_note.note);
+                        play_piano(cur_note.note);
                     //    play_piano(cur_note.note);
                       break;
                     case END_PLAY_NOTE:
-                        SAX_RELEASE_TIME=.01;
-                        Envelope_Release(&sax_env_state);
-                        SAX_RELEASE_TIME=.3;
-                        play_sax(cur_note.note);
+                        PIANO_RELEASE_TIME=.01;
+                        Envelope_Release(&piano_env_state);
+                        PIANO_RELEASE_TIME=.3;
+                        play_piano(cur_note.note);
                       break;
                     case END_NOTE:
-                        Envelope_Release(&sax_env_state);
+                        Envelope_Release(&piano_env_state);
                       break;
                     case NOP:
                       break;
