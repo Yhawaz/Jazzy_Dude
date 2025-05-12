@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Audio_Out.h  
+* File Name: Audio_Out1.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Audio_Out_ALIASES_H) /* Pins Audio_Out_ALIASES_H */
-#define CY_PINS_Audio_Out_ALIASES_H
+#if !defined(CY_PINS_Audio_Out1_ALIASES_H) /* Pins Audio_Out1_ALIASES_H */
+#define CY_PINS_Audio_Out1_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Audio_Out_0			(Audio_Out__0__PC)
-#define Audio_Out_0_INTR	((uint16)((uint16)0x0001u << Audio_Out__0__SHIFT))
+#define Audio_Out1_0			(Audio_Out1__0__PC)
+#define Audio_Out1_0_INTR	((uint16)((uint16)0x0001u << Audio_Out1__0__SHIFT))
 
-#define Audio_Out_INTR_ALL	 ((uint16)(Audio_Out_0_INTR))
+#define Audio_Out1_INTR_ALL	 ((uint16)(Audio_Out1_0_INTR))
 
-#endif /* End Pins Audio_Out_ALIASES_H */
+#endif /* End Pins Audio_Out1_ALIASES_H */
 
 
 /* [] END OF FILE */

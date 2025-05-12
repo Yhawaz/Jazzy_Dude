@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
   29:.\Generated_Source\PSoC5/led1.c **** * \brief Writes the value to the physical port (data output register), masking
   30:.\Generated_Source\PSoC5/led1.c **** *  and shifting the bits appropriately. 
   31:.\Generated_Source\PSoC5/led1.c **** *
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 2
 
 
   32:.\Generated_Source\PSoC5/led1.c **** * The data output register controls the signal applied to the physical pin in 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
   52              		.section	.text.led1_SetDriveMode,"ax",%progbits
   53              		.align	2
   54              		.global	led1_SetDriveMode
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 3
 
 
   55              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
   77              	.L5:
   78 0014 32500040 		.word	1073762354
   79              		.cfi_endproc
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 4
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 4
 
 
   80              	.LFE1:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  110              		.global	led1_ReadDataReg
  111              		.thumb
  112              		.thumb_func
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 5
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 5
 
 
  113              		.type	led1_ReadDataReg, %function
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  139 0000 1B010000 		.4byte	0x11b
  140 0004 0400     		.2byte	0x4
  141 0006 00000000 		.4byte	.Ldebug_abbrev0
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 6
 
 
  142 000a 04       		.byte	0x4
@@ -306,7 +306,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  144 000c C7000000 		.4byte	.LASF20
  145 0010 01       		.byte	0x1
  146 0011 00000000 		.4byte	.LASF21
- 147 0015 48000000 		.4byte	.LASF22
+ 147 0015 99000000 		.4byte	.LASF22
  148 0019 00000000 		.4byte	.Ldebug_ranges0+0
  149 001d 00000000 		.4byte	0
  150 0021 00000000 		.4byte	.Ldebug_line0
@@ -317,7 +317,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  155 002c 02       		.uleb128 0x2
  156 002d 01       		.byte	0x1
  157 002e 08       		.byte	0x8
- 158 002f 88000000 		.4byte	.LASF1
+ 158 002f 5A000000 		.4byte	.LASF1
  159 0033 02       		.uleb128 0x2
  160 0034 02       		.byte	0x2
  161 0035 05       		.byte	0x5
@@ -325,7 +325,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  163 003a 02       		.uleb128 0x2
  164 003b 02       		.byte	0x2
  165 003c 07       		.byte	0x7
- 166 003d AD000000 		.4byte	.LASF3
+ 166 003d 7F000000 		.4byte	.LASF3
  167 0041 02       		.uleb128 0x2
  168 0042 04       		.byte	0x4
  169 0043 05       		.byte	0x5
@@ -333,7 +333,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  171 0048 02       		.uleb128 0x2
  172 0049 04       		.byte	0x4
  173 004a 07       		.byte	0x7
- 174 004b 9B000000 		.4byte	.LASF5
+ 174 004b 6D000000 		.4byte	.LASF5
  175 004f 02       		.uleb128 0x2
  176 0050 08       		.byte	0x8
  177 0051 05       		.byte	0x5
@@ -358,20 +358,20 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  196 0077 02       		.uleb128 0x2
  197 0078 04       		.byte	0x4
  198 0079 04       		.byte	0x4
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 7
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 7
 
 
  199 007a 42000000 		.4byte	.LASF9
  200 007e 02       		.uleb128 0x2
  201 007f 08       		.byte	0x8
  202 0080 04       		.byte	0x4
- 203 0081 C0000000 		.4byte	.LASF10
+ 203 0081 92000000 		.4byte	.LASF10
  204 0085 02       		.uleb128 0x2
  205 0086 01       		.byte	0x1
  206 0087 08       		.byte	0x8
  207 0088 97010000 		.4byte	.LASF11
  208 008c 04       		.uleb128 0x4
- 209 008d 96000000 		.4byte	.LASF13
+ 209 008d 68000000 		.4byte	.LASF13
  210 0091 02       		.byte	0x2
  211 0092 3C02     		.2byte	0x23c
  212 0094 98000000 		.4byte	0x98
@@ -401,7 +401,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  236 00cd 53       		.byte	0x53
  237 00ce 00       		.byte	0
  238 00cf 06       		.uleb128 0x6
- 239 00d0 76000000 		.4byte	.LASF15
+ 239 00d0 48000000 		.4byte	.LASF15
  240 00d4 01       		.byte	0x1
  241 00d5 5A       		.byte	0x5a
  242 00d6 00000000 		.4byte	.LFB1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  253 00f3 00       		.byte	0
  254 00f4 09       		.uleb128 0x9
  255 00f5 B5010000 		.4byte	.LASF18
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 8
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 8
 
 
  256 00f9 01       		.byte	0x1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  310 0023 3E       		.uleb128 0x3e
  311 0024 0B       		.uleb128 0xb
  312 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 9
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 9
 
 
  313 0026 08       		.uleb128 0x8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  367 005d 0B       		.uleb128 0xb
  368 005e 3B       		.uleb128 0x3b
  369 005f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 10
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 10
 
 
  370 0060 49       		.uleb128 0x49
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  424 000b 0A000000 		.4byte	.LVL2
  425 000f 18000000 		.4byte	.LFE0
  426 0013 0400     		.2byte	0x4
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 11
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 11
 
 
  427 0015 F3       		.byte	0xf3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  479      00000201 
  479      FB0E0D00 
  479      01010101 
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 12
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 12
 
 
  480              	.LASF21:
@@ -683,42 +683,42 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  488              	.LASF9:
  489 0042 666C6F61 		.ascii	"float\000"
  489      7400
- 490              	.LASF22:
- 491 0048 443A5C66 		.ascii	"D:\\final project\\Workspace01\\Jazzy_Dude.cydsn\000"
- 491      696E616C 
- 491      2070726F 
- 491      6A656374 
- 491      5C576F72 
- 492              	.LASF15:
- 493 0076 6C656431 		.ascii	"led1_SetDriveMode\000"
- 493      5F536574 
- 493      44726976 
- 493      654D6F64 
- 493      6500
- 494              	.LASF1:
- 495 0088 756E7369 		.ascii	"unsigned char\000"
- 495      676E6564 
- 495      20636861 
- 495      7200
- 496              	.LASF13:
- 497 0096 72656738 		.ascii	"reg8\000"
- 497      00
- 498              	.LASF5:
- 499 009b 6C6F6E67 		.ascii	"long unsigned int\000"
- 499      20756E73 
- 499      69676E65 
- 499      6420696E 
- 499      7400
- 500              	.LASF3:
- 501 00ad 73686F72 		.ascii	"short unsigned int\000"
- 501      7420756E 
- 501      7369676E 
- 501      65642069 
- 501      6E7400
- 502              	.LASF10:
- 503 00c0 646F7562 		.ascii	"double\000"
- 503      6C6500
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 13
+ 490              	.LASF15:
+ 491 0048 6C656431 		.ascii	"led1_SetDriveMode\000"
+ 491      5F536574 
+ 491      44726976 
+ 491      654D6F64 
+ 491      6500
+ 492              	.LASF1:
+ 493 005a 756E7369 		.ascii	"unsigned char\000"
+ 493      676E6564 
+ 493      20636861 
+ 493      7200
+ 494              	.LASF13:
+ 495 0068 72656738 		.ascii	"reg8\000"
+ 495      00
+ 496              	.LASF5:
+ 497 006d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 497      20756E73 
+ 497      69676E65 
+ 497      6420696E 
+ 497      7400
+ 498              	.LASF3:
+ 499 007f 73686F72 		.ascii	"short unsigned int\000"
+ 499      7420756E 
+ 499      7369676E 
+ 499      65642069 
+ 499      6E7400
+ 500              	.LASF10:
+ 501 0092 646F7562 		.ascii	"double\000"
+ 501      6C6500
+ 502              	.LASF22:
+ 503 0099 453A5C66 		.ascii	"E:\\final project\\Workspace01\\Jazzy_Dude.cydsn\000"
+ 503      696E616C 
+ 503      2070726F 
+ 503      6A656374 
+ 503      5C576F72 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 13
 
 
  504              	.LASF20:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 1
  527 01b5 6C656431 		.ascii	"led1_Read\000"
  527      5F526561 
  527      6400
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccCq0ejf.s 			page 14
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccmjF2nB.s 			page 14
 
 
  528              	.LASF0:

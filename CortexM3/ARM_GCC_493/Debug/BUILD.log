@@ -1,18 +1,21 @@
---------------- Build Started: 05/09/2025 16:10:07 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 05/12/2025 14:33:10 Project: Jazzy_Dude, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-.\main.c: In function 'Sax_ISR':
-.\main.c:233:11: warning: unused variable 'rawr' [-Wunused-variable]
-     float rawr;
+.\main.c: In function 'main':
+.\main.c:861:11: warning: unused variable 'cur_chart' [-Wunused-variable]
+     chart cur_chart={
            ^
-.\main.c:232:13: warning: unused variable 'meow' [-Wunused-variable]
-     uint8_t meow;
-             ^
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\Audio_Out.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\SaxDac.o .\CortexM3\ARM_GCC_493\Debug\SaxDac_PM.o .\CortexM3\ARM_GCC_493\Debug\sax_isr.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\sax_clk.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\lcd_isr.o .\CortexM3\ARM_GCC_493\Debug\led.o .\CortexM3\ARM_GCC_493\Debug\led1.o .\CortexM3\ARM_GCC_493\Debug\testy.o .\CortexM3\ARM_GCC_493\Debug\PianoDac.o .\CortexM3\ARM_GCC_493\Debug\PianoDac_PM.o .\CortexM3\ARM_GCC_493\Debug\piano_clk.o .\CortexM3\ARM_GCC_493\Debug\piano_isr.o
+.\main.c:852:7: warning: unused variable 'cur_bar1' [-Wunused-variable]
+   bar cur_bar1 = {
+       ^
+.\main.c:844:11: warning: unused variable 'cur_bar' [-Wunused-variable]
+      bar  cur_bar = {
+           ^
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\SaxDac.o .\CortexM3\ARM_GCC_493\Debug\SaxDac_PM.o .\CortexM3\ARM_GCC_493\Debug\sax_isr.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\sax_clk.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_Char_1_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\lcd_isr.o .\CortexM3\ARM_GCC_493\Debug\led.o .\CortexM3\ARM_GCC_493\Debug\led1.o .\CortexM3\ARM_GCC_493\Debug\testy.o .\CortexM3\ARM_GCC_493\Debug\PianoDac.o .\CortexM3\ARM_GCC_493\Debug\PianoDac_PM.o .\CortexM3\ARM_GCC_493\Debug\piano_clk.o .\CortexM3\ARM_GCC_493\Debug\piano_isr.o .\CortexM3\ARM_GCC_493\Debug\Pot_1.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_PM.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_INT.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_AMux.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_Ext_CP_Clk.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_IRQ.o .\CortexM3\ARM_GCC_493\Debug\BPM_ADC_theACLK.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC_INT.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC_PM.o .\CortexM3\ARM_GCC_493\Debug\POT_2.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC_IRQ.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC_theACLK.o .\CortexM3\ARM_GCC_493\Debug\PITCH_ADC_Bypass.o .\CortexM3\ARM_GCC_493\Debug\Audio_Out1.o .\CortexM3\ARM_GCC_493\Debug\Audio_Out2.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -Og -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Jazzy_Dude.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
-cyelftool.exe -C "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf" --flash_row_size 256 --flash_size 262144
-cyelftool.exe -S "D:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf"
-Flash used: 5376 of 262144 bytes (2.1%).
-SRAM used: 2629 of 65536 bytes (4.0%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/09/2025 16:10:09 ---------------
+cyelftool.exe -C "E:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf" --flash_row_size 256 --flash_size 262144
+cyelftool.exe -S "E:\final project\Workspace01\Jazzy_Dude.cydsn\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.elf"
+Flash used: 13824 of 262144 bytes (5.3%).
+SRAM used: 5013 of 65536 bytes (7.6%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/12/2025 14:33:12 ---------------

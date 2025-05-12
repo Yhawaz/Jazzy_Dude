@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Audio_Out.c  
+* File Name: Audio_Out1.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Audio_Out.h"
+#include "Audio_Out1.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 Audio_Out__PORT == 15 && ((Audio_Out__MASK & 0xC0) != 0))
+	 Audio_Out1__PORT == 15 && ((Audio_Out1__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: Audio_Out_Write
+* Function Name: Audio_Out1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Audio_Out_SUT.c usage_Audio_Out_Write
+*  \snippet Audio_Out1_SUT.c usage_Audio_Out1_Write
 *******************************************************************************/
-void Audio_Out_Write(uint8 value)
+void Audio_Out1_Write(uint8 value)
 {
-    uint8 staticBits = (Audio_Out_DR & (uint8)(~Audio_Out_MASK));
-    Audio_Out_DR = staticBits | ((uint8)(value << Audio_Out_SHIFT) & Audio_Out_MASK);
+    uint8 staticBits = (Audio_Out1_DR & (uint8)(~Audio_Out1_MASK));
+    Audio_Out1_DR = staticBits | ((uint8)(value << Audio_Out1_SHIFT) & Audio_Out1_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: Audio_Out_SetDriveMode
+* Function Name: Audio_Out1_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void Audio_Out_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet Audio_Out_SUT.c usage_Audio_Out_SetDriveMode
+*  \snippet Audio_Out1_SUT.c usage_Audio_Out1_SetDriveMode
 *******************************************************************************/
-void Audio_Out_SetDriveMode(uint8 mode)
+void Audio_Out1_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(Audio_Out_0, mode);
+	CyPins_SetPinDriveMode(Audio_Out1_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Audio_Out_Read
+* Function Name: Audio_Out1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void Audio_Out_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Audio_Out_SUT.c usage_Audio_Out_Read  
+*  \snippet Audio_Out1_SUT.c usage_Audio_Out1_Read  
 *******************************************************************************/
-uint8 Audio_Out_Read(void)
+uint8 Audio_Out1_Read(void)
 {
-    return (Audio_Out_PS & Audio_Out_MASK) >> Audio_Out_SHIFT;
+    return (Audio_Out1_PS & Audio_Out1_MASK) >> Audio_Out1_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: Audio_Out_ReadDataReg
+* Function Name: Audio_Out1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 Audio_Out_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Audio_Out_Read() API because the 
-* Audio_Out_ReadDataReg() reads the data register instead of the status 
+* preferred Audio_Out1_Read() API because the 
+* Audio_Out1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 Audio_Out_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Audio_Out_SUT.c usage_Audio_Out_ReadDataReg 
+*  \snippet Audio_Out1_SUT.c usage_Audio_Out1_ReadDataReg 
 *******************************************************************************/
-uint8 Audio_Out_ReadDataReg(void)
+uint8 Audio_Out1_ReadDataReg(void)
 {
-    return (Audio_Out_DR & Audio_Out_MASK) >> Audio_Out_SHIFT;
+    return (Audio_Out1_DR & Audio_Out1_MASK) >> Audio_Out1_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(Audio_Out_INTSTAT) 
+#if defined(Audio_Out1_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: Audio_Out_SetInterruptMode
+    * Function Name: Audio_Out1_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 Audio_Out_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use Audio_Out_INTR_ALL to configure the
+    *  component. Or you may use Audio_Out1_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - Audio_Out_0_INTR       (First pin in the list)
-    *  - Audio_Out_1_INTR       (Second pin in the list)
+    *  - Audio_Out1_0_INTR       (First pin in the list)
+    *  - Audio_Out1_1_INTR       (Second pin in the list)
     *  - ...
-    *  - Audio_Out_INTR_ALL     (All pins in Pins component)
+    *  - Audio_Out1_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 Audio_Out_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet Audio_Out_SUT.c usage_Audio_Out_SetInterruptMode
+    *  \snippet Audio_Out1_SUT.c usage_Audio_Out1_SetInterruptMode
     *******************************************************************************/
-    void Audio_Out_SetInterruptMode(uint16 position, uint16 mode)
+    void Audio_Out1_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & Audio_Out_0_INTR) != 0u) 
+		if((position & Audio_Out1_0_INTR) != 0u) 
 		{ 
-			 Audio_Out_0_INTTYPE_REG = (uint8)mode; 
+			 Audio_Out1_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: Audio_Out_ClearInterrupt
+    * Function Name: Audio_Out1_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 Audio_Out_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet Audio_Out_SUT.c usage_Audio_Out_ClearInterrupt
+    *  \snippet Audio_Out1_SUT.c usage_Audio_Out1_ClearInterrupt
     *******************************************************************************/
-    uint8 Audio_Out_ClearInterrupt(void)
+    uint8 Audio_Out1_ClearInterrupt(void)
     {
-        return (Audio_Out_INTSTAT & Audio_Out_MASK) >> Audio_Out_SHIFT;
+        return (Audio_Out1_INTSTAT & Audio_Out1_MASK) >> Audio_Out1_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

@@ -132,6 +132,147 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
     };
 
 //Funny Charts
+chart piano_harmony = {
+  // Bars 1–4: F7 (F ⇄ C)
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bars 5–6: Bb7 (Bb ⇄ F)
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bars 7–8: back to F7
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  {
+    {PLAY_NOTE,D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bar 9: C7 (C ⇄ G)
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bar 10: Bb7
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bar 11: F7
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  },
+  // Bar 12: turnaround on C7
+  {
+    {PLAY_NOTE, D},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {PLAY_NOTE, G},   {END_NOTE,0}, {NOP,0}, {NOP,0},
+    {NOP, C},   {END_NOTE,0}, {NOP,0}, {NOP,0}
+  }
+};
+
+chart straight_no_chaser = {
+  // Bar 1 – two-eight-note pickup on the “& of 4” into bar 1
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{PLAY_NOTE, Fs}, // Fs = F#
+    {END_NOTE,0},{PLAY_NOTE, E}, {END_NOTE,0},{NOP,0}
+  },
+  // Bar 2 – downbeat on D, swing eighths
+  {
+    {PLAY_NOTE, D},   {END_PLAY_NOTE,0}, {PLAY_NOTE, Cs},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, D},   {END_PLAY_NOTE,0}, {PLAY_NOTE, As},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, Fs},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, A}, {END_PLAY_NOTE,0}
+  },
+  // Bar 3 – continuation
+  {
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, Fs},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, As},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, Fs},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {PLAY_NOTE, A}, {END_PLAY_NOTE,0}
+  },
+  // Bar 4 – resolving into bar-end pickup
+  {
+    {PLAY_NOTE, Fs},  {END_PLAY_NOTE,0}, {PLAY_NOTE, G}, {END_PLAY_NOTE,0},
+    {PLAY_NOTE, A},   {END_PLAY_NOTE,0}, {PLAY_NOTE, C}, {END_PLAY_NOTE,0},
+    {PLAY_NOTE, D},   {END_PLAY_NOTE,0}, {PLAY_NOTE, Fs},{END_PLAY_NOTE,0},
+    {PLAY_NOTE, G},   {END_PLAY_NOTE,0}, {END_NOTE,0},       {NOP,0}
+  },
+  // Bars 5–12: NOP (fill in the rest of the head melody here)
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  },
+  {
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},
+    {NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0},{NOP,0}
+  }
+};
 chart good_megalovania={{ {PLAY_NOTE,F},{PLAY_NOTE,F},{PLAY_NOTE,F},{NOP,0},
   {PLAY_NOTE,C},{NOP,0},{NOP,0},{PLAY_NOTE,B},
   {NOP,0},{PLAY_NOTE,B},{NOP,0},{PLAY_NOTE,A},
@@ -763,7 +904,7 @@ int main()
                     chart_idx=(chart_idx+1)%12;
                 }
                // if(chart_idx>=2) chart_idx=0;
-              struct bar_note sax_cur_note=good_megalovania[chart_idx][bar_idx];
+              struct bar_note sax_cur_note=straight_no_chaser[chart_idx][bar_idx];
               sax_cur_note.note=(sax_cur_note.note+pot2_value)%12;
                 //mux based of the note actio 
                 switch(sax_cur_note.action){
@@ -783,7 +924,7 @@ int main()
                     case NOP:
                       break;
                 }
-              struct bar_note piano_cur_note=bossa_melody[chart_idx][bar_idx];
+              struct bar_note piano_cur_note=piano_harmony[chart_idx][bar_idx];
               piano_cur_note.note=(piano_cur_note.note+pot2_value)%12;
                 //mux based of the note actio 
                 switch(piano_cur_note.action){

@@ -16,18 +16,25 @@
 ##################################################################### 
                     1::Clock Frequency Summary
 ===================================================================== 
-Number of clocks: 11
-Clock: Clock_1            | N/A  | Target: 0.00 MHz   | 
-Clock: Clock_1(routed)    | N/A  | Target: 0.00 MHz   | 
-Clock: CyBUS_CLK          | N/A  | Target: 24.00 MHz  | 
-Clock: CyILO              | N/A  | Target: 0.00 MHz   | 
-Clock: CyIMO              | N/A  | Target: 3.00 MHz   | 
-Clock: CyMASTER_CLK       | N/A  | Target: 24.00 MHz  | 
-Clock: CyPLL_OUT          | N/A  | Target: 24.00 MHz  | 
-Clock: piano_clk          | N/A  | Target: 0.01 MHz   | 
-Clock: piano_clk(routed)  | N/A  | Target: 0.01 MHz   | 
-Clock: sax_clk            | N/A  | Target: 0.02 MHz   | 
-Clock: sax_clk(routed)    | N/A  | Target: 0.02 MHz   | 
+Number of clocks: 18
+Clock: BPM_ADC_Ext_CP_Clk               | N/A  | Target: 24.00 MHz   | 
+Clock: BPM_ADC_Ext_CP_Clk(routed)       | N/A  | Target: 24.00 MHz   | 
+Clock: BPM_ADC_theACLK                  | N/A  | Target: 0.13 MHz    | 
+Clock: BPM_ADC_theACLK(fixed-function)  | N/A  | Target: 0.13 MHz    | 
+Clock: Clock_1                          | N/A  | Target: 0.00 MHz    | 
+Clock: Clock_1(routed)                  | N/A  | Target: 0.00 MHz    | 
+Clock: CyBUS_CLK                        | N/A  | Target: 24.00 MHz   | 
+Clock: CyILO                            | N/A  | Target: 0.00 MHz    | 
+Clock: CyIMO                            | N/A  | Target: 3.00 MHz    | 
+Clock: CyMASTER_CLK                     | N/A  | Target: 24.00 MHz   | 
+Clock: CyPLL_OUT                        | N/A  | Target: 24.00 MHz   | 
+Clock: PITCH_ADC_theACLK                | N/A  | Target: 1.00 MHz    | 
+Clock: PITCH_ADC_theACLK(routed)        | N/A  | Target: 1.00 MHz    | 
+Clock: \BPM_ADC:DSM\/dec_clock          | N/A  | Target: 100.00 MHz  | 
+Clock: piano_clk                        | N/A  | Target: 0.01 MHz    | 
+Clock: piano_clk(routed)                | N/A  | Target: 0.01 MHz    | 
+Clock: sax_clk                          | N/A  | Target: 0.02 MHz    | 
+Clock: sax_clk(routed)                  | N/A  | Target: 0.02 MHz    | 
 
  =====================================================================
                     End of Clock Frequency Summary

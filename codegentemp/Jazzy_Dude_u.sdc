@@ -1,3 +1,3 @@
-# Component constraints for D:\final project\Workspace01\Jazzy_Dude.cydsn\TopDesign\TopDesign.cysch
-# Project: D:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj
-# Date: Fri, 09 May 2025 19:58:39 GMT
+# Component constraints for E:\final project\Workspace01\Jazzy_Dude.cydsn\TopDesign\TopDesign.cysch
+# Project: E:\final project\Workspace01\Jazzy_Dude.cydsn\Jazzy_Dude.cyprj
+# Date: Mon, 12 May 2025 18:30:32 GMT
