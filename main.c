@@ -46,6 +46,9 @@ const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 2
 const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
 
 //Global Vals(For Debugging Via LCD ISR)
+
+    uint16_t pot1_value;
+    uint16_t pot2_value;
     float sax_current_note_freq;
     float sax_atk_rate,sax_decay_rate,sax_release_rate;
     float sax_env_lvl;
@@ -129,45 +132,7 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
     };
 
 //Charts
-// assume you have:
-//   enum    { PLAY_NOTE, END_PLAY_NOTE, END_NOTE, NOP };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
-// assume you have defined elsewhere:
-//   enum    { NOP = 0, PLAY_NOTE = 1, END_PLAY_NOTE = 2, END_NOTE = 3 };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
 
-// assume elsewhere:
-//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
-
-// assume you have defined elsewhere:
-//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
-// assume you have defined elsewhere:
-//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
-
-// Assumes you have defined elsewhere:
-//   enum    { NOP=0, PLAY_NOTE=1, END_PLAY_NOTE=2, END_NOTE=3 };
-//   enum    { A=0, As, B, C, Cs, D, Ds, E, F, Fs, G, Gs };
-//   typedef struct { uint8_t action, note; } Bar_Note;
-//   typedef Bar_Note chart[12][16];
-
-// Here are 12 bars of the Megalovania pickup→downbeat riff, each laid out
-// as exactly 16 sixteenth-note ticks.  
-// Unused ticks are {NOP,0}, and the same pattern repeats for all 12 bars:
-
-// 12 bars, 16 ticks each, right-hand melody only
 chart megalovania = {
   // Bar 1
   {
@@ -508,6 +473,17 @@ void play_piano(uint8_t note){
    Envelope_Pressed(&piano_env_state);
 }
 
+uint16_t clean_pot(uint16_t pot_val){
+    uint16_t clean_pot_val=pot_val;
+    if(pot_val & 0x8000)clean_pot_val=0;
+    else if(pot_val>=9000)clean_pot_val=0xfff;
+    
+    //bucket time
+    float f = (float)clean_pot_val/(float)4141;
+    int b=(int)(f*7);
+    return b<7 ? b:7-1;
+}
+
 //Sax ISR
 
 CY_ISR(Sax_ISR)
@@ -568,8 +544,9 @@ CY_ISR(Piano_ISR)
 
 
 CY_ISR(Lcd_ISR){
-    LCD_Char_1_Position(0, 6);
-    LCD_Char_1_PrintNumber(msTicks);
+    LCD_Char_1_ClearDisplay();
+    LCD_Char_1_Position(0, 0);
+    LCD_Char_1_PrintNumber(pot2_value);
  
 }
 
@@ -595,6 +572,10 @@ int main()
     //Start Sax Dac
     SaxDac_Start(); 
     PianoDac_Start(); 
+    PITCH_ADC_Start();
+    PITCH_ADC_StartConvert();
+    BPM_ADC_Start();
+    BPM_ADC_StartConvert();
     // SaxDac_SetValue(255);
     
      bar  cur_bar = {
@@ -631,7 +612,7 @@ int main()
   };
 
 
-
+    uint32_t bpm_array[7]={60,75,90,105,120,135,150};
     uint8_t chart_idx=0;
     uint8_t bar_idx=0;
    // chart cur_chart[2] ={cur_bar,cur_bar1};
@@ -639,6 +620,7 @@ int main()
     uint32_t msPerTick=125;
     for(;;)
     {
+        
         switch(mode){
         //playing mode
             case 0:
@@ -646,8 +628,13 @@ int main()
             //auto mode
             case 1:
             //update state vars
+            
+            //start by reading pots
               if(msTicks-LastTick>=msPerTick){
                 LastTick=msTicks;
+                pot1_value=clean_pot(BPM_ADC_GetResult16());
+                pot2_value=clean_pot(PITCH_ADC_GetResult16());
+                msPerTick=(60000/bpm_array[pot1_value])/4;
       
                 if(bar_idx>=16){
                     bar_idx=0;
@@ -655,7 +642,7 @@ int main()
                 }
                // if(chart_idx>=2) chart_idx=0;
             //   struct bar_note cur_note= cur_bar[bar_idx];
-              struct bar_note cur_note=megalovania[chart_idx][bar_idx];
+              struct bar_note cur_note=(megalovania[chart_idx][bar_idx]+pot2_value)%12;
                 //mux based of the note actio 
                 switch(cur_note.action){
                     case PLAY_NOTE:
