@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2025-05-13T00:39:49Z")
+ (DATE "2025-05-13T03:08:58Z")
  (DESIGN "Jazzy_Dude")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -46,6 +46,7 @@
     (INTERCONNECT Btn_1\(0\)_PAD Btn_1\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Mode_Switch\(0\)_PAD Mode_Switch\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Btn_2\(0\)_PAD Btn_2\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Inst_Switch\(0\)_PAD Inst_Switch\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

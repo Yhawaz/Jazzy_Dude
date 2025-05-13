@@ -44,6 +44,7 @@ const uint8 PianoTable[PIANOTABLE_SIZE] = {
 const float SaxFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
 
 const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19, 293.67, 311.13, 329.63, 349.23, 370};
+static const char *NoteNames[12]={"A","As","B","C","Cs","D","Ds","E","F","Fs","G","Gs"};
 
 //Global Vals(For Debugging Via LCD ISR)
 
@@ -768,15 +769,15 @@ void play_piano(uint8_t note){
    Envelope_Pressed(&piano_env_state);
 }
 
-uint16_t clean_pot(uint16_t pot_val){
+uint16_t clean_pot(uint16_t pot_val,uint16_t buckets){
     uint16_t clean_pot_val=pot_val;
     if(pot_val & 0x8000)clean_pot_val=0;
     else if(pot_val>=9000)clean_pot_val=0xfff;
     
     //bucket time
     float f = (float)clean_pot_val/(float)4141;
-    int b=(int)(f*7);
-    return b<7 ? b:7-1;
+    int b=(int)(f*buckets);
+    return b<buckets ? b:buckets-1;
 }
 
 //Sax ISR
@@ -880,6 +881,7 @@ int main()
     uint32_t LastTick= msTicks;
     uint32_t msPerTick=125;
     uint32_t LEDTick;
+    uint8_t cur_inst;
     for(;;)
     {
         
@@ -892,15 +894,24 @@ int main()
         }
         */
         mode=Mode_Switch_Read();
-        
+        cur_inst=Inst_Switch_Read();
         switch(Mode_Switch_Read()){
         //playing mode
             case 0:
                     Out_1_Write(0);
-                    if(Btn_2_Read()==0){
-                        play_sax(clean_pot(BPM_ADC_GetResult16()));
-                    }else if(sax_env_state!=RELEASE){
-                        Envelope_Release(&sax_env_state);
+                    if(cur_inst==1){
+                        if(Btn_2_Read()==0){
+                            play_sax(clean_pot(BPM_ADC_GetResult16(),12));
+                        }else if(sax_env_state!=RELEASE){
+                            Envelope_Release(&sax_env_state);
+                        }
+                    }else{
+                        if(Btn_2_Read()==0){
+                            play_piano(clean_pot(BPM_ADC_GetResult16(),12));
+                        }else if(piano_env_state!=RELEASE){
+                            Envelope_Release(&piano_env_state);
+                        }
+                        
                     }
                 break;
             //auto mode
@@ -912,8 +923,8 @@ int main()
                 
     
                 LastTick=msTicks;
-                pot1_value=clean_pot(BPM_ADC_GetResult16());
-                pot2_value=clean_pot(PITCH_ADC_GetResult16());
+                pot1_value=clean_pot(BPM_ADC_GetResult16(),7);
+                pot2_value=clean_pot(PITCH_ADC_GetResult16(),12);
                 msPerTick=(60000/bpm_array[pot1_value])/4;
                 
       
@@ -983,12 +994,13 @@ int main()
             LCD_Char_1_Position(1,0);
             LCD_Char_1_PrintString("Pitch: ");
             LCD_Char_1_Position(1,6);
-            LCD_Char_1_PrintNumber(pot2_value);
+            LCD_Char_1_PrintString(NoteNames[pot2_value]);
             }
             if(mode==0){
                 LCD_Char_1_Position(0,0);
-                LCD_Char_1_PrintString("Cur Note:");
-                LCD_Char_1_PrintNumber(pot1_value);
+                LCD_Char_1_PrintString("Note:");
+                uint8_t note_idx=clean_pot(BPM_ADC_GetResult16(),12);
+                LCD_Char_1_PrintString(NoteNames[note_idx]);
             }
             LCD_Char_1_DrawVerticalBG(1,10,3,(sax_env_lvl*17));
         }

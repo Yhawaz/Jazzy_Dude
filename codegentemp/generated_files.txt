@@ -83,6 +83,9 @@
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Btn_2_aliases.h" value="NONE;Btn_2" />
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Btn_2.c" value="ARM_C_FILE;Btn_2" />
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Btn_2.h" value="NONE;Btn_2" />
+  <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Inst_Switch_aliases.h" value="NONE;Inst_Switch" />
+  <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Inst_Switch.c" value="ARM_C_FILE;Inst_Switch" />
+  <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\Inst_Switch.h" value="NONE;Inst_Switch" />
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort_aliases.h" value="NONE;LCD_Char_1_LCDPort" />
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.c" value="ARM_C_FILE;LCD_Char_1_LCDPort" />
   <file name="E:\final project\Workspace01\Jazzy_Dude.cydsn\codegentemp\LCD_Char_1_LCDPort.h" value="NONE;LCD_Char_1_LCDPort" />

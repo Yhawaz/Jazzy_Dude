@@ -169,6 +169,9 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Inst_Switch_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Inst_Switch.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Inst_Switch.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="E:\final project\Workspace01\Jazzy_Dude.cydsn\Export\ARM_GCC_Generic">

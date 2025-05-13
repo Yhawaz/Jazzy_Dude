@@ -46,6 +46,8 @@ Archive member included because of file (symbol)
                               .\CortexM3\ARM_GCC_493\Debug\main.o (Mode_Switch_Read)
 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
                               .\CortexM3\ARM_GCC_493\Debug\main.o (Out_1_Write)
+.\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+                              .\CortexM3\ARM_GCC_493\Debug\main.o (Inst_Switch_Read)
 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
                               .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o) (CyFlash_SetWaitCycles)
 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
@@ -569,6 +571,15 @@ Discarded input sections
                 0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
  .text.Out_1_ReadDataReg
                 0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .text.Inst_Switch_Write
+                0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .text.Inst_Switch_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .text.Inst_Switch_ReadDataReg
+                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
  .bss           0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
@@ -760,7 +771,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 0x00000000                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00000000     0x2cfe
+.text           0x00000000     0x2d76
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -810,379 +821,382 @@ END GROUP
                 0x000003c4       0x34 .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x000003c4                play_piano
  .text.clean_pot
-                0x000003f8       0x40 .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x000003f8       0x4c .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x000003f8                clean_pot
- .text.main     0x00000438      0x2d0 .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x00000438                main
+ .text.main     0x00000444      0x32c .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x00000444                main
  .text.IntDefaultHandler
-                0x00000708        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x00000708                IntDefaultHandler
- .text.Start_c  0x0000070c       0x4c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x0000070c                Start_c
+                0x00000770        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00000770                IntDefaultHandler
+ .text.Start_c  0x00000774       0x4c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00000774                Start_c
  .text.initialize_psoc
-                0x00000758       0x74 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x00000758                initialize_psoc
+                0x000007c0       0x74 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x000007c0                initialize_psoc
  .text.CyClockStartupError
-                0x000007cc        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000834        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.cfg_write_bytes32
-                0x000007d0       0x34 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000838       0x34 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.CYMEMZERO
-                0x00000804        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x0000086c        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.AnalogSetDefault
-                0x00000810       0xac .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000878       0xac .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.CYCONFIGCPY
-                0x000008bc        0x8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000924        0x8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.ClockSetup
-                0x000008c4      0x110 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x0000092c      0x110 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
  .text.BPM_ADC_AMux_Set
-                0x000009d4       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
-                0x000009d4                BPM_ADC_AMux_Set
+                0x00000a3c       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000a3c                BPM_ADC_AMux_Set
  .text.BPM_ADC_AMux_Unset
-                0x000009f0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
-                0x000009f0                BPM_ADC_AMux_Unset
+                0x00000a58       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000a58                BPM_ADC_AMux_Unset
  .text.cyfitter_cfg
-                0x00000a0c      0x13c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
-                0x00000a0c                cyfitter_cfg
- .text          0x00000b48       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
-                0x00000b48                CyDelayCycles
-                0x00000b58                CyEnterCriticalSection
-                0x00000b60                CyExitCriticalSection
- .text.CyHalt   0x00000b68        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000b68                CyHalt
- .text.CyDelay  0x00000b6c       0x2c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000b6c                CyDelay
+                0x00000a74      0x13c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00000a74                cyfitter_cfg
+ .text          0x00000bb0       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
+                0x00000bb0                CyDelayCycles
+                0x00000bc0                CyEnterCriticalSection
+                0x00000bc8                CyExitCriticalSection
+ .text.CyHalt   0x00000bd0        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000bd0                CyHalt
+ .text.CyDelay  0x00000bd4       0x2c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000bd4                CyDelay
  .text.CyDelayUs
-                0x00000b98       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000b98                CyDelayUs
+                0x00000c00       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000c00                CyDelayUs
  .text.CyIntSetSysVector
-                0x00000bac       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000bac                CyIntSetSysVector
+                0x00000c14       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000c14                CyIntSetSysVector
  .text.CyIntSetVector
-                0x00000bd4       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000bd4                CyIntSetVector
+                0x00000c3c       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000c3c                CyIntSetVector
  .text.CyIntSetPriority
-                0x00000bfc       0x30 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000bfc                CyIntSetPriority
+                0x00000c64       0x30 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000c64                CyIntSetPriority
  .text.CySysTickEnableInterrupt
-                0x00000c2c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000c2c                CySysTickEnableInterrupt
+                0x00000c94       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000c94                CySysTickEnableInterrupt
  .text.CySysTickEnable
-                0x00000c3c       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000c3c                CySysTickEnable
+                0x00000ca4       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000ca4                CySysTickEnable
  .text.CySysTickSetReload
-                0x00000c54       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000c54                CySysTickSetReload
+                0x00000cbc       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000cbc                CySysTickSetReload
  .text.CySysTickSetClockSource
-                0x00000c64       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000c64                CySysTickSetClockSource
+                0x00000ccc       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000ccc                CySysTickSetClockSource
  .text.CySysTickGetCountFlag
-                0x00000c84       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000c84                CySysTickGetCountFlag
+                0x00000cec       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000cec                CySysTickGetCountFlag
  .text.CySysTickServiceCallbacks
-                0x00000c94       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000cfc       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
  .text.CySysTickClear
-                0x00000cbc        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000cbc                CySysTickClear
+                0x00000d24        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000d24                CySysTickClear
  .text.CySysTickInit
-                0x00000cc8       0x58 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000cc8                CySysTickInit
+                0x00000d30       0x58 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000d30                CySysTickInit
  .text.CySysTickStart
-                0x00000d20       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000d20                CySysTickStart
+                0x00000d88       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000d88                CySysTickStart
  .text.CySysTickSetCallback
-                0x00000d3c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
-                0x00000d3c                CySysTickSetCallback
+                0x00000da4       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+                0x00000da4                CySysTickSetCallback
  .text.SaxDac_Enable
-                0x00000d4c       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000d4c                SaxDac_Enable
+                0x00000db4       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000db4                SaxDac_Enable
  .text.SaxDac_SetSpeed
-                0x00000d68       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000d68                SaxDac_SetSpeed
+                0x00000dd0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000dd0                SaxDac_SetSpeed
  .text.SaxDac_SetValue
-                0x00000d84        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000d84                SaxDac_SetValue
+                0x00000dec        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000dec                SaxDac_SetValue
  .text.SaxDac_DacTrim
-                0x00000d90       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000d90                SaxDac_DacTrim
+                0x00000df8       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000df8                SaxDac_DacTrim
  .text.SaxDac_SetRange
-                0x00000db4       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000db4                SaxDac_SetRange
+                0x00000e1c       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000e1c                SaxDac_SetRange
  .text.SaxDac_Init
-                0x00000dd4       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000dd4                SaxDac_Init
+                0x00000e3c       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000e3c                SaxDac_Init
  .text.SaxDac_Start
-                0x00000df0       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
-                0x00000df0                SaxDac_Start
+                0x00000e58       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+                0x00000e58                SaxDac_Start
  .text.sax_isr_SetVector
-                0x00000e14        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
-                0x00000e14                sax_isr_SetVector
+                0x00000e7c        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+                0x00000e7c                sax_isr_SetVector
  .text.sax_isr_SetPriority
-                0x00000e20       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
-                0x00000e20                sax_isr_SetPriority
+                0x00000e88       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+                0x00000e88                sax_isr_SetPriority
  .text.sax_isr_Enable
-                0x00000e30        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
-                0x00000e30                sax_isr_Enable
+                0x00000e98        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+                0x00000e98                sax_isr_Enable
  .text.sax_isr_Disable
-                0x00000e3c        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
-                0x00000e3c                sax_isr_Disable
+                0x00000ea4        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+                0x00000ea4                sax_isr_Disable
  .text.sax_isr_StartEx
-                0x00000e48       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
-                0x00000e48                sax_isr_StartEx
+                0x00000eb0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+                0x00000eb0                sax_isr_StartEx
  .text.LCD_Char_1_WrCntrlNib
-                0x00000e64       0x34 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00000ecc       0x34 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
  .text.LCD_Char_1_WrDatNib
-                0x00000e98       0x44 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00000f00       0x44 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
  .text.LCD_Char_1_IsReady
-                0x00000edc       0xe4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00000edc                LCD_Char_1_IsReady
+                0x00000f44       0xe4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00000f44                LCD_Char_1_IsReady
  .text.LCD_Char_1_WriteData
-                0x00000fc0       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00000fc0                LCD_Char_1_WriteData
+                0x00001028       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00001028                LCD_Char_1_WriteData
  .text.LCD_Char_1_PrintString
-                0x00000fd8       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00000fd8                LCD_Char_1_PrintString
+                0x00001040       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00001040                LCD_Char_1_PrintString
  .text.LCD_Char_1_WriteControl
-                0x00000ff4       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00000ff4                LCD_Char_1_WriteControl
+                0x0000105c       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x0000105c                LCD_Char_1_WriteControl
  .text.LCD_Char_1_Init
-                0x0000100c       0x74 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x0000100c                LCD_Char_1_Init
+                0x00001074       0x74 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00001074                LCD_Char_1_Init
  .text.LCD_Char_1_Enable
-                0x00001080       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00001080                LCD_Char_1_Enable
+                0x000010e8       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x000010e8                LCD_Char_1_Enable
  .text.LCD_Char_1_Start
-                0x00001094       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x00001094                LCD_Char_1_Start
+                0x000010fc       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x000010fc                LCD_Char_1_Start
  .text.LCD_Char_1_Position
-                0x000010b0       0x3c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x000010b0                LCD_Char_1_Position
+                0x00001118       0x3c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00001118                LCD_Char_1_Position
  .text.LCD_Char_1_PrintU32Number
-                0x000010ec       0x60 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
-                0x000010ec                LCD_Char_1_PrintU32Number
+                0x00001154       0x60 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+                0x00001154                LCD_Char_1_PrintU32Number
  .text.LCD_Char_1_LoadCustomFonts
-                0x0000114c       0x2c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
-                0x0000114c                LCD_Char_1_LoadCustomFonts
+                0x000011b4       0x2c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+                0x000011b4                LCD_Char_1_LoadCustomFonts
  .text.LCD_Char_1_DrawVerticalBG
-                0x00001178       0xa0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
-                0x00001178                LCD_Char_1_DrawVerticalBG
+                0x000011e0       0xa0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+                0x000011e0                LCD_Char_1_DrawVerticalBG
  .text.led1_Write
-                0x00001218       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
-                0x00001218                led1_Write
+                0x00001280       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+                0x00001280                led1_Write
  .text.led1_Read
-                0x00001230       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
-                0x00001230                led1_Read
+                0x00001298       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+                0x00001298                led1_Read
  .text.testy_Write
-                0x00001240       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
-                0x00001240                testy_Write
+                0x000012a8       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+                0x000012a8                testy_Write
  .text.testy_Read
-                0x00001258       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
-                0x00001258                testy_Read
+                0x000012c0       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+                0x000012c0                testy_Read
  .text.PianoDac_Enable
-                0x00001268       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x00001268                PianoDac_Enable
+                0x000012d0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x000012d0                PianoDac_Enable
  .text.PianoDac_SetSpeed
-                0x00001284       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x00001284                PianoDac_SetSpeed
+                0x000012ec       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x000012ec                PianoDac_SetSpeed
  .text.PianoDac_SetValue
-                0x000012a0        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x000012a0                PianoDac_SetValue
+                0x00001308        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x00001308                PianoDac_SetValue
  .text.PianoDac_DacTrim
-                0x000012ac       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x000012ac                PianoDac_DacTrim
+                0x00001314       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x00001314                PianoDac_DacTrim
  .text.PianoDac_SetRange
-                0x000012d0       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x000012d0                PianoDac_SetRange
+                0x00001338       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x00001338                PianoDac_SetRange
  .text.PianoDac_Init
-                0x000012f0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x000012f0                PianoDac_Init
+                0x00001358       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x00001358                PianoDac_Init
  .text.PianoDac_Start
-                0x0000130c       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
-                0x0000130c                PianoDac_Start
+                0x00001374       0x24 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+                0x00001374                PianoDac_Start
  .text.piano_isr_SetVector
-                0x00001330        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
-                0x00001330                piano_isr_SetVector
+                0x00001398        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+                0x00001398                piano_isr_SetVector
  .text.piano_isr_SetPriority
-                0x0000133c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
-                0x0000133c                piano_isr_SetPriority
+                0x000013a4       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+                0x000013a4                piano_isr_SetPriority
  .text.piano_isr_Enable
-                0x0000134c        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
-                0x0000134c                piano_isr_Enable
+                0x000013b4        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+                0x000013b4                piano_isr_Enable
  .text.piano_isr_Disable
-                0x00001358        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
-                0x00001358                piano_isr_Disable
+                0x000013c0        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+                0x000013c0                piano_isr_Disable
  .text.piano_isr_StartEx
-                0x00001364       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
-                0x00001364                piano_isr_StartEx
+                0x000013cc       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+                0x000013cc                piano_isr_StartEx
  .text.BPM_ADC_GainCompensation
-                0x00001380       0xd0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x000013e8       0xd0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
  .text.BPM_ADC_SetDSMRef0Reg
-                0x00001450       0x4c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x000014b8       0x4c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
  .text.BPM_ADC_InitConfig
-                0x0000149c      0x328 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x00001504      0x328 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
  .text.BPM_ADC_Init
-                0x000017c4      0x108 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
-                0x000017c4                BPM_ADC_Init
+                0x0000182c      0x108 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x0000182c                BPM_ADC_Init
  .text.BPM_ADC_Enable
-                0x000018cc       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
-                0x000018cc                BPM_ADC_Enable
+                0x00001934       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x00001934                BPM_ADC_Enable
  .text.BPM_ADC_Start
-                0x000019a4       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
-                0x000019a4                BPM_ADC_Start
+                0x00001a0c       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x00001a0c                BPM_ADC_Start
  .text.BPM_ADC_StartConvert
-                0x000019cc       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
-                0x000019cc                BPM_ADC_StartConvert
+                0x00001a34       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x00001a34                BPM_ADC_StartConvert
  .text.BPM_ADC_GetResult16
-                0x000019dc       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
-                0x000019dc                BPM_ADC_GetResult16
+                0x00001a44       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+                0x00001a44                BPM_ADC_GetResult16
  .text.BPM_ADC_ISR1
-                0x00001a2c        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
-                0x00001a2c                BPM_ADC_ISR1
+                0x00001a94        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+                0x00001a94                BPM_ADC_ISR1
  .text.BPM_ADC_ISR2
-                0x00001a30        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
-                0x00001a30                BPM_ADC_ISR2
+                0x00001a98        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+                0x00001a98                BPM_ADC_ISR2
  .text.BPM_ADC_ISR3
-                0x00001a34        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
-                0x00001a34                BPM_ADC_ISR3
+                0x00001a9c        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+                0x00001a9c                BPM_ADC_ISR3
  .text.BPM_ADC_ISR4
-                0x00001a38        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
-                0x00001a38                BPM_ADC_ISR4
+                0x00001aa0        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+                0x00001aa0                BPM_ADC_ISR4
  .text.BPM_ADC_AMux_Start
-                0x00001a3c       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
-                0x00001a3c                BPM_ADC_AMux_Start
+                0x00001aa4       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+                0x00001aa4                BPM_ADC_AMux_Start
  .text.BPM_ADC_AMux_Select
-                0x00001a5c       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
-                0x00001a5c                BPM_ADC_AMux_Select
+                0x00001ac4       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+                0x00001ac4                BPM_ADC_AMux_Select
  .text.BPM_ADC_Ext_CP_Clk_GetDividerRegister
-                0x00001a74        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
-                0x00001a74                BPM_ADC_Ext_CP_Clk_GetDividerRegister
+                0x00001adc        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+                0x00001adc                BPM_ADC_Ext_CP_Clk_GetDividerRegister
  .text.BPM_ADC_Ext_CP_Clk_SetModeRegister
-                0x00001a80       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
-                0x00001a80                BPM_ADC_Ext_CP_Clk_SetModeRegister
+                0x00001ae8       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+                0x00001ae8                BPM_ADC_Ext_CP_Clk_SetModeRegister
  .text.BPM_ADC_Ext_CP_Clk_GetSourceRegister
-                0x00001a94       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
-                0x00001a94                BPM_ADC_Ext_CP_Clk_GetSourceRegister
+                0x00001afc       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+                0x00001afc                BPM_ADC_Ext_CP_Clk_GetSourceRegister
  .text.BPM_ADC_Ext_CP_Clk_SetDividerRegister
-                0x00001aa4       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
-                0x00001aa4                BPM_ADC_Ext_CP_Clk_SetDividerRegister
+                0x00001b0c       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+                0x00001b0c                BPM_ADC_Ext_CP_Clk_SetDividerRegister
  .text.BPM_ADC_theACLK_GetDividerRegister
-                0x00001b7c        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
-                0x00001b7c                BPM_ADC_theACLK_GetDividerRegister
+                0x00001be4        0xc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+                0x00001be4                BPM_ADC_theACLK_GetDividerRegister
  .text.BPM_ADC_theACLK_SetModeRegister
-                0x00001b88       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
-                0x00001b88                BPM_ADC_theACLK_SetModeRegister
+                0x00001bf0       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+                0x00001bf0                BPM_ADC_theACLK_SetModeRegister
  .text.BPM_ADC_theACLK_GetSourceRegister
-                0x00001b9c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
-                0x00001b9c                BPM_ADC_theACLK_GetSourceRegister
+                0x00001c04       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+                0x00001c04                BPM_ADC_theACLK_GetSourceRegister
  .text.BPM_ADC_theACLK_SetDividerRegister
-                0x00001bac       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
-                0x00001bac                BPM_ADC_theACLK_SetDividerRegister
+                0x00001c14       0xd8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+                0x00001c14                BPM_ADC_theACLK_SetDividerRegister
  .text.PITCH_ADC_CalcGain
-                0x00001c84       0x64 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001cec       0x64 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
  .text.PITCH_ADC_Enable
-                0x00001ce8       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001ce8                PITCH_ADC_Enable
+                0x00001d50       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001d50                PITCH_ADC_Enable
  .text.PITCH_ADC_SetResolution
-                0x00001d7c       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001d7c                PITCH_ADC_SetResolution
+                0x00001de4       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001de4                PITCH_ADC_SetResolution
  .text.PITCH_ADC_Init
-                0x00001db4       0x3c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001db4                PITCH_ADC_Init
+                0x00001e1c       0x3c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001e1c                PITCH_ADC_Init
  .text.PITCH_ADC_Start
-                0x00001df0       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001df0                PITCH_ADC_Start
+                0x00001e58       0x1c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001e58                PITCH_ADC_Start
  .text.PITCH_ADC_StartConvert
-                0x00001e0c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001e0c                PITCH_ADC_StartConvert
+                0x00001e74       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001e74                PITCH_ADC_StartConvert
  .text.PITCH_ADC_GetResult16
-                0x00001e1c       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
-                0x00001e1c                PITCH_ADC_GetResult16
+                0x00001e84       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+                0x00001e84                PITCH_ADC_GetResult16
  .text.PITCH_ADC_ISR
-                0x00001e34        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
-                0x00001e34                PITCH_ADC_ISR
+                0x00001e9c        0x4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+                0x00001e9c                PITCH_ADC_ISR
  .text.PITCH_ADC_theACLK_SetModeRegister
-                0x00001e38       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
-                0x00001e38                PITCH_ADC_theACLK_SetModeRegister
+                0x00001ea0       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+                0x00001ea0                PITCH_ADC_theACLK_SetModeRegister
  .text.Btn_2_Read
-                0x00001e4c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
-                0x00001e4c                Btn_2_Read
+                0x00001eb4       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+                0x00001eb4                Btn_2_Read
  .text.Mode_Switch_Read
-                0x00001e5c       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
-                0x00001e5c                Mode_Switch_Read
+                0x00001ec4       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+                0x00001ec4                Mode_Switch_Read
  .text.Out_1_Write
-                0x00001e6c       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
-                0x00001e6c                Out_1_Write
- .text          0x00001e84      0x370 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
-                0x00001e84                __aeabi_drsub
-                0x00001e8c                __aeabi_dsub
-                0x00001e8c                __subdf3
-                0x00001e90                __aeabi_dadd
-                0x00001e90                __adddf3
-                0x00002108                __floatunsidf
-                0x00002108                __aeabi_ui2d
-                0x00002128                __floatsidf
-                0x00002128                __aeabi_i2d
-                0x0000214c                __aeabi_f2d
-                0x0000214c                __extendsfdf2
-                0x00002188                __floatundidf
-                0x00002188                __aeabi_ul2d
-                0x00002198                __floatdidf
-                0x00002198                __aeabi_l2d
- .text          0x000021f4      0x424 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
-                0x000021f4                __aeabi_dmul
-                0x000021f4                __muldf3
-                0x00002448                __divdf3
-                0x00002448                __aeabi_ddiv
- .text          0x00002618       0x40 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunsdfsi.o)
-                0x00002618                __aeabi_d2uiz
-                0x00002618                __fixunsdfsi
- .text          0x00002658      0x21c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
-                0x00002658                __aeabi_frsub
-                0x00002660                __subsf3
-                0x00002660                __aeabi_fsub
-                0x00002664                __aeabi_fadd
-                0x00002664                __addsf3
-                0x000027c4                __aeabi_ui2f
-                0x000027c4                __floatunsisf
-                0x000027cc                __aeabi_i2f
-                0x000027cc                __floatsisf
-                0x000027e8                __aeabi_ul2f
-                0x000027e8                __floatundisf
-                0x000027f8                __aeabi_l2f
-                0x000027f8                __floatdisf
- .text          0x00002874      0x2a0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
-                0x00002874                __mulsf3
-                0x00002874                __aeabi_fmul
-                0x000029dc                __aeabi_fdiv
-                0x000029dc                __divsf3
- .text          0x00002b14       0xec c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
-                0x00002b14                __gesf2
-                0x00002b14                __gtsf2
-                0x00002b1c                __lesf2
-                0x00002b1c                __ltsf2
-                0x00002b24                __nesf2
-                0x00002b24                __eqsf2
-                0x00002b24                __cmpsf2
-                0x00002b84                __aeabi_cfrcmple
-                0x00002b8c                __aeabi_cfcmpeq
-                0x00002b8c                __aeabi_cfcmple
-                0x00002b9c                __aeabi_fcmpeq
-                0x00002bb0                __aeabi_fcmplt
-                0x00002bc4                __aeabi_fcmple
-                0x00002bd8                __aeabi_fcmpge
-                0x00002bec                __aeabi_fcmpgt
- .text          0x00002c00       0x4c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
-                0x00002c00                __aeabi_f2iz
-                0x00002c00                __fixsfsi
- .text          0x00002c4c       0x40 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
-                0x00002c4c                __fixunssfsi
-                0x00002c4c                __aeabi_f2uiz
+                0x00001ed4       0x18 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+                0x00001ed4                Out_1_Write
+ .text.Inst_Switch_Read
+                0x00001eec       0x10 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+                0x00001eec                Inst_Switch_Read
+ .text          0x00001efc      0x370 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x00001efc                __aeabi_drsub
+                0x00001f04                __aeabi_dsub
+                0x00001f04                __subdf3
+                0x00001f08                __aeabi_dadd
+                0x00001f08                __adddf3
+                0x00002180                __floatunsidf
+                0x00002180                __aeabi_ui2d
+                0x000021a0                __floatsidf
+                0x000021a0                __aeabi_i2d
+                0x000021c4                __aeabi_f2d
+                0x000021c4                __extendsfdf2
+                0x00002200                __floatundidf
+                0x00002200                __aeabi_ul2d
+                0x00002210                __floatdidf
+                0x00002210                __aeabi_l2d
+ .text          0x0000226c      0x424 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                0x0000226c                __aeabi_dmul
+                0x0000226c                __muldf3
+                0x000024c0                __divdf3
+                0x000024c0                __aeabi_ddiv
+ .text          0x00002690       0x40 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunsdfsi.o)
+                0x00002690                __aeabi_d2uiz
+                0x00002690                __fixunsdfsi
+ .text          0x000026d0      0x21c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x000026d0                __aeabi_frsub
+                0x000026d8                __subsf3
+                0x000026d8                __aeabi_fsub
+                0x000026dc                __aeabi_fadd
+                0x000026dc                __addsf3
+                0x0000283c                __aeabi_ui2f
+                0x0000283c                __floatunsisf
+                0x00002844                __aeabi_i2f
+                0x00002844                __floatsisf
+                0x00002860                __aeabi_ul2f
+                0x00002860                __floatundisf
+                0x00002870                __aeabi_l2f
+                0x00002870                __floatdisf
+ .text          0x000028ec      0x2a0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x000028ec                __mulsf3
+                0x000028ec                __aeabi_fmul
+                0x00002a54                __aeabi_fdiv
+                0x00002a54                __divsf3
+ .text          0x00002b8c       0xec c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
+                0x00002b8c                __gesf2
+                0x00002b8c                __gtsf2
+                0x00002b94                __lesf2
+                0x00002b94                __ltsf2
+                0x00002b9c                __nesf2
+                0x00002b9c                __eqsf2
+                0x00002b9c                __cmpsf2
+                0x00002bfc                __aeabi_cfrcmple
+                0x00002c04                __aeabi_cfcmpeq
+                0x00002c04                __aeabi_cfcmple
+                0x00002c14                __aeabi_fcmpeq
+                0x00002c28                __aeabi_fcmplt
+                0x00002c3c                __aeabi_fcmple
+                0x00002c50                __aeabi_fcmpge
+                0x00002c64                __aeabi_fcmpgt
+ .text          0x00002c78       0x4c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                0x00002c78                __aeabi_f2iz
+                0x00002c78                __fixsfsi
+ .text          0x00002cc4       0x40 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x00002cc4                __fixunssfsi
+                0x00002cc4                __aeabi_f2uiz
  .text.__libc_init_array
-                0x00002c8c       0x4c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x00002c8c                __libc_init_array
- .text.memcpy   0x00002cd8       0x16 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
-                0x00002cd8                memcpy
- .text.memset   0x00002cee       0x10 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x00002cee                memset
+                0x00002d04       0x4c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00002d04                __libc_init_array
+ .text.memcpy   0x00002d50       0x16 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+                0x00002d50                memcpy
+ .text.memset   0x00002d66       0x10 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00002d66                memset
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -1195,89 +1209,88 @@ END GROUP
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00002d00        0x0
+.v4_bx          0x00002d78        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00002d00        0x0
+.iplt           0x00002d78        0x0
  .iplt          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00002d00        0x4
+.eh_frame       0x00002d78        0x4
  *(.eh_frame)
- .eh_frame      0x00002d00        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .eh_frame      0x00002d00        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
-                0x00002d04                PROVIDE (__exidx_start, .)
+ .eh_frame      0x00002d78        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .eh_frame      0x00002d78        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x00002d7c                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00002d04                __exidx_end = .
+                0x00002d7c                __exidx_end = .
 
-.rodata         0x00002d04      0x1b4
+.rodata         0x00002d7c      0x20c
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00002d04       0xe0 .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x00002d04                SaxTable
-                0x00002d44                PianoTable
-                0x00002d84                SaxFreq
-                0x00002db4                PianoFreq
+ .rodata        0x00002d7c      0x110 .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x00002d7c                SaxTable
+                0x00002dbc                PianoTable
+                0x00002dfc                SaxFreq
+                0x00002e2c                PianoFreq
  .rodata.str1.4
-                0x00002de4       0x24 .\CortexM3\ARM_GCC_493\Debug\main.o
- .rodata        0x00002e08       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
-                0x00002e08                BPM_ADC_AMux__addrTable
-                0x00002e10                BPM_ADC_AMux__maskTable
- .rodata        0x00002e40       0x40 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
-                0x00002e40                LCD_Char_1_customFonts
-                0x00002e80                . = ALIGN (0x4)
+                0x00002e8c       0x50 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .rodata        0x00002edc       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+                0x00002edc                BPM_ADC_AMux__addrTable
+                0x00002ee4                BPM_ADC_AMux__maskTable
+ .rodata        0x00002f14       0x40 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+                0x00002f14                LCD_Char_1_customFonts
+                0x00002f54                . = ALIGN (0x4)
  *(.init)
- .init          0x00002e80        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x00002e80                _init
- .init          0x00002e84        0x8 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
-                0x00002e8c                . = ALIGN (0x4)
-                0x00002e8c                __preinit_array_start = .
+ .init          0x00002f54        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x00002f54                _init
+ .init          0x00002f58        0x8 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x00002f60                . = ALIGN (0x4)
+                0x00002f60                __preinit_array_start = .
  *(.preinit_array)
-                0x00002e8c                __preinit_array_end = .
-                0x00002e8c                . = ALIGN (0x4)
-                0x00002e8c                __init_array_start = .
+                0x00002f60                __preinit_array_end = .
+                0x00002f60                . = ALIGN (0x4)
+                0x00002f60                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00002e8c        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .init_array    0x00002e90        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x00002e94                __init_array_end = .
-                0x00002e94                . = ALIGN (0x4)
+ .init_array    0x00002f60        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .init_array    0x00002f64        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00002f68                __init_array_end = .
+                0x00002f68                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00002e94        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x00002e94                _fini
- .fini          0x00002e98        0x8 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
-                0x00002ea0                . = ALIGN (0x4)
-                0x00002ea0                __fini_array_start = .
+ .fini          0x00002f68        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x00002f68                _fini
+ .fini          0x00002f6c        0x8 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x00002f74                . = ALIGN (0x4)
+                0x00002f74                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00002ea0        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .fini_array    0x00002f74        0x4 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00002ea4                __fini_array_end = .
-                0x00002ea4                . = ALIGN (0x4)
+                0x00002f78                __fini_array_end = .
+                0x00002f78                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00002ea4                . = ALIGN (0x4)
+                0x00002f78                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00002ea4                . = ALIGN (0x4)
-                0x00002ea4                __cy_regions = .
-                0x00002ea4        0x4 LONG 0x2eb8 __cy_region_init_ram
-                0x00002ea8        0x4 LONG 0x1fff8108 __cy_region_start_data
-                0x00002eac        0x4 LONG 0xad8 __cy_region_init_size_ram
-                0x00002eb0        0x4 LONG 0xd0 __cy_region_zero_size_ram
-                0x00002eb4                __cy_regions_end = .
-                0x00002eb8                . = ALIGN (0x8)
- *fill*         0x00002eb4        0x4 
-                0x00002eb8                _etext = .
+                0x00002f78                . = ALIGN (0x4)
+                0x00002f78                __cy_regions = .
+                0x00002f78        0x4 LONG 0x2f88 __cy_region_init_ram
+                0x00002f7c        0x4 LONG 0x1fff8108 __cy_region_start_data
+                0x00002f80        0x4 LONG 0xad8 __cy_region_init_size_ram
+                0x00002f84        0x4 LONG 0xd0 __cy_region_zero_size_ram
+                0x00002f88                __cy_regions_end = .
+                0x00002f88                . = ALIGN (0x8)
+                0x00002f88                _etext = .
 
 .cy_checksum_exclude
-                0x00002eb8        0x0
+                0x00002f88        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x1fff8000      0x100
@@ -1292,7 +1305,7 @@ END GROUP
  .noinit        0x1fff8104        0x1 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
                 0x1fff8104                CyResetStatus
 
-.data           0x1fff8108      0xad8 load address 0x00002eb8
+.data           0x1fff8108      0xad8 load address 0x00002f88
                 0x1fff8108                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff8108        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
@@ -1332,10 +1345,10 @@ END GROUP
  *(.ram)
                 0x1fff8be0                _edata = .
 
-.igot.plt       0x1fff8be0        0x0 load address 0x00003990
+.igot.plt       0x1fff8be0        0x0 load address 0x00003a60
  .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.bss            0x1fff8be0       0xd0 load address 0x00003990
+.bss            0x1fff8be0       0xd0 load address 0x00003a60
                 0x1fff8be0                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -1405,11 +1418,11 @@ END GROUP
                 0x1fff8cb0                __end = .
                 0x1fff8cb0                PROVIDE (end, .)
                 0x1fff8cb0                PROVIDE (__bss_end__, .)
-                0x00002eb8                __cy_region_init_ram = LOADADDR (.data)
+                0x00002f88                __cy_region_init_ram = LOADADDR (.data)
                 0x00000ad8                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x000000d0                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff8cb0       0x80 load address 0x00003990
+.heap           0x1fff8cb0       0x80 load address 0x00003a60
                 0x1fff8cb0                . = _end
                 0x1fff8d30                . = (. + 0x80)
  *fill*         0x1fff8cb0       0x80 
@@ -1460,7 +1473,7 @@ END GROUP
  .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                 0x90500000                cy_metadata
 
-.rel.dyn        0x00003990        0x0 load address 0x9050000c
+.rel.dyn        0x00003a60        0x0 load address 0x9050000c
  .rel.iplt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
 .stab
@@ -1481,7 +1494,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xc98
+.debug_aranges  0x00000000      0xcd0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x88 .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -1536,232 +1549,241 @@ END GROUP
  .debug_aranges
                 0x00000b68       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
  .debug_aranges
-                0x00000ba0       0x80 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+                0x00000ba0       0x38 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
  .debug_aranges
-                0x00000c20       0x78 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+                0x00000bd8       0x80 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_aranges
+                0x00000c58       0x78 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x794b
+.debug_info     0x00000000     0x7b6c
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xefa .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_info    0x00000efa      0x13b .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_info    0x00001035      0x39f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_info    0x000013d4      0x671 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
- .debug_info    0x00001a45       0x7e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
- .debug_info    0x00001ac3     0x136f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
- .debug_info    0x00002e32      0xa57 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
- .debug_info    0x00003889      0x1de .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
- .debug_info    0x00003a67      0x2cb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
- .debug_info    0x00003d32      0x763 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
- .debug_info    0x00004495      0x2a7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
- .debug_info    0x0000473c      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
- .debug_info    0x0000485b      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
- .debug_info    0x0000497a      0x1de .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
- .debug_info    0x00004b58      0x2cb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
- .debug_info    0x00004e23      0xc4c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
- .debug_info    0x00005a6f       0xcc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
- .debug_info    0x00005b3b      0x16d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
- .debug_info    0x00005ca8      0x283 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
- .debug_info    0x00005f2b      0x2c4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
- .debug_info    0x000061ef      0x5f8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
- .debug_info    0x000067e7       0x92 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
- .debug_info    0x00006879      0x283 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
- .debug_info    0x00006afc      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
- .debug_info    0x00006c1b      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
- .debug_info    0x00006d3a      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_info    0x00006e59      0x608 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_info    0x00007461      0x4ea .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_info    0x00000000      0xffc .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_info    0x00000ffc      0x13b .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00001137      0x39f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_info    0x000014d6      0x671 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_info    0x00001b47       0x7e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
+ .debug_info    0x00001bc5     0x136f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_info    0x00002f34      0xa57 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_info    0x0000398b      0x1de .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_info    0x00003b69      0x2cb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_info    0x00003e34      0x763 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_info    0x00004597      0x2a7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_info    0x0000483e      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_info    0x0000495d      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_info    0x00004a7c      0x1de .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_info    0x00004c5a      0x2cb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_info    0x00004f25      0xc4c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_info    0x00005b71       0xcc .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+ .debug_info    0x00005c3d      0x16d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_info    0x00005daa      0x283 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_info    0x0000602d      0x2c4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_info    0x000062f1      0x5f8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_info    0x000068e9       0x92 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+ .debug_info    0x0000697b      0x283 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_info    0x00006bfe      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_info    0x00006d1d      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_info    0x00006e3c      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_info    0x00006f5b      0x11f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_info    0x0000707a      0x608 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_info    0x00007682      0x4ea .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
-.debug_abbrev   0x00000000     0x2281
+.debug_abbrev   0x00000000     0x2320
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x287 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_abbrev  0x00000287       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_abbrev  0x000002ed      0x200 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_abbrev  0x000004ed      0x223 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
- .debug_abbrev  0x00000710       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00000724      0x296 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
- .debug_abbrev  0x000009ba      0x1ed .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
- .debug_abbrev  0x00000ba7       0xf7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
- .debug_abbrev  0x00000c9e      0x173 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
- .debug_abbrev  0x00000e11      0x171 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
- .debug_abbrev  0x00000f82      0x12b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
- .debug_abbrev  0x000010ad       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
- .debug_abbrev  0x0000113d       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
- .debug_abbrev  0x000011cd       0xf7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
- .debug_abbrev  0x000012c4      0x173 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
- .debug_abbrev  0x00001437      0x21f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
- .debug_abbrev  0x00001656       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
- .debug_abbrev  0x00001698       0xcb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
- .debug_abbrev  0x00001763      0x139 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
- .debug_abbrev  0x0000189c      0x121 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
- .debug_abbrev  0x000019bd      0x1eb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
- .debug_abbrev  0x00001ba8       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
- .debug_abbrev  0x00001bea      0x139 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
- .debug_abbrev  0x00001d23       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
- .debug_abbrev  0x00001db3       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
- .debug_abbrev  0x00001e43       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_abbrev  0x00001ed3      0x1ed .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_abbrev  0x000020c0      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_abbrev  0x00000000      0x296 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_abbrev  0x00000296       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_abbrev  0x000002fc      0x200 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_abbrev  0x000004fc      0x223 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_abbrev  0x0000071f       0x14 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00000733      0x296 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_abbrev  0x000009c9      0x1ed .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_abbrev  0x00000bb6       0xf7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_abbrev  0x00000cad      0x173 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_abbrev  0x00000e20      0x171 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_abbrev  0x00000f91      0x12b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_abbrev  0x000010bc       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_abbrev  0x0000114c       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_abbrev  0x000011dc       0xf7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_abbrev  0x000012d3      0x173 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_abbrev  0x00001446      0x21f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_abbrev  0x00001665       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+ .debug_abbrev  0x000016a7       0xcb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_abbrev  0x00001772      0x139 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_abbrev  0x000018ab      0x121 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_abbrev  0x000019cc      0x1eb .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_abbrev  0x00001bb7       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+ .debug_abbrev  0x00001bf9      0x139 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_abbrev  0x00001d32       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_abbrev  0x00001dc2       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_abbrev  0x00001e52       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_abbrev  0x00001ee2       0x90 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_abbrev  0x00001f72      0x1ed .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_abbrev  0x0000215f      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
-.debug_line     0x00000000     0x2edd
+.debug_line     0x00000000     0x2f9f
  *(.debug_line)
- .debug_line    0x00000000      0x375 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_line    0x00000375       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x000003c8      0x249 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x00000611      0x226 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
- .debug_line    0x00000837       0x68 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
- .debug_line    0x0000089f      0x806 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
- .debug_line    0x000010a5      0x366 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
- .debug_line    0x0000140b       0xe5 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
- .debug_line    0x000014f0      0x14d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
- .debug_line    0x0000163d      0x1f6 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
- .debug_line    0x00001833       0xd9 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
- .debug_line    0x0000190c       0x93 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
- .debug_line    0x0000199f       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
- .debug_line    0x00001a33       0xe7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
- .debug_line    0x00001b1a      0x14f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
- .debug_line    0x00001c69      0x3ea .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
- .debug_line    0x00002053       0x86 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
- .debug_line    0x000020d9       0xb2 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
- .debug_line    0x0000218b      0x19a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
- .debug_line    0x00002325      0x1ba .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
- .debug_line    0x000024df      0x221 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
- .debug_line    0x00002700       0x58 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
- .debug_line    0x00002758      0x199 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
- .debug_line    0x000028f1       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
- .debug_line    0x00002985       0x9a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
- .debug_line    0x00002a1f       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_line    0x00002ab3      0x1ec .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_line    0x00002c9f      0x23e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_line    0x00000000      0x39d .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_line    0x0000039d       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x000003f0      0x249 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x00000639      0x226 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_line    0x0000085f       0x68 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyBootAsmGnu.o)
+ .debug_line    0x000008c7      0x806 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_line    0x000010cd      0x366 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_line    0x00001433       0xe5 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_line    0x00001518      0x14d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_line    0x00001665      0x1f6 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_line    0x0000185b       0xd9 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_line    0x00001934       0x93 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_line    0x000019c7       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_line    0x00001a5b       0xe7 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_line    0x00001b42      0x14f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_line    0x00001c91      0x3ea .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_line    0x0000207b       0x86 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+ .debug_line    0x00002101       0xb2 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_line    0x000021b3      0x19a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_line    0x0000234d      0x1ba .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_line    0x00002507      0x221 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_line    0x00002728       0x58 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+ .debug_line    0x00002780      0x199 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_line    0x00002919       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_line    0x000029ad       0x9a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_line    0x00002a47       0x94 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_line    0x00002adb       0x9a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_line    0x00002b75      0x1ec .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_line    0x00002d61      0x23e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
-.debug_frame    0x00000000     0x2020
+.debug_frame    0x00000000     0x2074
  *(.debug_frame)
- .debug_frame   0x00000000      0x1bc .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_frame   0x000001bc       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_frame   0x00000268      0x11c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
- .debug_frame   0x00000384      0x728 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
- .debug_frame   0x00000aac      0x1f8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
- .debug_frame   0x00000ca4       0xb4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
- .debug_frame   0x00000d58      0x104 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
- .debug_frame   0x00000e5c      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
- .debug_frame   0x00001040       0x5c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
- .debug_frame   0x0000109c       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
- .debug_frame   0x000010ec       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
- .debug_frame   0x0000113c       0xb4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
- .debug_frame   0x000011f0      0x104 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
- .debug_frame   0x000012f4      0x290 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
- .debug_frame   0x00001584       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
- .debug_frame   0x000015d4       0x64 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
- .debug_frame   0x00001638       0xe0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
- .debug_frame   0x00001718      0x100 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
- .debug_frame   0x00001818      0x1a4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
- .debug_frame   0x000019bc       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
- .debug_frame   0x000019dc       0xe0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
- .debug_frame   0x00001abc       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
- .debug_frame   0x00001b0c       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
- .debug_frame   0x00001b5c       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_frame   0x00001bac      0x174 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_frame   0x00001d20      0x160 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
- .debug_frame   0x00001e80       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
- .debug_frame   0x00001ea8       0x54 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(bpabi.o)
- .debug_frame   0x00001efc       0x34 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_divdi3.o)
- .debug_frame   0x00001f30       0x34 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_udivdi3.o)
- .debug_frame   0x00001f64       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00001f84       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x00001fac       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00001fd8       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x00002000       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000      0x1c0 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_frame   0x000001c0       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_frame   0x0000026c      0x11c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_frame   0x00000388      0x728 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_frame   0x00000ab0      0x1f8 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_frame   0x00000ca8       0xb4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_frame   0x00000d5c      0x104 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_frame   0x00000e60      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_frame   0x00001044       0x5c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_frame   0x000010a0       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_frame   0x000010f0       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_frame   0x00001140       0xb4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_frame   0x000011f4      0x104 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_frame   0x000012f8      0x290 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_frame   0x00001588       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+ .debug_frame   0x000015d8       0x64 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_frame   0x0000163c       0xe0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_frame   0x0000171c      0x100 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_frame   0x0000181c      0x1a4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_frame   0x000019c0       0x20 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+ .debug_frame   0x000019e0       0xe0 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_frame   0x00001ac0       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_frame   0x00001b10       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_frame   0x00001b60       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_frame   0x00001bb0       0x50 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_frame   0x00001c00      0x174 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_frame   0x00001d74      0x160 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_frame   0x00001ed4       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .debug_frame   0x00001efc       0x54 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(bpabi.o)
+ .debug_frame   0x00001f50       0x34 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_divdi3.o)
+ .debug_frame   0x00001f84       0x34 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00001fb8       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00001fd8       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002000       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x0000202c       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00002054       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x2b73
+.debug_str      0x00000000     0x2c12
  *(.debug_str)
- .debug_str     0x00000000      0x7f2 .\CortexM3\ARM_GCC_493\Debug\main.o
-                                0x8db (size before relaxing)
- .debug_str     0x000007f2       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_str     0x00000000      0x827 .\CortexM3\ARM_GCC_493\Debug\main.o
+                                0x910 (size before relaxing)
+ .debug_str     0x00000827       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                                 0x1d8 (size before relaxing)
- .debug_str     0x00000869      0x158 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_str     0x0000089e      0x158 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
                                 0x2ec (size before relaxing)
- .debug_str     0x000009c1      0x1af .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_str     0x000009f6      0x1af .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
                                 0x357 (size before relaxing)
- .debug_str     0x00000b70      0x7ee .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_str     0x00000ba5      0x7ee .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
                                 0xa11 (size before relaxing)
- .debug_str     0x0000135e      0x35b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_str     0x00001393      0x35b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
                                 0x709 (size before relaxing)
- .debug_str     0x000016b9       0x92 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_str     0x000016ee       0x92 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
                                 0x217 (size before relaxing)
- .debug_str     0x0000174b       0xf4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_str     0x00001780       0xf4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
                                 0x2a4 (size before relaxing)
- .debug_str     0x0000183f      0x1ae .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_str     0x00001874      0x1ae .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
                                 0x3cb (size before relaxing)
- .debug_str     0x000019ed       0x74 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_str     0x00001a22       0x74 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
                                 0x28f (size before relaxing)
- .debug_str     0x00001a61       0x4e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_str     0x00001a96       0x4e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
                                 0x1cb (size before relaxing)
- .debug_str     0x00001aaf       0x46 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_str     0x00001ae4       0x46 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
                                 0x1d0 (size before relaxing)
- .debug_str     0x00001af5       0x96 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_str     0x00001b2a       0x96 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
                                 0x22b (size before relaxing)
- .debug_str     0x00001b8b      0x10e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_str     0x00001bc0      0x10e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
                                 0x2c0 (size before relaxing)
- .debug_str     0x00001c99      0x3f5 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_str     0x00001cce      0x3f5 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
                                 0x65c (size before relaxing)
- .debug_str     0x0000208e       0x5b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
+ .debug_str     0x000020c3       0x5b .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_INT.o)
                                 0x1b6 (size before relaxing)
- .debug_str     0x000020e9       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_str     0x0000211e       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
                                 0x209 (size before relaxing)
- .debug_str     0x0000215a      0x197 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_str     0x0000218f      0x197 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
                                 0x360 (size before relaxing)
- .debug_str     0x000022f1      0x181 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_str     0x00002326      0x181 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
                                 0x387 (size before relaxing)
- .debug_str     0x00002472      0x202 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_str     0x000024a7      0x202 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
                                 0x4ac (size before relaxing)
- .debug_str     0x00002674       0x37 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
+ .debug_str     0x000026a9       0x37 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_INT.o)
                                 0x189 (size before relaxing)
- .debug_str     0x000026ab      0x16f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_str     0x000026e0      0x16f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
                                 0x354 (size before relaxing)
- .debug_str     0x0000281a       0x52 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_str     0x0000284f       0x52 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
                                 0x1d0 (size before relaxing)
- .debug_str     0x0000286c       0x6a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_str     0x000028a1       0x6a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
                                 0x1ee (size before relaxing)
- .debug_str     0x000028d6       0x51 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_str     0x0000290b       0x51 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
                                 0x1d0 (size before relaxing)
- .debug_str     0x00002927      0x19e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_str     0x0000295c       0x6a .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+                                0x1ee (size before relaxing)
+ .debug_str     0x000029c6      0x19e .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
                                 0x383 (size before relaxing)
- .debug_str     0x00002ac5       0xae .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_str     0x00002b64       0xae .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
                                 0x30c (size before relaxing)
 
-.debug_loc      0x00000000     0x31b6
+.debug_loc      0x00000000     0x3255
  *(.debug_loc)
- .debug_loc     0x00000000      0x3b8 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_loc     0x000003b8      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_loc     0x000004fc      0x23f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
- .debug_loc     0x0000073b      0xa11 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
- .debug_loc     0x0000114c      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
- .debug_loc     0x00001330       0x79 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
- .debug_loc     0x000013a9       0x56 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
- .debug_loc     0x000013ff      0x3c6 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
- .debug_loc     0x000017c5      0x160 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
- .debug_loc     0x00001925       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
- .debug_loc     0x00001967       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
- .debug_loc     0x000019a9       0x79 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
- .debug_loc     0x00001a22       0x56 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
- .debug_loc     0x00001a78      0x6ab .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
- .debug_loc     0x00002123       0x6c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
- .debug_loc     0x0000218f      0x12c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
- .debug_loc     0x000022bb      0x14d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
- .debug_loc     0x00002408      0x273 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
- .debug_loc     0x0000267b      0x128 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
- .debug_loc     0x000027a3       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
- .debug_loc     0x000027e5       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
- .debug_loc     0x00002827       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_loc     0x00002869      0x300 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_loc     0x00002b69      0x64d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_loc     0x00000000      0x415 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_loc     0x00000415      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_loc     0x00000559      0x23f .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyfitter_cfg.o)
+ .debug_loc     0x00000798      0xa11 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyLib.o)
+ .debug_loc     0x000011a9      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(cyPm.o)
+ .debug_loc     0x0000138d       0x79 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(SaxDac.o)
+ .debug_loc     0x00001406       0x56 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(sax_isr.o)
+ .debug_loc     0x0000145c      0x3c6 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1.o)
+ .debug_loc     0x00001822      0x160 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(LCD_Char_1_BarGraph.o)
+ .debug_loc     0x00001982       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(led1.o)
+ .debug_loc     0x000019c4       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(testy.o)
+ .debug_loc     0x00001a06       0x79 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PianoDac.o)
+ .debug_loc     0x00001a7f       0x56 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(piano_isr.o)
+ .debug_loc     0x00001ad5      0x6ab .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC.o)
+ .debug_loc     0x00002180       0x6c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_AMux.o)
+ .debug_loc     0x000021ec      0x12c .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_Ext_CP_Clk.o)
+ .debug_loc     0x00002318      0x14d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(BPM_ADC_theACLK.o)
+ .debug_loc     0x00002465      0x273 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC.o)
+ .debug_loc     0x000026d8      0x128 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(PITCH_ADC_theACLK.o)
+ .debug_loc     0x00002800       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
+ .debug_loc     0x00002842       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
+ .debug_loc     0x00002884       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .debug_loc     0x000028c6       0x42 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_loc     0x00002908      0x300 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_loc     0x00002c08      0x64d .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0xac0
+.debug_ranges   0x00000000      0xae8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x78 .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_ranges  0x00000078       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
@@ -1787,8 +1809,9 @@ END GROUP
  .debug_ranges  0x00000970       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
  .debug_ranges  0x00000998       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
  .debug_ranges  0x000009c0       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
- .debug_ranges  0x000009e8       0x70 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
- .debug_ranges  0x00000a58       0x68 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+ .debug_ranges  0x000009e8       0x28 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
+ .debug_ranges  0x00000a10       0x70 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+ .debug_ranges  0x00000a80       0x68 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -1817,6 +1840,7 @@ END GROUP
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Btn_2.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Mode_Switch.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
+ .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
 
@@ -1897,53 +1921,55 @@ END GROUP
  .ARM.attributes
                 0x0000054e       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Out_1.o)
  .ARM.attributes
-                0x00000581       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
+                0x00000581       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(Inst_Switch.o)
  .ARM.attributes
-                0x000005b4       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
+                0x000005b4       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CyFlash.o)
  .ARM.attributes
-                0x000005e7       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x000005e7       0x33 .\CortexM3\ARM_GCC_493\Debug\Jazzy_Dude.a(CySpc.o)
  .ARM.attributes
-                0x00000604       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                0x0000061a       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000621       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                0x00000637       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x0000063e       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunsdfsi.o)
+                0x00000654       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x0000065b       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x00000671       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x00000678       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x0000068e       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x00000695       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
+                0x000006ab       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x000006b2       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                0x000006c8       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
  .ARM.attributes
-                0x000006cf       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x000006e5       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
  .ARM.attributes
-                0x000006ec       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                0x00000702       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
  .ARM.attributes
-                0x00000709       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(bpabi.o)
+                0x0000071f       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
  .ARM.attributes
-                0x00000736       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_dvmd_tls.o)
+                0x0000073c       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(bpabi.o)
  .ARM.attributes
-                0x00000753       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_divdi3.o)
+                0x00000769       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000780       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_udivdi3.o)
+                0x00000786       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_divdi3.o)
  .ARM.attributes
-                0x000007ad       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000007b3       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_udivdi3.o)
  .ARM.attributes
-                0x000007da       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                0x000007e0       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000807       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x0000080d       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000834       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x0000083a       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000861       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+                0x00000867       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000088e       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00000894       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x000008bb       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x000008c1       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x000008e8       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000008ee       0x2d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+ .ARM.attributes
+                0x0000091b       0x1d c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)

@@ -52,6 +52,8 @@
 #include "Mode_Switch.h"
 #include "Btn_2_aliases.h"
 #include "Btn_2.h"
+#include "Inst_Switch_aliases.h"
+#include "Inst_Switch.h"
 #include "LCD_Char_1_LCDPort_aliases.h"
 #include "LCD_Char_1_LCDPort.h"
 #include "BPM_ADC_AMux.h"
