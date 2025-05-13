@@ -99,6 +99,8 @@ const float PianoFreq [12]={196, 207.66, 220.01, 233.09, 246.95, 261.63, 277.19,
     uint8_t chard_idx;
     uint8_t prev_mode;
     uint8_t mode=1;
+    uint32_t bpm_array[7]={60,75,90,105,120,135,150};
+   
  //Envelope Vars;
     enum {
         IDLE,
@@ -341,8 +343,8 @@ chart bad_megalovania = {
     { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
     { END_PLAY_NOTE, F }, { END_PLAY_NOTE, G  },
     { END_PLAY_NOTE, D }, { END_PLAY_NOTE, A  }, { END_PLAY_NOTE, Gs },
-    { END_PLAY_NOTE, G }, { END_PLAY_NOTE, F  }, { END_PLAY_NOTE, D  },
-    { END_PLAY_NOTE, F }, { END_NOTE,      0 }
+    { END_PLAY_NOTE, G }, { END_PLAY_NOTE,F  }, { END_PLAY_NOTE, D  },
+    { END_PLAY_NOTE, F }, { END_NOTE,0 }
   },
 
   // Bar 3 – identical
@@ -522,126 +524,156 @@ chart nop_chart = {
   }
 };
 
-chart bossa_melody = {
-  // Bar 0: two-sixteenth pickup Eb
+chart bossa_main_melody = {
+  // Bar 1: Dm7 (D, F, A) 
   {
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{PLAY_NOTE,Ds},{END_NOTE,0}
+    {PLAY_NOTE, D}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, A}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
+  },
+  
+  // Bar 2: G7 (G, B, D, F)
+  {
+    {PLAY_NOTE, G}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, D}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
+  },
+  
+  // Bar 3: Cmaj7 (C, E, G, B)
+  {
+    {PLAY_NOTE, C}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 1 (Eb → D → C → Eb → C)
+  // Bar 4: Am7 (A, C, E, G)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, A}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, C}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 2 (Eb → G → Eb → F → Eb)
+  // Bar 5: Dm7 (D, F, A, C)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,G},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},
-    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, D}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, A}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, C}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 3 (D → C → B → C → D)
+  // Bar 6: G7 (G, B, D, F, A)
   {
-    {PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,B},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, G}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, D}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 4 = Bar 1
+  // Bar 7: Cmaj7 (C, E, G, B)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, C}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 5 = Bar 2
+  // Bar 8: Am7 (A, C, E, G)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,G},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},
-    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, A}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, C}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
   },
 
-  // Bar 6 = Bar 3
+  // Bars 9–12: Repeat bars 1–4
   {
-    {PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,B},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, D}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, A}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
+  },
+  {
+    {PLAY_NOTE, G}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, D}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, F}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
+  },
+  {
+    {PLAY_NOTE, C}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, B}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
+  },
+  {
+    {PLAY_NOTE, A}, {NOP, 0}, {NOP, 0}, {END_PLAY_NOTE, 0},
+    {PLAY_NOTE, C}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, E}, {NOP, 0}, {END_PLAY_NOTE, 0}, {NOP, 0},
+    {PLAY_NOTE, G}, {NOP, 0}, {END_NOTE, 0}, {NOP, 0}
+  }
+};
+
+
+chart bossa_support_chords = {
+  // Bar 1: Dm7 (D & F) 
+  {
+    {PLAY_NOTE, D}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, F}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   },
 
-  // Bar 7 = Bar 1
+  // Bar 2: G7 (G & B)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, G}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, B}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   },
 
-  // Bar 8 = Bar 2
+  // Bar 3: Cmaj7 (C & E)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,G},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},
-    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, C}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, E}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   },
 
-  // Bar 9 = Bar 3
+  // Bar 4: Am7 (A & C)
   {
-    {PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,B},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},{NOP,0},{NOP,0},
-    {NOP,0},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, A}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, C}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   },
 
-  // Bar 10 (tag: same as Bar 1)
+  // Bars 5–8: repeat of bars 1–4
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,D},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,C},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, D}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, F}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   },
-
-  // Bar 11 (tag: same as Bar 2)
   {
-    {PLAY_NOTE,Ds},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,G},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},
-    {END_PLAY_NOTE,F},{NOP,0},{NOP,0},{NOP,0},
-    {END_PLAY_NOTE,Ds},{NOP,0},{NOP,0},
-    {END_NOTE,0}
+    {PLAY_NOTE, G}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, B}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
+  },
+  {
+    {PLAY_NOTE, C}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, E}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
+  },
+  {
+    {PLAY_NOTE, A}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {PLAY_NOTE, C}, {END_NOTE, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0},
+    {NOP, 0}, {NOP, 0}, {NOP, 0}, {NOP, 0}
   }
 };
 
@@ -807,10 +839,10 @@ CY_ISR(Piano_ISR)
 
 
 CY_ISR(Lcd_ISR){
-    LCD_Char_1_ClearDisplay();
-    LCD_Char_1_Position(0, 0);
-    LCD_Char_1_PrintNumber(pot2_value);
- 
+
+    
+
+
 }
 
 
@@ -829,7 +861,7 @@ int main()
 
     sax_isr_StartEx(Sax_ISR);
     piano_isr_StartEx(Piano_ISR);
-    lcd_isr_StartEx(Lcd_ISR);
+   // lcd_isr_StartEx(Lcd_ISR);
    // sax_clk_SetDivider(413);
     //Initliaze Envelope_Process;
     //Start Sax Dac
@@ -839,72 +871,58 @@ int main()
     PITCH_ADC_StartConvert();
     BPM_ADC_Start();
     BPM_ADC_StartConvert();
-    // SaxDac_SetValue(255);
-    
-     bar  cur_bar = {
-     {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-     {NOP,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-     {PLAY_NOTE,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-     {NOP,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0}
-     };
-     
+ 
 
-  bar cur_bar1 = {
-    { PLAY_NOTE,    G  }, { NOP, 0 },
-    { END_PLAY_NOTE, C  }, { NOP, 0 },
-    { END_PLAY_NOTE, Ds }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
-    { END_PLAY_NOTE, D  }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
-    { PLAY_NOTE,     Ds }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, Ds }
-  };
-    
-
-    chart cur_chart={
-        {
-             { PLAY_NOTE,    G  }, { NOP, 0 },
-            { END_PLAY_NOTE, C  }, { NOP, 0 },
-            { END_PLAY_NOTE, Ds }, { NOP, 0 }, { NOP, 0 }, { NOP, 0 },
-            { END_PLAY_NOTE, D  }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, 0 },
-            { PLAY_NOTE,     Ds }, { NOP, 0 }, { NOP, 0 }, { END_NOTE, Ds}},
-      {
-         {PLAY_NOTE,    C}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-         {NOP,          0}, {NOP,      0}, {NOP,      0}, {NOP, 0},
-         {PLAY_NOTE,          0}, {NOP,      0}, {NOP,      0}, {END_NOTE, 0},
-         {NOP,          0}, {NOP,      0}, {NOP,      0}, {NOP, 0}
-
-    }
-  };
-
-
-    uint32_t bpm_array[7]={60,75,90,105,120,135,150};
+   
     uint8_t chart_idx=0;
     uint8_t bar_idx=0;
    // chart cur_chart[2] ={cur_bar,cur_bar1};
     uint32_t LastTick= msTicks;
     uint32_t msPerTick=125;
+    uint32_t LEDTick;
     for(;;)
     {
         
-        switch(mode){
+        /*
+        if(Btn_1_Read()== 0) {
+            mode=mode==1? 0:1;
+            Envelope_Release(&piano_env_state);
+            Envelope_Release(&sax_env_state);
+           
+        }
+        */
+        mode=Mode_Switch_Read();
+        
+        switch(Mode_Switch_Read()){
         //playing mode
             case 0:
+                    Out_1_Write(0);
+                    if(Btn_2_Read()==0){
+                        play_sax(clean_pot(BPM_ADC_GetResult16()));
+                    }else if(sax_env_state!=RELEASE){
+                        Envelope_Release(&sax_env_state);
+                    }
                 break;
             //auto mode
             case 1:
             //update state vars
-            
+                Out_1_Write(1);
             //start by reading pots
               if(msTicks-LastTick>=msPerTick){
+                
+    
                 LastTick=msTicks;
                 pot1_value=clean_pot(BPM_ADC_GetResult16());
                 pot2_value=clean_pot(PITCH_ADC_GetResult16());
                 msPerTick=(60000/bpm_array[pot1_value])/4;
+                
       
                 if(bar_idx>=16){
                     bar_idx=0;
                     chart_idx=(chart_idx+1)%12;
                 }
-               // if(chart_idx>=2) chart_idx=0;
-              struct bar_note sax_cur_note=straight_no_chaser[chart_idx][bar_idx];
+               
+              struct bar_note sax_cur_note=good_megalovania[chart_idx][bar_idx];
               sax_cur_note.note=(sax_cur_note.note+pot2_value)%12;
                 //mux based of the note actio 
                 switch(sax_cur_note.action){
@@ -924,7 +942,7 @@ int main()
                     case NOP:
                       break;
                 }
-              struct bar_note piano_cur_note=piano_harmony[chart_idx][bar_idx];
+              struct bar_note piano_cur_note=nop_chart[chart_idx][bar_idx];
               piano_cur_note.note=(piano_cur_note.note+pot2_value)%12;
                 //mux based of the note actio 
                 switch(piano_cur_note.action){
@@ -948,22 +966,32 @@ int main()
                 break;
               }
           }
-        // piano_current_note_freq=PianoFreq[x++];
-        // play_piano(x);
-        // CyDelay(100);
-        // Envelope_Release(&piano_env_state);
-        // CyDelay(50);
-        /*
-        uint8_t x;
-        if(x>11) x=0;
-        sax_current_note_freq=SaxFreq[x++];
-        play_sax(x);
-        CyDelay(10);
-        Envelope_Release(&sax_env_state);
-        CyDelay(50);
-        */
-        
-
+        if(msTicks-LEDTick>=350){
+            LEDTick=msTicks;
+            
+            LCD_Char_1_ClearDisplay();
+            
+            LCD_Char_1_Position(0,14);
+            LCD_Char_1_PrintNumber(mode);
+          
+            if(mode==1){
+            LCD_Char_1_Position(0,0);
+            LCD_Char_1_PrintString("BPM : ");
+            LCD_Char_1_Position(0,6);
+            LCD_Char_1_PrintNumber(bpm_array[pot1_value]);
+            
+            LCD_Char_1_Position(1,0);
+            LCD_Char_1_PrintString("Pitch: ");
+            LCD_Char_1_Position(1,6);
+            LCD_Char_1_PrintNumber(pot2_value);
+            }
+            if(mode==0){
+                LCD_Char_1_Position(0,0);
+                LCD_Char_1_PrintString("Cur Note:");
+                LCD_Char_1_PrintNumber(pot1_value);
+            }
+            LCD_Char_1_DrawVerticalBG(1,10,3,(sax_env_lvl*17));
+        }
         
     }
 }

@@ -74,6 +74,22 @@ E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/BPM_AD
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/BPM_ADC_theACLK.c : 
 
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/Btn_1.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1_aliases.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cypins.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1.c : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_1_aliases.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/Btn_2.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2_aliases.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cypins.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2.c : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Btn_2_aliases.h : 
+
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/Clock_1.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Clock_1.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Clock_1.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Clock_1.c : 
@@ -108,6 +124,10 @@ E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1.h : 
 
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/LCD_Char_1_BarGraph.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_BarGraph.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_BarGraph.c : 
+
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/LCD_Char_1_LCDPort.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_LCDPort.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_LCDPort.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_LCDPort_aliases.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cypins.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_LCDPort.c : 
@@ -119,6 +139,22 @@ E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/LCD_Char_1_PM.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_PM.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/LCD_Char_1_PM.c : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/Mode_Switch.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch_aliases.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cypins.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch.c : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Mode_Switch_aliases.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/Out_1.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1_aliases.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cypins.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1.c : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1.h : 
+
+E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/Out_1_aliases.h : 
 
 E:/final\ project/Workspace01/Jazzy_Dude.cydsn/CortexM3/ARM_GCC_493/Debug/PITCH_ADC.o : E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/CyFlash.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/CyLib.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/CySpc.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/PITCH_ADC.c E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/PITCH_ADC.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/PITCH_ADC_theACLK.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyPm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cyfitter.h E:/final\ project/Workspace01/Jazzy_Dude.cydsn/Generated_Source/PSoC5/cytypes.h 
 

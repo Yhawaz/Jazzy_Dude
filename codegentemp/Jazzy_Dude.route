@@ -31,7 +31,7 @@ net Net_1005
 	switch ":interrupt_idmux_0.interrupt_idmux_0__out==>:interrupt_0.interrupt"
 	term   ":interrupt_0.interrupt"
 end Net_1005
-net Net_787_local
+net Net_1017_local
 	term   ":clockblockcell.dclk_2"
 	switch ":clockblockcell.dclk_2==>Stub-:dsiswitch_bottom@[DSI=(1,1)][side=bottom]:dsihc_bottom:v37+:dsiswitch_bottom@[DSI=(1,1)][side=bottom]:dsihc_bottom:v39"
 	switch "OStub-:dsiswitch_bottom@[DSI=(1,1)][side=bottom]:dsihc_bottom:v37+:dsiswitch_bottom@[DSI=(1,1)][side=bottom]:dsihc_bottom:v39"
@@ -45,7 +45,7 @@ net Net_787_local
 	switch "Stub-:dsiswitch_bottom@[DSI=(1,5)][side=bottom]:dsihc_bottom:v53+:dsiswitch_bottom@[DSI=(1,5)][side=bottom]:dsihc_bottom:v55==>:interrupt_idmux_3.in_2"
 	switch ":interrupt_idmux_3.interrupt_idmux_3__out==>:interrupt_3.interrupt"
 	term   ":interrupt_3.interrupt"
-end Net_787_local
+end Net_1017_local
 net Net_790_local
 	term   ":clockblockcell.dclk_4"
 	switch ":clockblockcell.dclk_4==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v29+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v31"

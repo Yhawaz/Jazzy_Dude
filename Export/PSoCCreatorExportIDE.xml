@@ -100,6 +100,7 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_BarGraph.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_LCDPort_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_LCDPort.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\LCD_Char_1_LCDPort.h</File>
@@ -156,6 +157,18 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Audio_Out2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Audio_Out2.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Audio_Out2.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_1.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_1.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_2.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Btn_2.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Mode_Switch_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Mode_Switch.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Mode_Switch.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC5\Out_1.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="E:\final project\Workspace01\Jazzy_Dude.cydsn\Export\ARM_GCC_Generic">
